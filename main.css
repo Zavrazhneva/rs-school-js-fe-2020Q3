@@ -1,7 +1,10 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-size: 62.5%;
+    width: 100%;
 }
 ul {
     margin: 0;
@@ -15,8 +18,35 @@ a {
     cursor: pointer;
 }
 .content {
-    max-width: 1172px;
     margin: auto;
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 29px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: left;
+    color: #373737;
+    margin-bottom: 20px;
+}
+.subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    color: #4E4E4E;
+    margin-bottom: 30px;
+}
+.button {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 15px 47px;
+    background: #00AFDB;
+    font-weight: bold;
+    line-height: 16px;
+    color: white;
+}
+.button:hover {
+    background: #009CC2;
 }
 .header {
     max-width: 582px;
@@ -54,44 +84,36 @@ a {
 }
 .your-life__text {
     text-align: center;
-    margin-bottom: 183px;
+    margin: 136px 0 183px 0;
 }
 .your-life__wrapper {
     background-image: url("./assets/bg-image.jpg");
-    background-size: cover;
+    background-size: contain;
+    background-position: center, bottom;
     background-repeat: no-repeat;
     padding-bottom: 89px;
+    width: 100%;
+    background-color: #000;
 }
 .your-life__title {
     text-transform: uppercase;
-    font-size: 6.4em;
+    font-size: 64px;
     line-height: 75px;
     margin-bottom: 20px;
+    letter-spacing: 4.5px;
 }
 .your-life__subtitle {
     font-size: 1.8em;
     line-height: 140%;
     max-width: 504px;
-    margin: auto;
+    margin: 0 auto 30px auto;
 }
-.button {
-    margin-top: 30px;
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 15px 47px;
-    background: #00AFDB;
-    font-weight: bold;
-    line-height: 16px;
-    color: white;
-}
-.button:hover {
-    background: #009CC2;
-}
+
 .social {
     display: flex;
     justify-content: space-between;
     max-width: 170px;
-    margin: auto;
+    margin: auto ;
 }
 .social__item {
     display: inline-block;
@@ -114,4 +136,22 @@ a {
 }
 .telegram {
     background-image: url("./assets/telegram.svg");
+}
+
+.rappresent {
+    display: flex;
+    max-width: 1062px;
+    justify-content: space-between;
+    padding: 120px 0 140px 0;
+}
+.rappresent__content {
+    padding-top: 155px;
+    max-width: 407px;
+    margin-right: 248px;
+
+}
+.rappresent__img {
+    display: inline-block;
+    width: 407px;
+    height: 582px;
 }
