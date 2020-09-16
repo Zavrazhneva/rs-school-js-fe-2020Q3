@@ -1,43 +1,36 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    font-size: 62.5%;
 }
-
 ul {
     margin: 0;
     padding: 0;
+    list-style-type: none;
 }
-
 a {
     color: inherit;
     text-decoration: none;
-    font-size: 14px;
-
+    font-size: 1.4em;
+    cursor: pointer;
 }
-
 .content {
-    max-width: 1600px;
+    max-width: 1172px;
     margin: auto;
 }
-
-.offer {
-    background: #000;
-}
-
 .header {
     max-width: 582px;
     margin: auto;
     padding: 25px 0;
     color: #fff;
 }
-
-.navigation__list {
+.navigation {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
     align-items: center;
 }
-.navigation__list-block {
+.navigation__list {
     display: flex;
     justify-content: space-between;
     min-width: 176px;
@@ -48,4 +41,74 @@ a {
 .navigation__list-item:hover {
     opacity: 1;
     font-weight: 500;
+}
+.active {
+    opacity: 1;
+    font-weight: 500;
+    text-decoration: underline;
+}
+.your-life {
+    color: #fff;
+    margin: auto;
+    width: 100%;
+}
+.your-life__text {
+    text-align: center;
+    margin-bottom: 183px;
+}
+.your-life__wrapper {
+    background-image: url("./assets/bg-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 89px;
+}
+.your-life__title {
+    text-transform: uppercase;
+    font-size: 6.4em;
+    line-height: 75px;
+    margin-bottom: 20px;
+}
+.your-life__subtitle {
+    font-size: 1.8em;
+    line-height: 140%;
+    max-width: 504px;
+    margin: auto;
+}
+.button {
+    margin-top: 30px;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 15px 47px;
+    background: #00AFDB;
+    font-weight: bold;
+    line-height: 16px;
+    color: white;
+}
+.button:hover {
+    background: #009CC2;
+}
+.social {
+    display: flex;
+    justify-content: space-between;
+    max-width: 170px;
+    margin: auto;
+}
+.social__item {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.mail {
+    background-image: url("./assets/mail.svg");
+}
+.facebook {
+    background-image: url("./assets/facebook.svg");
+}
+.insta {
+    background-image: url("./assets/insta.svg");
+}
+.telegram {
+    background-image: url("./assets/telegram.svg");
 }
