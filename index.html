@@ -11,16 +11,16 @@
 </head>
 <body>
 <div>
-    <h1 style="display: none">webdev</h1>
-    <section class="your-life__wrapper">
-        <div class="content">
+    <h1 class="webdev">webdev</h1>
+    <main class="content">
+        <section class="your-life__wrapper">
             <header class="header">
                 <nav class="navigation">
                     <div class="navigation__list">
                         <a href="#" class="navigation__list-item active">About</a>
                         <a href="#" class="navigation__list-item">Syllabus</a>
                     </div>
-                    <img src="./assets/logo.svg" class="navigation__list-logo" alt="logo">
+                    <a href="#" class="navigation__list-logo" alt="logo" ></a>
                     <div class="navigation__list">
                         <a href="#" class="navigation__list-item">Projects</a>
                         <a href="#" class="navigation__list-item">FAQ</a>
@@ -41,24 +41,51 @@
                     <a href="#" class="social__item telegram"></a>
                 </aside>
             </div>
-        </div>
-    </section>
-    <section class="rappresent__wrapper">
-        <div class="rappresent content">
-            <div class="rappresent__content">
-                <h2 class="title">Rappresent your idea with
-                    a smart Design</h2>
-                <p class="subtitle">
-                    Tasks accompanying and related to programming include:
-                    testing, debugging, source code maintenance, <b>implementation of build systems</b>, and management
-                    of derived artifacts,
-                    such as the machine code of computer programs.
-                </p>
-                <a href="#" class="button">Get started</a>
+        </section>
+        <section class="rappresent__wrapper container">
+            <div class="rappresent ">
+                <div class="rappresent__content">
+                    <h2 class="title">Rappresent your idea with
+                        a smart Design</h2>
+                    <p class="subtitle">
+                        Tasks accompanying and related to programming include:
+                        testing, debugging, source code maintenance, <b>implementation of build systems</b>, and management
+                        of derived artifacts,
+                        such as the machine code of computer programs.
+                    </p>
+                    <a href="#" class="button">Get started</a>
+                </div>
+                <img src="./assets/content-image-1.jpg" alt="represent" class="rappresent__img">
             </div>
-            <img src="./assets/content-image-1.jpg" alt="represent" class="rappresent__img">
-        </div>
-    </section>
+        </section>
+        <section class="our-community__wrapper ">
+            <div class="our-community">
+                <div class=" our-community__text">
+                    <img src="assets/avatar.png" alt="avatar" class="our-community__avatar">
+                    <h3 class="our-community__title">our community</h3>
+                    <p class="our-community__subtitle">A hacker is any skilled computer expert that uses their technical knowledge to
+                        overcome a problem,
+                        but it can also mean a security hacker in common language</p>
+                </div>
+                <div class="slider__wrapper">
+                    <div class="slider">
+                        <img src='assets/slider-item-1.jpg' alt="slider-img-1" class="slider__slide">
+                        <img src='assets/slider-item-2.jpg' alt="slider-img-2" class="slider__slide">
+                        <img src='assets/slider-item-3.jpg' alt="slider-img-3" class="slider__slide">
+                    </div>
+                </div>
+                <div class="slider__arrows">
+                    <div class="slider__arrow slider__leftArrow"></div>
+                    <div class="slider__position">
+                        <span class="slider__position-item">1</span>
+                        <span class="slider__position-item">/</span>
+                        <span class="slider__position-item">5</span>
+                    </div>
+                    <div class="slider__arrow slider__rightArrow"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 </div>
 
 </body>

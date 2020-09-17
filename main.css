@@ -6,20 +6,39 @@ body {
     font-size: 62.5%;
     width: 100%;
 }
+
+.webdev {
+    width: 1px;
+    position: absolute;
+    left: -20%
+}
+
 ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
+
+p,h1,h2,h3 {
+    margin: 0;
+}
+
 a {
     color: inherit;
     text-decoration: none;
     font-size: 1.4em;
     cursor: pointer;
 }
+
 .content {
     margin: auto;
+    max-width: 1600px;
 }
+
+.container {
+    padding: 0 270px 0 268px;
+}
+
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -30,12 +49,14 @@ a {
     color: #373737;
     margin-bottom: 20px;
 }
+
 .subtitle {
     font-size: 14px;
     line-height: 20px;
     color: #4E4E4E;
     margin-bottom: 30px;
 }
+
 .button {
     display: inline-block;
     text-transform: uppercase;
@@ -45,47 +66,68 @@ a {
     line-height: 16px;
     color: white;
 }
+
 .button:hover {
     background: #009CC2;
 }
+
 .header {
     max-width: 582px;
     margin: auto;
     padding: 25px 0;
     color: #fff;
 }
+
 .navigation {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
     align-items: center;
 }
+
 .navigation__list {
     display: flex;
     justify-content: space-between;
     min-width: 176px;
 }
+
 .navigation__list-item {
     opacity: 0.8;
 }
+
+.navigation__list-logo {
+    width: 45px;
+    height: 45px;
+    background-image: url("assets/logo.svg");
+    background-size: cover;
+}
+
+.navigation__list-logo:hover {
+    background-image: url("assets/logo-hover.svg");
+}
+
 .navigation__list-item:hover {
     opacity: 1;
     font-weight: 500;
 }
+
 .active {
     opacity: 1;
     font-weight: 500;
     text-decoration: underline;
 }
+
 .your-life {
     color: #fff;
     margin: auto;
     width: 100%;
 }
+
 .your-life__text {
     text-align: center;
     margin: 136px 0 183px 0;
 }
+
 .your-life__wrapper {
     background-image: url("./assets/bg-image.jpg");
     background-size: contain;
@@ -95,13 +137,16 @@ a {
     width: 100%;
     background-color: #000;
 }
+
 .your-life__title {
     text-transform: uppercase;
+    font-weight: bold;
     font-size: 64px;
     line-height: 75px;
     margin-bottom: 20px;
     letter-spacing: 4.5px;
 }
+
 .your-life__subtitle {
     font-size: 1.8em;
     line-height: 140%;
@@ -113,8 +158,9 @@ a {
     display: flex;
     justify-content: space-between;
     max-width: 170px;
-    margin: auto ;
+    margin: auto;
 }
+
 .social__item {
     display: inline-block;
     width: 20px;
@@ -122,36 +168,122 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .social__item:hover {
     opacity: 0.8;
 }
+
 .mail {
     background-image: url("./assets/mail.svg");
 }
+
 .facebook {
     background-image: url("./assets/facebook.svg");
 }
+
 .insta {
     background-image: url("./assets/insta.svg");
 }
+
 .telegram {
     background-image: url("./assets/telegram.svg");
 }
 
 .rappresent {
     display: flex;
-    max-width: 1062px;
     justify-content: space-between;
     padding: 120px 0 140px 0;
 }
+
 .rappresent__content {
     padding-top: 155px;
-    max-width: 407px;
     margin-right: 248px;
 
 }
+
 .rappresent__img {
     display: inline-block;
-    width: 407px;
     height: 582px;
+}
+
+.our-community {
+    display: flex;
+    justify-content: left;
+    overflow: hidden;
+    align-items: center;
+    padding: 120px 0 140px 269px;
+    position: relative;
+}
+
+.our-community__wrapper {
+    background: #F5F6F7;
+}
+
+
+
+.slider {
+    display: flex;
+}
+
+.our-community__avatar {
+    margin-bottom: 20px;
+}
+.our-community__text {
+    min-width: 298px;
+    margin-right: 139px;
+    text-align: center;
+}
+.our-community__title {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 125%;
+    color: #373737;
+    letter-spacing: 2.4px;
+    margin-bottom: 10px;
+}
+
+.our-community__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    color: #4E4E4E;
+}
+
+.slider__slide {
+    margin-right: 30px;
+}
+
+.slider__arrows {
+    position: absolute;
+    top: 73px;
+    right: 257px;
+    display: flex;
+    align-items: center;
+}
+
+.slider__arrow {
+    width: 33px;
+    height: 33px;
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.slider__arrow:hover {
+    background-size: 20px;
+}
+
+.slider__leftArrow {
+    background-image: url("assets/left-arrow.svg");
+}
+
+.slider__rightArrow {
+    background-image: url("assets/right-arrow.svg");
+}
+
+.slider__position {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    color: #373737;
 }
