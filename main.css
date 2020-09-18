@@ -19,7 +19,7 @@ ul {
     list-style-type: none;
 }
 
-p,h1,h2,h3 {
+p, h1, h2, h3 {
     margin: 0;
 }
 
@@ -224,11 +224,13 @@ a {
 .our-community__avatar {
     margin-bottom: 20px;
 }
+
 .our-community__text {
     min-width: 298px;
     margin-right: 139px;
     text-align: center;
 }
+
 .our-community__title {
     font-size: 16px;
     text-transform: uppercase;
@@ -265,6 +267,7 @@ a {
     background-position: center;
     cursor: pointer;
 }
+
 .slider__arrow:hover {
     background-size: 20px;
 }
@@ -283,15 +286,73 @@ a {
     line-height: 25px;
     color: #373737;
 }
+
 .implement__content {
     max-width: 407px;
 }
+
 .implement__wrapper {
     display: flex;
     justify-content: left;
     align-items: center;
 }
+
 .implement__img {
     display: inline-block;
     margin-right: 139px;
+}
+
+.subscribe {
+    padding: 217px 0 277px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("assets/subscribe-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+}
+
+.subscribe__title {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.form {
+    position: relative;
+}
+
+.form__email {
+    padding: 13px 0 12px 23px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #373737;
+    width: 406px;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+.form__submit {
+    width: 66px;
+    height: 46px;
+    font: inherit;
+    background-color: #00AFDB;
+    background-image: url("assets/fa-check.svg");
+    background-position: center;
+    border: none;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    bottom: 0;
+    outline:none;
+    cursor: pointer;
+}
+
+.form:hover .form__submit {
+    background-color: #009CC2;
 }
