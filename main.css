@@ -36,7 +36,7 @@ a {
 }
 
 .container {
-    padding: 0 270px 0 268px;
+    padding: 120px 270px 140px 268px;
 }
 
 .title {
@@ -192,18 +192,16 @@ a {
 .rappresent {
     display: flex;
     justify-content: space-between;
-    padding: 120px 0 140px 0;
+    align-items: center;
 }
 
 .rappresent__content {
-    padding-top: 155px;
-    margin-right: 248px;
-
+    max-width: 407px;
 }
 
 .rappresent__img {
     display: inline-block;
-    height: 582px;
+
 }
 
 .our-community {
@@ -218,8 +216,6 @@ a {
 .our-community__wrapper {
     background: #F5F6F7;
 }
-
-
 
 .slider {
     display: flex;
@@ -286,4 +282,16 @@ a {
     font-weight: 500;
     line-height: 25px;
     color: #373737;
+}
+.implement__content {
+    max-width: 407px;
+}
+.implement__wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.implement__img {
+    display: inline-block;
+    margin-right: 139px;
 }
