@@ -155,7 +155,7 @@ button {
     background-size: contain;
     background-position: center, bottom;
     background-repeat: no-repeat;
-    padding-bottom: 89px;
+    padding-bottom: 90px;
     width: 100%;
     background-color: #000;
 }
@@ -219,12 +219,10 @@ button {
 
 .rappresent__content {
     max-width: 407px;
-    margin-top: 4px;
 }
 
 .rappresent__img {
     display: inline-block;
-
 }
 
 .our-community {
@@ -276,7 +274,7 @@ button {
 
 .slider__arrows {
     position: absolute;
-    top: 74px;
+    top: 75px;
     right: 259px;
     display: flex;
     align-items: center;
@@ -293,6 +291,7 @@ button {
 
 .slider__arrow:hover {
     background-size: 20px;
+    opacity: 0.5;
 }
 
 .slider__leftArrow {
@@ -330,7 +329,7 @@ button {
 }
 
 .subscribe {
-    padding: 200px 0 220px 0;
+    padding: 199px 0 220px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -380,7 +379,7 @@ button {
     box-sizing: border-box;
 }
 
-.form:hover .form__submit {
+.form__submit:hover {
     background-color: #009CC2;
 }
 
