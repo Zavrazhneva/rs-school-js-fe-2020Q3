@@ -151,7 +151,7 @@ button {
 }
 
 .your-life__wrapper {
-    background-image: url("./assets/bg-image.jpg");
+    background-image: url("assets/bg-image.jpg");
     background-size: contain;
     background-position: center, bottom;
     background-repeat: no-repeat;
@@ -196,19 +196,19 @@ button {
 }
 
 .mail {
-    background-image: url("./assets/mail.svg");
+    background-image: url("assets/mail.svg");
 }
 
 .facebook {
-    background-image: url("./assets/facebook.svg");
+    background-image: url("assets/facebook.svg");
 }
 
 .insta {
-    background-image: url("./assets/insta.svg");
+    background-image: url("assets/insta.svg");
 }
 
 .telegram {
-    background-image: url("./assets/telegram.svg");
+    background-image: url("assets/telegram.svg");
 }
 
 .rappresent {
