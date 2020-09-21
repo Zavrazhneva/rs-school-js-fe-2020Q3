@@ -466,6 +466,10 @@ button {
     border-right: 1px solid #4E4E4E;
     padding-right: 20px;
 }
+.footer__navigation-item:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
 
 .footer__navigation .footer__navigation-item:last-child {
     border-right: none;
