@@ -45,7 +45,7 @@ button {
 }
 
 .container {
-    padding: 120px 270px 140px 268px;
+    padding: 120px 269px 140px 269px;
 }
 
 .title {
@@ -79,7 +79,8 @@ button {
     color: white;
     border: none;
     text-align: center;
-    padding: 15px 47px;
+    padding: 15px;
+    width: 184px;
 }
 
 .button:hover {
@@ -102,14 +103,12 @@ button {
 .navigation__list {
     display: flex;
     justify-content: space-between;
-    margin-top: 2px;
 }
 
 .navigation__list-item {
     opacity: 0.8;
     font-size: 14px;
     line-height: 140%;
-
 }
 
 .navigation__list a:first-child {
@@ -120,12 +119,10 @@ button {
     width: 44px;
     height: 45px;
     margin: 0 100px;
-    background-image: url("assets/logo.svg");
-    background-size: contain;
 }
 
 .navigation__list-logo:hover {
-    background-image: url("assets/logo-hover.svg");
+    opacity: 0.5;
 }
 
 .navigation__list-item:hover {
@@ -167,13 +164,15 @@ button {
     line-height: 75px;
     margin-bottom: 20px;
     letter-spacing: 4.5px;
+    text-align: center;
+    margin-left: 5px;
 }
 
 .your-life__subtitle {
     font-size: 1.8em;
     line-height: 140%;
     max-width: 504px;
-    margin: 0 auto 29px auto;
+    margin: 0 auto 30px auto;
 }
 
 .social {
@@ -192,7 +191,7 @@ button {
 }
 
 .social__item:hover {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .mail {
@@ -219,6 +218,7 @@ button {
 
 .rappresent__content {
     max-width: 407px;
+    margin-top: 1px;
 }
 
 .rappresent__img {
@@ -327,6 +327,9 @@ button {
 .implement__content {
     margin-top: -1px;
 }
+.implement__button {
+    width: 180px;
+}
 
 .subscribe {
     padding: 199px 0 220px 0;
@@ -341,7 +344,7 @@ button {
 
 .subscribe__title {
     color: #fff;
-    margin-bottom: 32px;
+    margin-bottom: 31px;
 }
 
 .form {
@@ -349,7 +352,7 @@ button {
 }
 
 .form__email {
-    padding: 13px 0 13px 24px;
+    padding: 13px 0 14px 24px;
     font-size: 14px;
     line-height: 140%;
     color: rgba(55, 55, 55, 0.5);
@@ -447,7 +450,7 @@ button {
 
 .footer__logo {
     margin: auto;
-    margin-top: -1px;
+
 }
 
 .copyright {
@@ -462,6 +465,10 @@ button {
     line-height: 9px;
     border-right: 1px solid #4E4E4E;
     padding-right: 20px;
+}
+.footer__navigation-item:hover {
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 .footer__navigation .footer__navigation-item:last-child {
