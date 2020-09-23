@@ -24,12 +24,14 @@ class Calculator {
     }
 
     appendOperator(operator) {
-        if(this.operator.length !== 0) {
+        if(this.operator !== '') {
             this.calculate();
             this.previousOperand = this.result;
+            this.appendInnerHtml();
         }
-            this.operator = operator;
-            this.setPreviousValue();
+        this.operator = operator;
+        this.setPreviousValue();
+        console.log(operator);
     }
 
     clear() {
@@ -46,7 +48,7 @@ class Calculator {
         let current = parseFloat(this.currentOperand);
         let previous = parseFloat(this.previousOperand);
 
-        this.appendInnerHtml(this.result , current);
+
         switch (this.operator) {
             case '+' :
                 this.result = previous + current;
@@ -60,8 +62,11 @@ class Calculator {
             case '÷' :
                 this.result = previous / current;
                 break;
+            case 'xy' :
+                this.result = Math.pow( this.previousOperand, this.currentOperand )
+                break;
         }
-        console.log(this.result)
+        this.appendInnerHtml();
     }
 
 
