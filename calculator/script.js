@@ -5,6 +5,7 @@ const previousHtml = document.querySelector('.previous-operand');
 const currentHtml = document.querySelector('.current-operand');
 const clearAll = document.querySelector('[data-all-clear]');
 const deleteButton = document.querySelector('[data-delete]');
+const squareButton = document.querySelector('[data-square]');
 
 class Calculator {
     constructor() {
@@ -24,7 +25,7 @@ class Calculator {
     }
 
     appendOperator(operator) {
-        if(this.operator !== '') {
+        if (this.operator !== '') {
             this.calculate();
             this.previousOperand = this.result;
             this.appendInnerHtml();
@@ -63,12 +64,16 @@ class Calculator {
                 this.result = previous / current;
                 break;
             case 'xy' :
-                this.result = Math.pow( this.previousOperand, this.currentOperand )
+                this.result = Math.pow(this.previousOperand, this.currentOperand)
                 break;
         }
         this.appendInnerHtml();
     }
 
+    squareRoot() {
+        this.currentOperand  = Math.sqrt(this.currentOperand);
+        this.appendInnerHtml();
+    }
 
     equalHandler() {
         this.calculate();
@@ -79,13 +84,14 @@ class Calculator {
     appendInnerHtml() {
         previousHtml.innerText = this.previousOperand;
         currentHtml.innerText = this.currentOperand;
-        if(this.operation !== '') {
+        if (this.operation !== '') {
             previousHtml.innerText = `${this.previousOperand} ${this.operator}`
         } else {
             this.previousOperand = ''
         }
     }
 }
+
 let calculator = new Calculator(previousHtml, currentHtml);
 
 buttons.forEach(button => {
@@ -113,4 +119,8 @@ clearAll.addEventListener('click', () => {
 deleteButton.addEventListener('click', () => {
     calculator.removeNumber();
     calculator.appendInnerHtml();
+});
+
+squareButton.addEventListener('click', () => {
+    calculator.squareRoot();
 });
