@@ -11,11 +11,11 @@ class Calculator {
         this.previousOperand = '';
         this.currentOperand = '';
         this.operator = '';
+        this.result = ''
     }
 
     appendNumber(number) {
         this.currentOperand += number.toString();
-        this.appendInnerHtml(this.previousOperand, this.currentOperand)
     }
 
     setPreviousValue() {
@@ -24,25 +24,29 @@ class Calculator {
     }
 
     appendOperator(operator) {
-        this.operator = operator;
-        this.setPreviousValue();
-        this.appendInnerHtml(this.previousOperand + operator, this.currentOperand)
+        if(this.operator.length !== 0) {
+            this.calculate();
+            this.previousOperand = this.result;
+        }
+            this.operator = operator;
+            this.setPreviousValue();
     }
 
     clear() {
         this.previousOperand = '';
         this.currentOperand = '';
         this.operator = '';
-        this.appendInnerHtml(this.previousOperand, this.currentOperand)
     }
 
     removeNumber() {
-        this.currentOperand.slice(0, -1)
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
     }
 
     calculate() {
         let current = parseFloat(this.currentOperand);
         let previous = parseFloat(this.previousOperand);
+
+        this.appendInnerHtml(this.result , current);
         switch (this.operator) {
             case '+' :
                 this.result = previous + current;
@@ -60,27 +64,48 @@ class Calculator {
         console.log(this.result)
     }
 
+
     equalHandler() {
         this.calculate();
-        this.clear();
-        this.appendInnerHtml(this.previousOperand, this.result)
+        this.currentOperand = this.result;
+        this.appendInnerHtml();
     }
 
-    appendInnerHtml(previous , current) {
-        previousHtml.innerText = previous;
-        currentHtml.innerText = current;
+    appendInnerHtml() {
+        previousHtml.innerText = this.previousOperand;
+        currentHtml.innerText = this.currentOperand;
+        if(this.operation !== '') {
+            previousHtml.innerText = `${this.previousOperand} ${this.operator}`
+        } else {
+            this.previousOperand = ''
+        }
     }
 }
 let calculator = new Calculator(previousHtml, currentHtml);
 
 buttons.forEach(button => {
-    button.addEventListener('click', () => calculator.appendNumber(button.innerText))
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText);
+        calculator.appendInnerHtml();
+    })
 })
 
 operations.forEach(button => {
-    button.addEventListener('click', () => calculator.appendOperator(button.innerText))
+    button.addEventListener('click', () => {
+        calculator.appendOperator(button.innerText);
+        calculator.appendInnerHtml()
+    })
 })
 
-equals.addEventListener('click', () => calculator.equalHandler());
-clearAll.addEventListener('click', () => calculator.clear());
-deleteButton.addEventListener('click', () => calculator.removeNumber());
+equals.addEventListener('click', () => {
+    calculator.equalHandler();
+
+});
+clearAll.addEventListener('click', () => {
+    calculator.clear();
+    calculator.appendInnerHtml();
+});
+deleteButton.addEventListener('click', () => {
+    calculator.removeNumber();
+    calculator.appendInnerHtml();
+});
