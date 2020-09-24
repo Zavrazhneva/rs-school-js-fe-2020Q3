@@ -25,14 +25,20 @@ class Calculator {
     }
 
     appendOperator(operator) {
+        if (this.operator !== '' && this.currentOperand === '') {
+            this.operator = operator;
+            return;
+        }
         if (this.operator !== '') {
             this.calculate();
             this.previousOperand = this.result;
+            this.currentOperand = '';
             this.appendInnerHtml();
+            this.operator = operator;
+        } else {
+            this.operator = operator;
+            this.setPreviousValue();
         }
-        this.operator = operator;
-        this.setPreviousValue();
-        console.log(operator);
     }
 
     clear() {
@@ -78,6 +84,8 @@ class Calculator {
     equalHandler() {
         this.calculate();
         this.currentOperand = this.result;
+        this.previousOperand = '';
+        this.operator = '';
         this.appendInnerHtml();
     }
 
