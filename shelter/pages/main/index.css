@@ -1,6 +1,7 @@
 body {
     font-family: Arial;
     width: 100%;
+    margin: auto;
 }
 *,
 *::before,
@@ -23,6 +24,7 @@ h1,h2,h3 {
 .container {
     max-width: 1200px;
     margin: auto;
+    padding: 80px 0 100px 0;
 }
 a {
     color: inherit;
@@ -39,6 +41,11 @@ a {
     line-height: 130%;
     letter-spacing: 0.06em;
     font-weight: 400;
+}
+.button--transparent {
+    background: transparent;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
 }
 .title {
     font-family: Georgia;
@@ -78,7 +85,10 @@ a {
     color: #FAFAFA;
     border-bottom: 2px solid #F1CDB3;
 }
-
+.not-only__container {
+    max-width: 1200px;
+    margin: auto;
+}
 .not-only {
     background-image: url("../../assets/start-screen-puppy.png");
     background-size: contain;
@@ -105,7 +115,6 @@ a {
 
 .about {
     display: flex;
-    padding: 80px 0 100px 0;
     justify-content: center;
 }
 .about__info {
@@ -116,4 +125,60 @@ a {
 .about__img {
     margin-right: 120px;
     display: inline-block;
+}
+
+.slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 60px 0;
+}
+.slider__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 83%;
+}
+.slide {
+    text-align: center;
+    padding: 30px 35px;
+    background: #FAFAFA;
+    border-radius: 9px;
+    max-width: 270px;
+}
+.slide:hover {
+    background: #fff;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+.our-friends {
+    background: #F6F6F6;
+}
+.our-friends {
+    text-align: center;
+}
+.slide__title {
+    font-family: Georgia;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+    color: #545454;
+    margin: 30px 0;
+}
+.slider__control {
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.slider__control:hover {
+    background-color: #F1CDB3;
+}
+.slider__control_prev {
+    background-image: url("../../assets/arrow-left.svg");
+}
+.slider__control_next {
+    background-image: url("../../assets/arrow-right.svg");
 }
