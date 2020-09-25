@@ -6,6 +6,7 @@ const currentHtml = document.querySelector('.current-operand');
 const clearAll = document.querySelector('[data-all-clear]');
 const deleteButton = document.querySelector('[data-delete]');
 const squareButton = document.querySelector('[data-square]');
+const minusButton = document.querySelector('[data-minus]');
 
 class Calculator {
     constructor() {
@@ -29,6 +30,7 @@ class Calculator {
             this.operator = operator;
             return;
         }
+
         if (this.operator !== '') {
             this.calculate();
             this.previousOperand = this.result;
@@ -47,27 +49,28 @@ class Calculator {
         this.operator = '';
     }
 
-    removeNumber() {
-        this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    minus() {
+        this.currentOperand += '-';
+        console.log(this.currentOperand)
     }
 
     calculate() {
         let current = parseFloat(this.currentOperand);
         let previous = parseFloat(this.previousOperand);
 
-
         switch (this.operator) {
             case '+' :
-                this.result = previous + current;
+                this.result = +(previous + current).toFixed(15);
+                console.log(+this.result.toFixed(15))
                 break;
             case '-' :
-                this.result = previous - current;
+                this.result = +(previous - current).toFixed(15);
                 break;
             case '*' :
-                this.result = previous * current;
+                this.result = +(previous * current).toFixed(15);
                 break;
             case '÷' :
-                this.result = previous / current;
+                this.result = +(previous / current).toFixed(15);
                 break;
             case 'xy' :
                 this.result = Math.pow(this.previousOperand, this.currentOperand)
@@ -77,11 +80,30 @@ class Calculator {
     }
 
     squareRoot() {
-        this.currentOperand  = Math.sqrt(this.currentOperand);
-        this.appendInnerHtml();
+        if(this.currentOperand < 0) {
+            this.currentOperand = Math.sqrt(this.currentOperand/-1)* -1;
+            console.log(this.currentOperand);
+            this.calculate();
+            this.appendInnerHtml();
+            this.result = this.currentOperand;
+
+        } else {
+            this.currentOperand = Math.sqrt(this.currentOperand);
+            this.calculate();
+            this.appendInnerHtml();
+            this.result = this.currentOperand;
+        }
+
     }
 
     equalHandler() {
+        if (this.previousOperand === '') {
+            this.currentOperand = '';
+            this.previousOperand = '';
+            this.appendInnerHtml();
+            currentHtml.innerText = "not correct";
+            return
+        }
         this.calculate();
         this.currentOperand = this.result;
         this.previousOperand = '';
@@ -124,8 +146,8 @@ clearAll.addEventListener('click', () => {
     calculator.clear();
     calculator.appendInnerHtml();
 });
-deleteButton.addEventListener('click', () => {
-    calculator.removeNumber();
+minusButton.addEventListener('click', () => {
+    calculator.minus();
     calculator.appendInnerHtml();
 });
 
