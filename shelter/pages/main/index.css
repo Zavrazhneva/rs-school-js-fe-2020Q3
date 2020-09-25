@@ -10,6 +10,10 @@ body {
     margin: 0;
     padding: 0;
 }
+li {
+    list-style-type: none;
+
+}
 
 h1,h2,h3 {
     font-weight: normal;
@@ -181,4 +185,28 @@ a {
 }
 .slider__control_next {
     background-image: url("../../assets/arrow-right.svg");
+}
+.help__title {
+    text-align: center;
+}
+.help__icon {
+    margin-bottom: 30px;
+}
+.help__item-text {
+    font-family: Georgia;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #545454;
+    display: block;
+}
+.help__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   padding: 0 27px;
+}
+.help__item {
+    text-align: center;
+    margin:55px 60px 0 60px;
 }
