@@ -1,6 +1,6 @@
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: Gotham Rounded, sans-serif;
+  font-family: 'Alata', sans-serif;
   font-weight: normal;
 }
 
@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  border-radius: 15px;
 }
 
 .calculator-grid > button {
@@ -24,7 +25,15 @@ body {
   font-size: 2rem;
   border: 1px solid white;
   outline: none;
-  background-color: rgba(255, 255, 255, .75);
+  background:  rgba(254, 237, 255, 0.9);
+}
+
+.calculator-grid > button:nth-child(18) {
+  border-bottom-left-radius: 15px;
+}
+
+.calculator-grid > button:last-child {
+  border-bottom-right-radius: 15px;
 }
 
 .calculator-grid > button:hover {
@@ -45,6 +54,8 @@ body {
   padding: 10px;
   word-wrap: break-word;
   word-break: break-all;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .output .previous-operand {

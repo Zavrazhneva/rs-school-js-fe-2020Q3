@@ -4,7 +4,6 @@ const equals = document.querySelector('[data-equals]');
 const previousHtml = document.querySelector('.previous-operand');
 const currentHtml = document.querySelector('.current-operand');
 const clearAll = document.querySelector('[data-all-clear]');
-const deleteButton = document.querySelector('[data-delete]');
 const squareButton = document.querySelector('[data-square]');
 const minusButton = document.querySelector('[data-minus]');
 
@@ -13,24 +12,35 @@ class Calculator {
         this.previousOperand = '';
         this.currentOperand = '';
         this.operator = '';
-        this.result = ''
+        this.result = '';
+        this.resultFlag = false;
     }
-
     appendNumber(number) {
+        if (this.resultFlag) {
+            this.currentOperand = '';
+            this.appendInnerHtml();
+            this.resultFlag = false
+        }
+        if (number === '.' && this.currentOperand === '') {
+            return
+        }
+        if (number === '.' && this.currentOperand.includes('.')) {
+            return
+        }
         this.currentOperand += number.toString();
     }
-
     setPreviousValue() {
         this.previousOperand = this.currentOperand;
         this.currentOperand = '';
     }
-
     appendOperator(operator) {
+        if (!this.currentOperand && !this.previousOperand) {
+            return;
+        }
         if (this.operator !== '' && this.currentOperand === '') {
             this.operator = operator;
             return;
         }
-
         if (this.operator !== '') {
             this.calculate();
             this.previousOperand = this.result;
@@ -42,31 +52,30 @@ class Calculator {
             this.setPreviousValue();
         }
     }
-
     clear() {
         this.previousOperand = '';
         this.currentOperand = '';
         this.operator = '';
     }
-
     minus() {
-        this.currentOperand += '-';
-        console.log(this.currentOperand)
+        if (this.currentOperand) {
+            this.currentOperand *= -1;
+        } else {
+            this.currentOperand += '-';
+        }
     }
-
     calculate() {
         let current = parseFloat(this.currentOperand);
         let previous = parseFloat(this.previousOperand);
-
+        if (isNaN(previous) || isNaN(current)) return;
         switch (this.operator) {
             case '+' :
                 this.result = +(previous + current).toFixed(15);
-                console.log(+this.result.toFixed(15))
                 break;
             case '-' :
                 this.result = +(previous - current).toFixed(15);
                 break;
-            case '*' :
+            case '×' :
                 this.result = +(previous * current).toFixed(15);
                 break;
             case '÷' :
@@ -78,39 +87,45 @@ class Calculator {
         }
         this.appendInnerHtml();
     }
-
     squareRoot() {
-        if(this.currentOperand < 0) {
-            this.currentOperand = Math.sqrt(this.currentOperand/-1)* -1;
-            console.log(this.currentOperand);
-            this.calculate();
+        if (this.currentOperand < 0 || this.currentOperand === '') {
+            this.currentOperand = '';
+            this.previousOperand = '';
             this.appendInnerHtml();
-            this.result = this.currentOperand;
-
+            currentHtml.innerText = "ERROR";
         } else {
             this.currentOperand = Math.sqrt(this.currentOperand);
             this.calculate();
             this.appendInnerHtml();
             this.result = this.currentOperand;
         }
-
     }
-
     equalHandler() {
-        if (this.previousOperand === '') {
+        if (!this.currentOperand && !this.previousOperand) {
+            return
+        }
+        if (this.previousOperand === '' || this.operation) {
             this.currentOperand = '';
             this.previousOperand = '';
             this.appendInnerHtml();
-            currentHtml.innerText = "not correct";
+            currentHtml.innerText = "ERROR";
             return
         }
         this.calculate();
+        if(!isFinite(this.result)) {
+            this.previousOperand = '';
+            this.currentOperand = '';
+            this.operator = '';
+            this.appendInnerHtml();
+            currentHtml.innerText = 'ERROR';
+            return
+        }
         this.currentOperand = this.result;
+        this.resultFlag = true;
         this.previousOperand = '';
         this.operator = '';
         this.appendInnerHtml();
     }
-
     appendInnerHtml() {
         previousHtml.innerText = this.previousOperand;
         currentHtml.innerText = this.currentOperand;
@@ -121,7 +136,6 @@ class Calculator {
         }
     }
 }
-
 let calculator = new Calculator(previousHtml, currentHtml);
 
 buttons.forEach(button => {
@@ -134,7 +148,7 @@ buttons.forEach(button => {
 operations.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendOperator(button.innerText);
-        calculator.appendInnerHtml()
+        calculator.appendInnerHtml();
     })
 })
 
