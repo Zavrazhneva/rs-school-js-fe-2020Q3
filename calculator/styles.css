@@ -46,7 +46,7 @@ body {
 
 .output {
   grid-column: 1 / -1;
-  background-color: rgba(0, 0, 0, .75);
+  background-color: #fff;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -59,11 +59,13 @@ body {
 }
 
 .output .previous-operand {
-  color: rgba(255, 255, 255, .75);
+  color: rgba(0, 0, 0, .75);
   font-size: 1.5rem;
 }
-
 .output .current-operand {
-  color: white;
+  color: black;
   font-size: 2.5rem;
+}
+.calculator-grid > button.operation {
+  background-image: linear-gradient(to right top, rgba(255, 156, 102, 0.8), rgba(255, 169, 98, 0.8), rgba(255, 182, 95, 0.8), rgba(251, 196, 95, 0.8), rgba(246, 210, 97, 0.8))
 }

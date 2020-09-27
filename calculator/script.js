@@ -43,7 +43,7 @@ class Calculator {
         }
         if (this.operator !== '') {
             this.calculate();
-            this.previousOperand = this.result;
+            this.previousOperand = this.result.toString();
             this.currentOperand = '';
             this.appendInnerHtml();
             this.operator = operator;
@@ -94,7 +94,7 @@ class Calculator {
             this.appendInnerHtml();
             currentHtml.innerText = "ERROR";
         } else {
-            this.currentOperand = Math.sqrt(this.currentOperand);
+            this.currentOperand = Math.sqrt(this.currentOperand).toString();
             this.calculate();
             this.appendInnerHtml();
             this.result = this.currentOperand;
@@ -120,7 +120,7 @@ class Calculator {
             currentHtml.innerText = 'ERROR';
             return
         }
-        this.currentOperand = this.result;
+        this.currentOperand = this.result.toString();
         this.resultFlag = true;
         this.previousOperand = '';
         this.operator = '';
@@ -129,7 +129,7 @@ class Calculator {
     appendInnerHtml() {
         previousHtml.innerText = this.previousOperand;
         currentHtml.innerText = this.currentOperand;
-        if (this.operation !== '') {
+        if (this.operator !== '') {
             previousHtml.innerText = `${this.previousOperand} ${this.operator}`
         } else {
             this.previousOperand = ''
