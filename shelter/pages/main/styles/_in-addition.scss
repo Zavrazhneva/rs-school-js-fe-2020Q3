@@ -1,0 +1,51 @@
+
+.in-addition__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.credit-card {
+  padding:10px 15px  10px 60px;
+  background-color: #F1CDB3;
+  border-radius: 9px;
+  background-image: url("../../../assets/icons/credit-card.svg");
+  background-position: 15px  center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.credit-card__number {
+  font-family: $font-Georgia;
+  font-size: 2em;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  font-variant-numeric:  lining-nums;
+  max-width: 349px;
+}
+.in-addition {
+  background: #F6F6F6;
+  padding: 82px 0 101px 0;
+}
+.in-addition__text {
+  width: 380px;
+  margin-left: 30px;
+
+}
+.in-addition__small-text {
+  font-family: $font-Arial;
+  font-style: italic;
+  font-size: 1.2em;
+  line-height: 152%;
+  color: #B2B2B2;
+  max-width: 360px;
+}
+.in-addition__title {
+  max-width: 300px;
+  margin-bottom: 15px;
+  @include title;
+}
+.in-addition__subtitle {
+  margin-bottom: 17px;
+  letter-spacing: 0.06em;
+}

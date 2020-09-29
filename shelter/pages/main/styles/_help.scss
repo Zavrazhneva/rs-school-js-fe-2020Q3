@@ -1,0 +1,45 @@
+
+.help {
+  margin: 80px 0 45px 0;
+}
+.help__wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.help__title {
+  text-align: center;
+  max-width: 310px;
+  margin:  auto;
+  @include title;
+}
+.help__icon {
+  margin-bottom: 28px;
+  width: 60px;
+  height: 60px;
+}
+.help__item-text {
+  font-family: $font-Georgia;
+  font-size: 2em;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  display: block;
+}
+.help__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 59px auto 0 auto;
+}
+.help__item {
+  text-align: center;
+  margin-right: 120px;
+  margin-bottom: 55px;
+}
+.help__item:nth-child(5) {
+  margin-right: 0;
+}
+.help__item:last-child {
+  margin-right: 0;
+}

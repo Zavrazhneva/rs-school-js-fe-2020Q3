@@ -1,0 +1,36 @@
+
+.not-only__wrapper {
+  background-image: url("../../../assets/images/start-screen-gradient-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #CDCDCD;
+  width: 100%;
+}
+.not-only {
+  background-image: url("../../../assets/images/start-screen-puppy.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  padding: 168px 0 244px 0;
+}
+.not-only__text {
+  max-width: 460px;
+}
+.not-only__title {
+  font-family: $font-Georgia;
+  font-weight: 400;
+  font-size: 4.4em;
+  line-height: 130%;
+  color: #FFFFFF;
+  margin-bottom: 42px;
+  max-width: 310px;
+}
+.not-only__subtitle {
+  margin-bottom: 41px;
+  font-size: 1.5em;
+  line-height: 160%;
+  font-family: $font-Arial;
+}
+.not-only__button {
+
+}

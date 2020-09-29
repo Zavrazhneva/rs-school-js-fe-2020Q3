@@ -1,0 +1,22 @@
+
+.button {
+  padding: 15px 45px;
+  background: #F1CDB3;
+  border-radius: 100px;
+  color:  $button-color;
+  font-family: $font-Georgia;
+  display: inline-block;
+  font-size: 1.7em;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+
+  &:hover {
+  background: #FDDCC4
+}
+}
+.button--transparent {
+  background: transparent;
+  border: 2px solid #F1CDB3;
+  box-sizing: border-box;
+}
