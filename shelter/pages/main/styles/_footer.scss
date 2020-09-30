@@ -8,23 +8,27 @@
 
 .footer__wrapper {
   display: flex;
-  justify-content: left;
-  background-image: url("../../../assets/images/footer-puppy.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-
-  padding: 21px 0 60px 0;
-  align-items: stretch;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 16px;
 }
 
 .contact {
-  margin-right: 137px;
   max-width: 302px;
   min-height: 234px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.contact__wrapper {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.contact__wrapper .contact:first-child {
+  margin-right: 137px;
 }
 
 .footer__title {
@@ -48,8 +52,12 @@
 .footer__item-img {
   margin-right: 20px;
 }
+
 .footer__item {
   display: flex;
   justify-content: left;
   align-items: center;
+}
+.footer__photo {
+  margin-top: -20px;
 }

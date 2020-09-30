@@ -30,8 +30,9 @@ h1, h2, h3 {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
 .wrapper {
@@ -234,26 +235,25 @@ h1, h2, h3 {
   width: 990px;
 }
 
-.slide {
+.card {
   text-align: center;
-  padding: 30px 35px;
   background: #FAFAFA;
   border-radius: 9px;
   max-width: 270px;
 }
-.slide:hover {
+.card:hover {
   background: #fff;
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
-.slide__title {
+.card__title {
   font-family: Georgia;
   font-weight: 400;
   font-size: 2em;
   line-height: 23px;
   letter-spacing: 0.06em;
   color: #545454;
-  margin: 26px 0 30px 0;
+  margin-bottom: 28px;
 }
 
 .slider__control {
@@ -264,6 +264,16 @@ h1, h2, h3 {
   border-radius: 100px;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #292929;
 }
 .slider__control:hover {
   background-color: #F1CDB3;
@@ -275,6 +285,10 @@ h1, h2, h3 {
 
 .slider__control_next {
   background-image: url("../../../assets/icons/arrow-right.svg");
+}
+
+.card-descript__wrapper {
+  padding: 30px 35px;
 }
 
 .help {
@@ -366,7 +380,7 @@ h1, h2, h3 {
 
 .in-addition {
   background: #F6F6F6;
-  padding: 82px 0 101px 0;
+  padding: 80px 0 100px 0;
 }
 
 .in-addition__text {
@@ -385,7 +399,7 @@ h1, h2, h3 {
 
 .in-addition__title {
   max-width: 300px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -410,22 +424,26 @@ h1, h2, h3 {
 
 .footer__wrapper {
   display: flex;
-  justify-content: left;
-  background-image: url("../../../assets/images/footer-puppy.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  padding: 21px 0 60px 0;
-  align-items: stretch;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 16px;
 }
 
 .contact {
-  margin-right: 137px;
   max-width: 302px;
   min-height: 234px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.contact__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__wrapper .contact:first-child {
+  margin-right: 137px;
 }
 
 .footer__title {
@@ -454,6 +472,10 @@ h1, h2, h3 {
   display: flex;
   justify-content: left;
   align-items: center;
+}
+
+.footer__photo {
+  margin-top: -20px;
 }
 
 /*# sourceMappingURL=index.css.map */
