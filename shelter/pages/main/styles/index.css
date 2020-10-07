@@ -91,7 +91,6 @@ h1, h2, h3 {
 }
 
 .logo__title {
-  color: #F1CDB3;
   display: block;
   font-family: Georgia;
   font-size: 3.2em;
@@ -100,13 +99,17 @@ h1, h2, h3 {
   margin-bottom: 10px;
 }
 
+.logo__title-main {
+  color: #F1CDB3;
+}
+
 .logo__subtitle {
-  font: Arial;
+  font-family: Arial;
   display: block;
-  color: #FFFFFF;
   font-size: 1.3em;
   line-height: 110%;
   letter-spacing: 0.1em;
+  text-align: center;
 }
 
 .navigation {
@@ -118,17 +121,15 @@ h1, h2, h3 {
   font-family: Arial;
   font-size: 1.5em;
   line-height: 160%;
-  color: #CDCDCD;
   font-weight: 400;
 }
 
-.navigation__item:hover {
-  margin-left: 35px;
-  font-family: Arial;
-  font-size: 1.5em;
-  line-height: 160%;
+.navigation__item-main {
   color: #CDCDCD;
-  font-weight: 400;
+}
+
+.navigation__item-item:hover {
+  color: #CDCDCD;
 }
 
 .navigation__item--active {
@@ -288,11 +289,11 @@ h1, h2, h3 {
 }
 
 .card-descript__wrapper {
-  padding: 30px 35px;
+  padding: 28px 35px;
 }
 
 .help {
-  margin: 80px 0 45px 0;
+  margin: 82px 0 45px 0;
 }
 
 .help__wrapper {
@@ -380,7 +381,7 @@ h1, h2, h3 {
 
 .in-addition {
   background: #F6F6F6;
-  padding: 80px 0 100px 0;
+  padding: 82px 0 100px 0;
 }
 
 .in-addition__text {
@@ -419,7 +420,7 @@ h1, h2, h3 {
   background-image: url("../../../assets/images/footer-gradient-background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 40px;
+  padding-top: 39px;
 }
 
 .footer__wrapper {
@@ -472,6 +473,10 @@ h1, h2, h3 {
   display: flex;
   justify-content: left;
   align-items: center;
+}
+
+.footer__item:before {
+  content: url("../../../assets/icons/icon-phone.svg");
 }
 
 .footer__photo {

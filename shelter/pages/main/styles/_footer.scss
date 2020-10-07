@@ -3,7 +3,7 @@
   background-image: url("../../../assets/images/footer-gradient-background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 40px;
+  padding-top: 39px;
 }
 
 .footer__wrapper {
@@ -58,6 +58,12 @@
   justify-content: left;
   align-items: center;
 }
+
+.footer__item:before {
+   content: url("../../../assets/icons/icon-phone.svg");
+
+
+ }
 .footer__photo {
   margin-top: -20px;
 }
