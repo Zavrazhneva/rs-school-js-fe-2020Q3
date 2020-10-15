@@ -8,12 +8,15 @@ const squareButton = document.querySelector('[data-square]');
 const minusButton = document.querySelector('[data-minus]');
 
 class Calculator {
-    constructor() {
-        this.previousOperand = '';
-        this.currentOperand = '';
-        this.operator = '';
+    constructor(previousHtml, currentHtml) {
+        this.previousHtml = previousHtml;
+        this.currentHtml = currentHtml;
         this.result = '';
         this.resultFlag = false;
+        this.previousOperand = '';
+        this.currentOperand = '';
+        this.clear();
+
     }
     appendNumber(number) {
         if (this.resultFlag) {
@@ -27,13 +30,14 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return
         }
-        this.currentOperand += number.toString();
+        this.currentOperand =  this.currentOperand + number.toString();
     }
     setPreviousValue() {
         this.previousOperand = this.currentOperand;
         this.currentOperand = '';
     }
     appendOperator(operator) {
+
         if (!this.currentOperand && !this.previousOperand) {
             return;
         }
@@ -41,13 +45,14 @@ class Calculator {
             this.operator = operator;
             return;
         }
-        if (this.operator !== '') {
+        if (this.operator !== '' ) {
             this.calculate();
             this.previousOperand = this.result.toString();
             this.currentOperand = '';
             this.appendInnerHtml();
             this.operator = operator;
         } else {
+            if(isNaN(Math.abs(this.currentOperand))) return
             this.operator = operator;
             this.setPreviousValue();
         }
@@ -56,11 +61,12 @@ class Calculator {
         this.previousOperand = '';
         this.currentOperand = '';
         this.operator = '';
+        this.resultFlag = false;
     }
     minus() {
         if (this.currentOperand) {
             this.currentOperand *= -1;
-        } else {
+        } else if(this.currentOperand === ''){
             this.currentOperand += '-';
         }
     }
@@ -94,6 +100,10 @@ class Calculator {
             this.appendInnerHtml();
             currentHtml.innerText = "ERROR";
         } else {
+            if(this.previousOperand === '') {
+                this.result = Math.sqrt(this.currentOperand).toString();
+                this.previousOperand = '';
+            }
             this.currentOperand = Math.sqrt(this.currentOperand).toString();
             this.calculate();
             this.appendInnerHtml();
@@ -127,8 +137,8 @@ class Calculator {
         this.appendInnerHtml();
     }
     appendInnerHtml() {
-        previousHtml.innerText = this.previousOperand;
-        currentHtml.innerText = this.currentOperand;
+        this.previousHtml.innerText = this.previousOperand;
+        this.currentHtml.innerText = this.currentOperand;
         if (this.operator !== '') {
             previousHtml.innerText = `${this.previousOperand} ${this.operator}`
         } else {
