@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link href="styles.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="calculator-grid">
+    <div class="output">
+      <div data-previous-operand class="previous-operand"></div>
+      <div data-current-operand class="current-operand"></div>
+    </div>
+    <div class="small_button_wrapper">
+      <button data-all-clear class="small_button">AC</button>
+      <button data-delete class="small_button">DEL</button>
+    </div>
+
+    <button data-operation >x<sup>y</sup></button>
+    <button data-minus>+/-</button>
+    <button data-operation class="operation">÷</button>
+    <button data-number>1</button>
+    <button data-number>2</button>
+    <button data-number>3</button>
+    <button data-operation class="operation">×</button>
+    <button data-number>4</button>
+    <button data-number>5</button>
+    <button data-number>6</button>
+    <button data-operation class="operation">+</button>
+    <button data-number>7</button>
+    <button data-number>8</button>
+    <button data-number>9</button>
+    <button data-operation class="operation">-</button>
+    <button data-number>.</button>
+    <button data-number>0</button>
+    <button data-square>√</button>
+    <button data-equals class="operation">=</button>
+  </div>
+
+  <div class="instruction">Инструкция</div>
+  <div class="description">
+    <h2 class="description_title">Доброго дня, уважаемый проверяющий! </h2>
+    <ul>
+      <li class="description_subtitle">Ввод отрицательного числа через +/- , ее можно нажать и до числа и после </li>
+      <li class="description_subtitle">Некорректные выражения выводят ошибку "Error"</li>
+      <li class="description_subtitle">√ вычисляется автоматически (25√), знак = жать не нужно</li>
+      <li class="description_subtitle">Знак оператора можно сменять , если Вы вдруг передумали. Это не баг, а фича)</li>
+    </ul>
+    <p class="description_subtitle">Удачного дня и отличной учебы!</p>
+  </div>
+</body>
+</html>
