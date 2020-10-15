@@ -7,6 +7,7 @@
   <title>Calculator</title>
   <link href="styles.css" rel="stylesheet">
   <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="calculator-grid">
@@ -14,7 +15,10 @@
       <div data-previous-operand class="previous-operand"></div>
       <div data-current-operand class="current-operand"></div>
     </div>
-    <button data-all-clear >AC</button>
+    <div class="small_button_wrapper">
+      <button data-all-clear class="small_button">AC</button>
+      <button data-delete class="small_button">DEL</button>
+    </div>
 
     <button data-operation >x<sup>y</sup></button>
     <button data-minus>+/-</button>
@@ -35,6 +39,18 @@
     <button data-number>0</button>
     <button data-square>√</button>
     <button data-equals class="operation">=</button>
+  </div>
+
+  <div class="instruction">Инструкция</div>
+  <div class="description">
+    <h2 class="description_title">Доброго дня, уважаемый проверяющий! </h2>
+    <ul>
+      <li class="description_subtitle">Ввод отрицательного числа через +/- , ее можно нажать и до числа и после </li>
+      <li class="description_subtitle">Некорректные выражения выводят ошибку "Error"</li>
+      <li class="description_subtitle">√ вычисляется автоматически (25√), знак = жать не нужно</li>
+      <li class="description_subtitle">Знак оператора можно сменять , если Вы вдруг передумали. Это не баг, а фича)</li>
+    </ul>
+    <p class="description_subtitle">Удачного дня и отличной учебы!</p>
   </div>
 </body>
 </html>

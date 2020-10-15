@@ -6,6 +6,7 @@ const currentHtml = document.querySelector('.current-operand');
 const clearAll = document.querySelector('[data-all-clear]');
 const squareButton = document.querySelector('[data-square]');
 const minusButton = document.querySelector('[data-minus]');
+const deleteButton = document.querySelector('[data-delete]');
 
 class Calculator {
     constructor(previousHtml, currentHtml) {
@@ -64,9 +65,12 @@ class Calculator {
         this.resultFlag = false;
     }
     minus() {
-        if (this.currentOperand) {
+        if (this.currentOperand && +this.currentOperand !== 0) {
             this.currentOperand *= -1;
-        } else if(this.currentOperand === ''){
+        }else if ( this.currentOperand === '0') {
+            this.clear();
+            this.currentOperand += '-';
+        } else if(this.currentOperand === '' ){
             this.currentOperand += '-';
         }
     }
@@ -95,14 +99,16 @@ class Calculator {
     }
     squareRoot() {
         if (this.currentOperand < 0 || this.currentOperand === '') {
+            if(this.currentOperand === '') return
             this.currentOperand = '';
             this.previousOperand = '';
             this.appendInnerHtml();
-            currentHtml.innerText = "ERROR";
+            currentHtml.innerText = "Error";
         } else {
             if(this.previousOperand === '') {
                 this.result = Math.sqrt(this.currentOperand).toString();
                 this.previousOperand = '';
+                this.resultFlag = true;
             }
             this.currentOperand = Math.sqrt(this.currentOperand).toString();
             this.calculate();
@@ -110,15 +116,24 @@ class Calculator {
             this.result = this.currentOperand;
         }
     }
+    delete() {
+        if(this.currentOperand.length === 1) {
+            this.clear()
+        }
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    }
     equalHandler() {
         if (!this.currentOperand && !this.previousOperand) {
+            return
+        }
+        if ( this.previousOperand === '') {
             return
         }
         if (this.previousOperand === '' || this.operation) {
             this.currentOperand = '';
             this.previousOperand = '';
             this.appendInnerHtml();
-            currentHtml.innerText = "ERROR";
+            currentHtml.innerText = "Error";
             return
         }
         this.calculate();
@@ -127,7 +142,7 @@ class Calculator {
             this.currentOperand = '';
             this.operator = '';
             this.appendInnerHtml();
-            currentHtml.innerText = 'ERROR';
+            currentHtml.innerText = 'Error';
             return
         }
         this.currentOperand = this.result.toString();
@@ -178,3 +193,9 @@ minusButton.addEventListener('click', () => {
 squareButton.addEventListener('click', () => {
     calculator.squareRoot();
 });
+deleteButton.addEventListener('click', () => {
+    calculator.delete();
+    calculator.appendInnerHtml();
+});
+
+
