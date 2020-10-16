@@ -92,7 +92,7 @@ class Calculator {
                 this.result = +(previous / current).toFixed(15);
                 break;
             case 'xy' :
-                this.result = Math.pow(this.previousOperand, this.currentOperand)
+                this.result = parseFloat(Math.pow(this.previousOperand, this.currentOperand).toFixed(10));
                 break;
         }
         this.appendInnerHtml();
