@@ -148,6 +148,10 @@ h1, h2, h3 {
   .header {
     padding: 30px 0 60px 0;
   }
+
+  .navigation__item {
+    margin-left: 36px;
+  }
 }
 .not-only__wrapper {
   background-image: url("../../../assets/images/start-screen-gradient-background.jpg");
@@ -291,6 +295,7 @@ h1, h2, h3 {
 .slider__wrapper {
   display: flex;
   justify-content: space-between;
+  width: 990px;
 }
 
 .card {
@@ -358,7 +363,7 @@ h1, h2, h3 {
     width: 580px;
   }
 
-  .card:last-child {
+  .card--hidden {
     display: none;
   }
 }
@@ -578,6 +583,7 @@ h1, h2, h3 {
   .footer__wrapper {
     flex-direction: column;
     align-items: center;
+    padding-top: 0;
   }
 
   .contact {
@@ -593,7 +599,15 @@ h1, h2, h3 {
   }
 
   .contact__wrapper {
-    margin-bottom: 65px;
+    margin-bottom: 62px;
+  }
+
+  .footer {
+    padding-top: 30px;
+  }
+
+  .footer__photo {
+    margin-top: 0;
   }
 }
 

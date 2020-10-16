@@ -9,7 +9,7 @@
 .slider__wrapper {
   display: flex;
   justify-content: space-between;
-
+  width: 990px;
 }
 
 .card {
@@ -75,7 +75,8 @@
   .slider__wrapper {
     width: 580px;
   }
-  .card:last-child {
+  .card--hidden {
     display: none;
   }
+
 }
