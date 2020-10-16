@@ -49,3 +49,17 @@
   margin-bottom: 17px;
   letter-spacing: 0.06em;
 }
+
+@media (max-width: 1279px) {
+  .in-addition__wrapper {
+    flex-direction: column-reverse;
+  }
+  .in-addition__text {
+    margin-left: 0;
+    margin-bottom: 60px;
+  }
+  .in-addition__title {
+    margin-bottom: 14px;
+  }
+
+}

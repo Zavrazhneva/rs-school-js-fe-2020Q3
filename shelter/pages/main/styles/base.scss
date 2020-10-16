@@ -15,6 +15,7 @@ $button-color: #292929;
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 @mixin title {
@@ -51,6 +52,7 @@ h1,h2,h3 {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
+  width: 100%;
 }
 
 .wrapper {
@@ -70,4 +72,10 @@ h1,h2,h3 {
   font-size: 1.5em;
   line-height: 160%;
   color: $secondary-color;
+}
+
+@media (max-width: 1279px) {
+  .container {
+    padding: 0 30px;
+  }
 }

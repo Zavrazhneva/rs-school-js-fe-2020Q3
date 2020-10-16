@@ -23,7 +23,6 @@
 
 .contact__wrapper {
   display: flex;
-
   justify-content: space-between;
 }
 
@@ -59,11 +58,25 @@
   align-items: center;
 }
 
-.footer__item:before {
-   content: url("../../../assets/icons/icon-phone.svg");
 
-
- }
 .footer__photo {
   margin-top: -20px;
+}
+@media (max-width: 1279px) {
+  .footer__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact {
+    width: 302px;
+  }
+  .contact:first-child {
+    width: 279px;
+  }
+  .contact__wrapper .contact:first-child {
+     margin-right: 60px;
+  }
+  .contact__wrapper {
+    margin-bottom: 65px;
+  }
 }

@@ -6,6 +6,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -33,6 +34,7 @@ h1, h2, h3 {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px;
+  width: 100%;
 }
 
 .wrapper {
@@ -55,6 +57,11 @@ h1, h2, h3 {
   color: #4C4C4C;
 }
 
+@media (max-width: 1279px) {
+  .container {
+    padding: 0 30px;
+  }
+}
 .button {
   padding: 15px 45px;
   background: #F1CDB3;
@@ -128,8 +135,8 @@ h1, h2, h3 {
   color: #CDCDCD;
 }
 
-.navigation__item-item:hover {
-  color: #CDCDCD;
+.navigation__item-main:hover {
+  color: #FAFAFA;
 }
 
 .navigation__item--active {
@@ -137,6 +144,11 @@ h1, h2, h3 {
   border-bottom: 2px solid #F1CDB3;
 }
 
+@media (max-width: 1279px) {
+  .header {
+    padding: 30px 0 60px 0;
+  }
+}
 .not-only__wrapper {
   background-image: url("../../../assets/images/start-screen-gradient-background.jpg");
   background-repeat: no-repeat;
@@ -174,23 +186,42 @@ h1, h2, h3 {
   font-family: Arial;
 }
 
+@media (max-width: 1279px) {
+  .not-only {
+    padding-bottom: 693px;
+    background-size: 569px;
+    padding-top: 0;
+  }
+
+  .not-only__subtitle {
+    margin-bottom: 43px;
+  }
+
+  .not-only__text {
+    margin: auto;
+  }
+
+  .button_wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
 .about {
   display: flex;
   justify-content: center;
   padding: 80px 0 100px 0;
 }
-.about .about__info {
+
+.about__info {
   max-width: 430px;
   margin-top: 14px;
 }
-.about .about__img {
-  margin-right: 120px;
-  display: inline-block;
-}
-.about .about__container {
+
+.about__container {
   display: flex;
 }
-.about .about__title {
+
+.about__title {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -201,10 +232,32 @@ h1, h2, h3 {
   color: #545454;
   max-width: 370px;
 }
-.about .about__subtitle {
+
+.about__subtitle {
   margin-top: 25px;
 }
 
+.about__img {
+  margin-right: 120px;
+  display: inline-block;
+}
+
+@media (max-width: 1279px) {
+  .about__info {
+    margin-bottom: 80px;
+    margin-top: 0;
+  }
+
+  .about__container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about__img {
+    margin: 0 auto;
+    width: 300px;
+  }
+}
 .our-friends {
   background: #F6F6F6;
   width: 100%;
@@ -223,6 +276,11 @@ h1, h2, h3 {
   color: #545454;
 }
 
+@media (max-width: 1279px) {
+  .our-friends__title {
+    margin-top: 1px;
+  }
+}
 .slider {
   display: flex;
   justify-content: space-between;
@@ -233,14 +291,13 @@ h1, h2, h3 {
 .slider__wrapper {
   display: flex;
   justify-content: space-between;
-  width: 990px;
 }
 
 .card {
   text-align: center;
   background: #FAFAFA;
   border-radius: 9px;
-  max-width: 270px;
+  width: 270px;
 }
 .card:hover {
   background: #fff;
@@ -292,6 +349,19 @@ h1, h2, h3 {
   padding: 28px 35px;
 }
 
+@media (max-width: 1279px) {
+  .slider {
+    width: 100%;
+  }
+
+  .slider__wrapper {
+    width: 580px;
+  }
+
+  .card:last-child {
+    display: none;
+  }
+}
 .help {
   margin: 82px 0 45px 0;
 }
@@ -352,6 +422,17 @@ h1, h2, h3 {
   margin-right: 0;
 }
 
+@media (max-width: 1279px) {
+  .help__list {
+    justify-content: space-between;
+    max-width: 630px;
+  }
+
+  .help__item {
+    width: 170px;
+    margin-right: 0;
+  }
+}
 .in-addition__wrapper {
   display: flex;
   justify-content: center;
@@ -416,6 +497,20 @@ h1, h2, h3 {
   letter-spacing: 0.06em;
 }
 
+@media (max-width: 1279px) {
+  .in-addition__wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .in-addition__text {
+    margin-left: 0;
+    margin-bottom: 60px;
+  }
+
+  .in-addition__title {
+    margin-bottom: 14px;
+  }
+}
 .footer {
   background-image: url("../../../assets/images/footer-gradient-background.png");
   background-repeat: no-repeat;
@@ -475,12 +570,31 @@ h1, h2, h3 {
   align-items: center;
 }
 
-.footer__item:before {
-  content: url("../../../assets/icons/icon-phone.svg");
-}
-
 .footer__photo {
   margin-top: -20px;
+}
+
+@media (max-width: 1279px) {
+  .footer__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact {
+    width: 302px;
+  }
+
+  .contact:first-child {
+    width: 279px;
+  }
+
+  .contact__wrapper .contact:first-child {
+    margin-right: 60px;
+  }
+
+  .contact__wrapper {
+    margin-bottom: 65px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

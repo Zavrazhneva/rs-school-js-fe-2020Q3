@@ -31,6 +31,20 @@
   line-height: 160%;
   font-family: $font-Arial;
 }
-.not-only__button {
-
+@media (max-width: 1279px) {
+  .not-only {
+    padding-bottom: 693px;
+    background-size: 569px;
+    padding-top: 0;
+  }
+  .not-only__subtitle {
+    margin-bottom: 43px;
+  }
+  .not-only__text {
+    margin: auto;
+  }
+  .button_wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }

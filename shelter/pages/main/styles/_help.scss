@@ -43,3 +43,15 @@
 .help__item:last-child {
   margin-right: 0;
 }
+
+@media (max-width: 1279px) {
+  .help__list {
+    justify-content: space-between;
+    max-width: 630px;
+  }
+  .help__item {
+    width: 170px;
+    margin-right: 0;
+
+  }
+}
