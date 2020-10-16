@@ -31,6 +31,10 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return
         }
+        if(this.currentOperand === '0' && number !== '.') {
+            this.clear();
+            this.currentOperand =  this.currentOperand;
+        }
         this.currentOperand =  this.currentOperand + number.toString();
     }
     setPreviousValue() {
@@ -80,16 +84,16 @@ class Calculator {
         if (isNaN(previous) || isNaN(current)) return;
         switch (this.operator) {
             case '+' :
-                this.result = +(previous + current).toFixed(15);
+                this.result = parseFloat((previous + current).toFixed(12));
                 break;
             case '-' :
-                this.result = +(previous - current).toFixed(15);
+                this.result = parseFloat((previous - current).toFixed(15));
                 break;
             case '×' :
-                this.result = +(previous * current).toFixed(15);
+                this.result = parseFloat((previous * current).toFixed(15));
                 break;
             case '÷' :
-                this.result = +(previous / current).toFixed(15);
+                this.result = parseFloat((previous / current).toFixed(15));
                 break;
             case 'xy' :
                 this.result = parseFloat(Math.pow(this.previousOperand, this.currentOperand).toFixed(10));
