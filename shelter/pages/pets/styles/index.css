@@ -66,6 +66,7 @@
 
 .slider__control--inactive {
   border: 2px solid #CDCDCD;
+  color: #CDCDCD;
 }
 .slider__control--inactive:hover {
   background-color: transparent;

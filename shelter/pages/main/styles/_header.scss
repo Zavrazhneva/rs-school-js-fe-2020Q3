@@ -6,6 +6,9 @@
   align-items: center;
   padding: 60px 0;
 }
+.burger {
+  display: none;
+}
 .logo {
   text-align: center;
   font-family: $font-Arial;
@@ -55,5 +58,48 @@
   }
   .navigation__item {
     margin-left: 36px;
+  }
+}
+@media (max-width: 767px) {
+  .burger {
+    display: block;
+    width: 30px;
+    height: 22px;
+    background-image: url("../../../assets/icons/Burger.svg");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: absolute;
+    top: 49px;
+    right: 53px;
+    z-index: 100;
+  }
+  .navigation {
+    flex-direction: column;
+
+  }
+  .navigation__item {
+    font-size: 32px;
+    line-height: 160%;
+    margin-bottom: 40px;
+  }
+  .burger__menu {
+    width: 320px;
+    height: 100vh;
+    background: #292929;
+    position: absolute;
+    top:0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    display: none;
+  }
+  .burger:hover {
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(90deg)
   }
 }

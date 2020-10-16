@@ -80,3 +80,24 @@
   }
 
 }
+
+@media (max-width: 767px) {
+  .slider {
+    margin: 42px 0;
+    flex-direction: column;
+  }
+  .slider__wrapper {
+    width: 270px;
+    order: 1;
+  }
+  .slider__control_prev {
+    order: 2;
+    margin-right: 40px;
+    display: inline;
+  }
+  .slider__control_next {
+    order: 3;
+    margin-left: 40px;
+    display: inline;
+  }
+}

@@ -48,3 +48,25 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 767px) {
+  .not-only {
+    padding-bottom: 377px;
+    background-size: 260px;
+  }
+  .not-only__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .not-only__title {
+    font-size: 2.5em;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.06em;
+    max-width: 200px;
+  }
+  .not-only__subtitle {
+    text-align: center;
+  }
+}

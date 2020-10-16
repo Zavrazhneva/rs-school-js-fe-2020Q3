@@ -79,3 +79,16 @@ h1,h2,h3 {
     padding: 0 30px;
   }
 }
+@media (max-width: 767px) {
+  .container {
+    padding: 0 10px;
+  }
+  .title {
+    font-size: 2.5em;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 1.5em;
+    text-align: justify;
+  }
+}
