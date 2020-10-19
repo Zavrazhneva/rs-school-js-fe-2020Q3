@@ -1,4 +1,4 @@
-const Keyboard = {
+ const Keyboard = {
   elements: {
     main: null,
     keysContainer: null,
