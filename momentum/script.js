@@ -3,6 +3,13 @@ const date = document.getElementById('date');
 const greeting = document.getElementById('greeting');
 const name = document.getElementById('name');
 const focus = document.getElementById('focus');
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', getImage);
+name.addEventListener('keypress',setName);
+name.addEventListener('blur',setName);
+focus.addEventListener('keypress',setFocus);
+focus.addEventListener('blur',setFocus);
 
 const showAmPm = true;
 const monthText = ["January","February","March","April","May","June","July",
@@ -30,10 +37,8 @@ function addZero(num) {
 }
 
 function setBackgroundGreet() {
-
     let today = new Date(),
         hour = today.getHours();
-    console.log(hour)
     if(hour > 6 && hour < 12) {
         //morning
         document.body.style.backgroundImage = "url('assets/images/night/01.jpg')";
@@ -74,7 +79,6 @@ function getFocus() {
 
 function setName(event) {
     if(event.type === 'keypress' ) {
-        //enter
         if(event.code === 'Enter' || event.code === 'NumpadEnter') {
             localStorage.setItem('name', event.target.innerText);
             name.blur()
@@ -86,7 +90,6 @@ function setName(event) {
 
 function setFocus(event) {
     if(event.type === 'keypress' ) {
-        //enter
         if(event.code === 'Enter' || event.code === 'NumpadEnter') {
             localStorage.setItem('focus', event.target.innerText);
             focus.blur()
@@ -95,14 +98,29 @@ function setFocus(event) {
         localStorage.setItem('focus', event.target.innerText)
     }
 }
-name.addEventListener('keypress',setName);
-name.addEventListener('blur',setName);
-focus.addEventListener('keypress',setFocus);
-focus.addEventListener('blur',setFocus);
+const images = ['01.jpg', '02.jpg', '03.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg'];
+let i = 0;
 
+function viewBgImage(data) {
+    const body = document.querySelector('body');
+    const src = data;
+    const img = document.createElement('img');
+    img.src = src;
+    img.onload = () => {
+        body.style.backgroundImage = `url(${src})`;
+        console.log(src)
+    };
+}
+function getImage() {
+    const index = i % images.length;
+    const imageSrc = 'assets/images/day/' + images[index];
+    viewBgImage(imageSrc);
+    i++;
+    btn.disabled = true;
+    setTimeout(function() { btn.disabled = false }, 1000);
+}
 
-setBackgroundGreet()
-showTime()
-getName()
-getFocus()
-//if (e.code === 'Enter' || e.code === 'NumpadEnter')
+setBackgroundGreet();
+showTime();
+getName();
+getFocus();
