@@ -6,13 +6,16 @@
   align-items: center;
   padding: 60px 0;
 }
+
 .burger {
   display: none;
 }
+
 .logo {
   text-align: center;
   font-family: $font-Arial;
 }
+
 .logo__title {
   display: block;
   font-family: $font-Georgia;
@@ -21,9 +24,11 @@
   line-height: 110%;
   margin-bottom: 10px;
 }
+
 .logo__title-main {
   color: #F1CDB3;
 }
+
 .logo__subtitle {
   font-family: $font-Arial;
   display: block;
@@ -32,9 +37,11 @@
   letter-spacing: 0.1em;
   text-align: center;
 }
+
 .navigation {
   display: flex;
 }
+
 .navigation__item {
   margin-left: 35px;
   font-family: $font-Arial;
@@ -42,24 +49,29 @@
   line-height: 160%;
   font-weight: 400;
 }
+
 .navigation__item-main {
   color: #CDCDCD;
 }
+
 .navigation__item-main:hover {
   color: #FAFAFA;
 }
+
 .navigation__item--active {
   color: #FAFAFA;
   border-bottom: 2px solid #F1CDB3;
 }
+
 @media (max-width: 1279px) {
   .header {
-    padding: 30px 0 60px 0 ;
+    padding: 30px 0 60px 0;
   }
   .navigation__item {
     margin-left: 36px;
   }
 }
+
 @media (max-width: 767px) {
   .burger {
     display: block;
@@ -87,19 +99,61 @@
     height: 100vh;
     background: #292929;
     position: absolute;
-    top:0;
+    top: 0;
     right: 0;
-    display: flex;
     align-items: center;
     align-content: center;
     text-align: center;
     display: none;
   }
-  .burger:hover {
+
+
+  .burger__menu--open {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 320px;
+      width: 0;
+    }
+    to {
+      margin-left: 0;
+      width: 320px;
+    }
+  }
+
+  .burger__menu--close {
+    animation-duration: 3s;
+    animation-name: slideClose;
+
+  }
+  @keyframes slideClose {
+    from {
+      margin-left: 0;
+      width: 320px;
+    }
+
+    to {
+      margin-left: 320px;
+      width: 0;
+
+    }
+  }
+
+  .burger--click {
     -o-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     transform: rotate(90deg)
+  }
+  .burger--prev-click {
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(0deg);
+
   }
 }

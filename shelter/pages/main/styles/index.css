@@ -203,19 +203,56 @@ h1, h2, h3 {
     position: absolute;
     top: 0;
     right: 0;
-    display: flex;
     align-items: center;
     align-content: center;
     text-align: center;
     display: none;
   }
 
-  .burger:hover {
+  .burger__menu--open {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+
+  @keyframes slidein {
+    from {
+      margin-left: 320px;
+      width: 0;
+    }
+    to {
+      margin-left: 0;
+      width: 320px;
+    }
+  }
+  .burger__menu--close {
+    animation-duration: 3s;
+    animation-name: slideClose;
+  }
+
+  @keyframes slideClose {
+    from {
+      margin-left: 0;
+      width: 320px;
+    }
+    to {
+      margin-left: 320px;
+      width: 0;
+    }
+  }
+  .burger--click {
     -o-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     transform: rotate(90deg);
+  }
+
+  .burger--prev-click {
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(0deg);
   }
 }
 .not-only__wrapper {
@@ -403,15 +440,15 @@ h1, h2, h3 {
   border-radius: 9px;
   width: 270px;
   user-select: none;
-  -webkit-animation: fadein 3s;
+  -webkit-animation: fadein 2s;
   /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s;
+  -moz-animation: fadein 2s;
   /* Firefox < 16 */
-  -ms-animation: fadein 3s;
+  -ms-animation: fadein 2s;
   /* Internet Explorer */
-  -o-animation: fadein 3s;
+  -o-animation: fadein 2s;
   /* Opera < 12.1 */
-  animation: fadein 3s;
+  animation: fadein 2s;
 }
 .card:hover {
   background: #fff;

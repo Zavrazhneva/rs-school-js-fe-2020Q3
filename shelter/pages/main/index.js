@@ -14,7 +14,6 @@ function renderPets(randomNumbers) {
     }
     return petsHtml
 }
-
 function getRandomNumbers() {
     let randomNumbers = [];
     while(randomNumbers.length < 3 ) {
@@ -25,7 +24,7 @@ function getRandomNumbers() {
     }
     return randomNumbers
 }
-let sliderWrapper = document.getElementsByClassName('slider__wrapper')[0];
+const sliderWrapper = document.getElementsByClassName('slider__wrapper')[0];
 const sliderControl = document.getElementsByClassName('slider__control');
 
 sliderWrapper.innerHTML = renderPets([1,2,3]).join('');
@@ -36,6 +35,31 @@ sliderWrapper.innerHTML = renderPets([1,2,3]).join('');
     })
 });
 
+let burgerMenuFlag = true;
+const burgerButton = document.getElementsByClassName('burger')[0];
+const burgerMenu = document.getElementsByClassName('burger__menu')[0];
+burgerButton.addEventListener('click', () => {
+    if(burgerMenuFlag) {
+        burgerMenu.style.display = 'flex';
+        burgerMenuFlag = false;
+        burgerButton.classList.add('burger--click');
+        burgerButton.classList.remove('burger--prev-click');
+        burgerButton.classList.remove('burger--prev-click');
+        burgerMenu.classList.add('burger__menu--open');
+        burgerMenu.classList.remove('burger__menu--close');
+    } else {
+
+        burgerMenuFlag = true;
+        burgerButton.classList.add('burger--prev-click');
+        burgerMenu.classList.add('burger__menu--close');
+        burgerMenu.classList.add('burger__menu--close');
+        burgerMenu.classList.remove('burger__menu--open');
+        setTimeout( () => {burgerMenu.style.display = 'none'}, 3000)
+        //burgerMenu.style.display = 'none';
+    }
+})
 
 
 
+
+//const width = screen.width;
