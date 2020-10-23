@@ -1,8 +1,10 @@
 #popup {
-  width: 100vw;
-  height: 100vh;
   background: rgba(41, 41, 41, 0.6);
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   justify-content: center;
   align-items: center;
   display: none;
@@ -13,6 +15,7 @@
 
 .popup__block {
   width: 900px;
+  height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +23,7 @@
   border-radius: 9px;
   position: relative;
   padding-right: 20px;
+  font-family: Georgia;
 
 }
 .popup-descript__wrapper {
@@ -48,6 +52,8 @@
 }
 .popup__img {
   width: 500px;
+  border-radius:   9px 0 0 9px ;
+  margin-right: 29px;
 }
 .popup__img-wrapper {
   max-width: 100%;
@@ -58,6 +64,7 @@
 .popup__title {
   font-size: 35px;
   line-height: 130%;
+  font-weight: 400;
 }
 .popup__subtitle {
   font-size: 20px;
@@ -79,8 +86,58 @@
   background-image: url("../../../assets/icons/dot.svg");
   background-repeat: no-repeat;
   background-position: center left;
+  margin-bottom: 11px;
 
 }
 .popup__item span {
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .popup__block {
+    width: 630px;
+    height: 350px;
+  }
+  .popup__img {
+    width: 350px;
+    border-radius: 9px 0 0 9px ;
+    margin-right: 11px;
+  }
+  .popup__description {
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  .popup-descript__wrapper {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 320px) {
+  .popup__block {
+    width: 240px;
+    height: 341px;
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
+  .popup__img {
+    display: none;
+  }
+  .popup-descript__wrapper {
+    max-width: 220px;
+  }
+  .popup__description {
+    text-align: justify;
+  }
+  .popup_close {
+    top: -52px;
+    right: -30px;
+
+  }
+  .popup__title {
+    text-align: center;
+  }
+  .popup__subtitle {
+    text-align: center;
+  }
 }

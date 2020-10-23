@@ -114,6 +114,11 @@ h1, h2, h3 {
 .logo {
   text-align: center;
   font-family: Arial;
+  display: block;
+}
+
+.logo__wrapper {
+  height: 60px;
 }
 
 .logo__title {
@@ -202,7 +207,7 @@ h1, h2, h3 {
     background: #292929;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -320px;
     align-items: center;
     align-content: center;
     text-align: center;
@@ -212,31 +217,29 @@ h1, h2, h3 {
   .burger__menu--open {
     animation-duration: 3s;
     animation-name: slidein;
+    animation-fill-mode: forwards;
   }
 
   @keyframes slidein {
     from {
-      margin-left: 320px;
-      width: 0;
+      right: -320px;
     }
     to {
-      margin-left: 0;
-      width: 320px;
+      right: 0px;
     }
   }
   .burger__menu--close {
     animation-duration: 3s;
     animation-name: slideClose;
+    animation-fill-mode: forwards;
   }
 
   @keyframes slideClose {
     from {
-      margin-left: 0;
-      width: 320px;
+      right: 0px;
     }
     to {
-      margin-left: 320px;
-      width: 0;
+      right: -320px;
     }
   }
   .burger--click {
@@ -255,6 +258,13 @@ h1, h2, h3 {
     transform: rotate(0deg);
   }
 }
+.burger__logo {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
 .not-only__wrapper {
   background-image: url("../../../assets/images/start-screen-gradient-background.jpg");
   background-repeat: no-repeat;
@@ -432,6 +442,7 @@ h1, h2, h3 {
   justify-content: space-between;
   align-items: center;
   margin: 59px 0;
+  position: relative;
 }
 
 .slider__wrapper {
@@ -553,7 +564,7 @@ h1, h2, h3 {
 
 @media (max-width: 1279px) {
   .slider {
-    width: 100%;
+    width: 708px;
   }
 
   .slider__wrapper {
@@ -563,11 +574,18 @@ h1, h2, h3 {
   .card--hidden {
     display: none;
   }
+
+  .slider__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 @media (max-width: 767px) {
   .slider {
-    margin: 42px 0;
+    margin: 42px 0 114px 0;
     flex-direction: column;
+    width: 270px;
   }
 
   .slider__wrapper {
@@ -575,16 +593,23 @@ h1, h2, h3 {
     order: 1;
   }
 
+  .slider__control {
+    position: absolute;
+    bottom: -75px;
+  }
+
   .slider__control_prev {
     order: 2;
     margin-right: 40px;
     display: inline;
+    left: 43px;
   }
 
   .slider__control_next {
     order: 3;
     margin-left: 40px;
     display: inline;
+    right: 43px;
   }
 }
 .help {
@@ -831,10 +856,12 @@ h1, h2, h3 {
   }
 }
 #popup {
-  width: 100vw;
-  height: 100vh;
   background: rgba(41, 41, 41, 0.6);
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   justify-content: center;
   align-items: center;
   display: none;
@@ -844,6 +871,7 @@ h1, h2, h3 {
 
 .popup__block {
   width: 900px;
+  height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -851,6 +879,7 @@ h1, h2, h3 {
   border-radius: 9px;
   position: relative;
   padding-right: 20px;
+  font-family: Georgia;
 }
 
 .popup-descript__wrapper {
@@ -882,6 +911,8 @@ h1, h2, h3 {
 
 .popup__img {
   width: 500px;
+  border-radius: 9px 0 0 9px;
+  margin-right: 29px;
 }
 
 .popup__img-wrapper {
@@ -892,6 +923,7 @@ h1, h2, h3 {
 .popup__title {
   font-size: 35px;
   line-height: 130%;
+  font-weight: 400;
 }
 
 .popup__subtitle {
@@ -917,10 +949,67 @@ h1, h2, h3 {
   background-image: url("../../../assets/icons/dot.svg");
   background-repeat: no-repeat;
   background-position: center left;
+  margin-bottom: 11px;
 }
 
 .popup__item span {
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .popup__block {
+    width: 630px;
+    height: 350px;
+  }
+
+  .popup__img {
+    width: 350px;
+    border-radius: 9px 0 0 9px;
+    margin-right: 11px;
+  }
+
+  .popup__description {
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .popup-descript__wrapper {
+    max-width: 260px;
+  }
+}
+@media (max-width: 320px) {
+  .popup__block {
+    width: 240px;
+    height: 341px;
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .popup__img {
+    display: none;
+  }
+
+  .popup-descript__wrapper {
+    max-width: 220px;
+  }
+
+  .popup__description {
+    text-align: justify;
+  }
+
+  .popup_close {
+    top: -52px;
+    right: -30px;
+  }
+
+  .popup__title {
+    text-align: center;
+  }
+
+  .popup__subtitle {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

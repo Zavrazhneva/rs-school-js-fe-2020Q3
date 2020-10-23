@@ -12,11 +12,18 @@
 <body>
 <div class="container">
     <header class="pets__header">
-        <div class="pets-logo">
-            <span class="logo__title pets-logo__title">Cozy House</span>
-            <span class="logo__subtitle pets-logo__subtitle">Shelter for pets in Boston</span>
+        <div class="logo__wrapper">
+            <div class="logo pets-logo">
+                <span class="logo__title pets-logo__title">Cozy House</span>
+                <span class="logo__subtitle pets-logo__subtitle">Shelter for pets in Boston</span>
+            </div>
         </div>
-        <nav>
+
+        <nav class="burger__menu">
+            <div class="burger__logo">
+                <span class="logo__title logo__title-main">Cozy House</span>
+                <span class="logo__subtitle">Shelter for pets in Boston</span>
+            </div>
             <ul class="navigation">
                 <li class="navigation__item pets-navigation__item ">
                     <a href="#">About the shelter</a>
@@ -32,6 +39,8 @@
                 </li>
             </ul>
         </nav>
+        <div class="burger"></div>
+
     </header>
 </div>
 <main class="wrapper">
@@ -39,70 +48,19 @@
         <div class="container our-friends__container">
             <h3 class=" our-friends__title">Our friends who <br/>
                 are looking for a house</h3>
+            <div class="root">
                 <div class="card__wrapper">
-                    <article class="card">
-                        <img src="../../assets/images/pets-katrine.png" alt="Katrine-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Katrine</h4>
-                            <a href="#" class="slide__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <img src="../../assets/images/jennifer.png" alt="Jennifer-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Jennifer</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <img src="../../assets/images/pets-woody.png" alt="Woody-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Woody</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <img src="../../assets/images/pets-sophia.png" alt="Sophia-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Sophia</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <img src="../../assets/images/pets-timmy.png" alt="Timmy-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Timmy</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <img src="../../assets/images/pets-charly.png" alt="Charly-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Charly</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card card--hidden">
-                        <img src="../../assets/images/pets-scarlet.png" alt="Scarlett-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Scarlett</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
-                    <article class="card card--hidden">
-                        <img src="../../assets/images/pets-freddie.png" alt="Freddie-pet" class="slide__img">
-                        <div class="card-descript__wrapper">
-                            <h4 class="card__title">Freddie</h4>
-                            <a href="#" class="card__link button button--transparent">Learn more</a>
-                        </div>
-                    </article>
+
                 </div>
+            </div>
+
             <div class="slider__control-wrapper">
-                <a class="card__control card__control_double-prev slider__control--inactive" href="#" role="button"><<</a>
-                <a class="card__control card__control_prev slider__control--inactive" href="#" role="button"><</a>
-                <a class="card__control slider__control--active" href="#" role="button">1</a>
-                <a class="card__control card__control_next" href="#" role="button">></a>
-                <a class="card__control card__control_double-next" href="#" role="button">>></a>
+                <div class="card__control card__control_double-prev slider__control--inactive" role="button"><<</div>
+                <div id="prevPage" class="card__control card__control_prev slider__control--inactive" role="button"><
+                </div>
+                <div id="currentPage" class="card__control slider__control--active" role="button">1</div>
+                <div id="nextPage" class="card__control card__control_next" role="button">></div>
+                <div class="card__control card__control_double-next" role="button">>></div>
             </div>
 
         </div>
@@ -125,7 +83,8 @@
                     <h4 class="footer__title">We are waiting for your visit</h4>
                     <div class="footer__item">
                         <img src="../../assets/icons/icon-marker.svg" alt="mail" class="footer__item-img">
-                        <a href="#" class="footer__item-text footer__address">1 Central Street, Boston (entrance from the store)</a>
+                        <a href="#" class="footer__item-text footer__address">1 Central Street, Boston (entrance from
+                            the store)</a>
                     </div>
                     <div class="footer__item">
                         <img src="../../assets/icons/icon-marker.svg" alt="mail" class="footer__item-img">
@@ -137,5 +96,6 @@
         </div>
     </footer>
 </main>
+<script src="index.js"></script>
 </body>
 </html>

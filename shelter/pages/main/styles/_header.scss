@@ -14,8 +14,11 @@
 .logo {
   text-align: center;
   font-family: $font-Arial;
+  display: block;
 }
-
+.logo__wrapper {
+  height: 60px;
+}
 .logo__title {
   display: block;
   font-family: $font-Georgia;
@@ -100,7 +103,7 @@
     background: #292929;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -320px;
     align-items: center;
     align-content: center;
     text-align: center;
@@ -111,33 +114,28 @@
   .burger__menu--open {
     animation-duration: 3s;
     animation-name: slidein;
+    animation-fill-mode: forwards;
   }
   @keyframes slidein {
     from {
-      margin-left: 320px;
-      width: 0;
+      right: -320px;
     }
     to {
-      margin-left: 0;
-      width: 320px;
+      right: 0px;
     }
   }
 
   .burger__menu--close {
     animation-duration: 3s;
     animation-name: slideClose;
-
+    animation-fill-mode: forwards;
   }
   @keyframes slideClose {
     from {
-      margin-left: 0;
-      width: 320px;
+      right: 0px;
     }
-
     to {
-      margin-left: 320px;
-      width: 0;
-
+      right: -320px;
     }
   }
 
@@ -154,6 +152,12 @@
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     transform: rotate(0deg);
-
   }
+}
+
+.burger__logo {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 10px;
 }
