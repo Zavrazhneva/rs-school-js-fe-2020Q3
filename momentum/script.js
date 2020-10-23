@@ -8,22 +8,23 @@ const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
+
+
 async function getWeather() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=санкт-петербург&lang=ru&appid=6ed93d000e9fdd858d58b138c07b9c90&units=metric`;
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
-}
-async function getWeather() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+    let cityLocalStorage = localStorage.getItem('city');
+    if(cityLocalStorage === null) cityLocalStorage = 'Moscow';
+    city.innerHTML = cityLocalStorage;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityLocalStorage}&lang=ru&appid=6ed93d000e9fdd858d58b138c07b9c90&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     weatherIcon.className = 'weather-icon owf';
+
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.floor(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
 }
 function setCity(event) {
+    localStorage.setItem('city', event.target.innerText);
     if (event.code === 'Enter') {
         getWeather();
         city.blur();
