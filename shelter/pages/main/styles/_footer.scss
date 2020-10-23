@@ -87,3 +87,33 @@
     margin-top: 0;
   }
 }
+@media (max-width: 767px) {
+ .contact__wrapper {
+   flex-direction: column;
+   align-items: center;
+ }
+  .contact {
+    width: 100%;
+    text-align: center;
+    min-height: auto;
+    margin-bottom: 40px;
+
+  }
+  .contact__wrapper .contact:first-child {
+    margin-right: 0;
+  }
+  .contact__wrapper .contact:last-child {
+    margin-bottom: 0;
+  }
+  .footer__title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    max-width: 270px;
+
+  }
+
+  .footer__item {
+    margin-bottom: 40px;
+
+  }
+}

@@ -30,7 +30,6 @@
 .in-addition__text {
   width: 380px;
   margin-left: 30px;
-
 }
 .in-addition__small-text {
   font-family: $font-Arial;
@@ -43,11 +42,15 @@
 .in-addition__title {
   max-width: 300px;
   margin-bottom: 16px;
-  @include title;
+
 }
 .in-addition__subtitle {
   margin-bottom: 17px;
   letter-spacing: 0.06em;
+  font-family: Georgia;
+  font-size: 15px;
+  line-height: 160%;
+  color: #545454;
 }
 
 @media (max-width: 1279px) {
@@ -61,5 +64,32 @@
   .in-addition__title {
     margin-bottom: 14px;
   }
+}
 
+@media (max-width: 767px) {
+  .in-addition__text {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .in-addition__title {
+    margin-bottom: 14px;
+  }
+  .in-addition__subtitle {
+    letter-spacing: normal;
+  }
+  .credit-card__number {
+    font-size: 1.5em;
+  }
+  .in-addition__small-text {
+    text-align: justify;
+  }
+  .in-addition__img {
+    width: 260px;
+  }
+  .in-addition {
+    padding: 42px 0;
+  }
 }

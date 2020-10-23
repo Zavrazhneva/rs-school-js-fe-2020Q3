@@ -93,7 +93,7 @@
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
   .popup__block {
     width: 630px;
     height: 350px;
@@ -112,7 +112,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 767px) {
   .popup__block {
     width: 240px;
     height: 341px;

@@ -5,10 +5,8 @@ request.open('GET', './pets.json');
 request.onload = () => {};
 fetch('./pets.json').then(res => res.json()).then(list => {
     pets = list;
-
     fullPetsList = (() => {
         let tempArr = [];
-
         for (let i = 0; i < 6; i++) {
             const newPets = pets;
 

@@ -6,7 +6,10 @@ addEventListenerButtonCard(arrButtons);
 sliderWrapper.innerHTML = renderPets( [4, 0, 2],3).join('');
 
  window.addEventListener('resize', () => {
+
      sliderWrapper.innerHTML =  renderPets(getRandomNumbers()).join('');
+     arrButtons = document.getElementsByClassName('card__link');
+     addEventListenerButtonCard(arrButtons)
 });
 
 
@@ -61,10 +64,13 @@ function getRandomNumbers() {
 [].forEach.call(sliderControl, (item) => {
     item.addEventListener('click', () => {
         sliderWrapper.innerHTML = renderPets(getRandomNumbers()).join('');
-        let arrButtons = document.getElementsByClassName('card__link');
+        arrButtons = document.getElementsByClassName('card__link');
         addEventListenerButtonCard(arrButtons)
     })
 });
+sliderWrapper.innerHTML = renderPets(getRandomNumbers()).join('');
+arrButtons = document.getElementsByClassName('card__link');
+addEventListenerButtonCard(arrButtons);
 
 let burgerMenuFlag = true;
 const burgerButton = document.getElementsByClassName('burger')[0];
