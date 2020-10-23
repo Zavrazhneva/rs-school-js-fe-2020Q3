@@ -12,12 +12,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   height: 100vh;
   background-size: cover;
   color: #fff;
   transition: background-image 1s ease-in-out;
+}
+.main {
+  width: 100%;
 }
 .btn {
   cursor: pointer;
@@ -44,11 +46,7 @@ h2 {
   opacity: 0.8;
 }
 
-@media (max-width: 700px) {
-  .time {
-    font-size: 6rem;
-  }
-}
+
 #greeting {
   color: white;
 }
@@ -60,6 +58,7 @@ figure {
   width: 800px;
   text-align: center;
   animation: fadeIn ease 2s;
+  margin: 0 auto;
 }
 
 @keyframes fadeIn {
@@ -78,4 +77,48 @@ cite {
   display: block;
   font-weight: 300;
   font-size: 14px;
+}
+.weather {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.temperature__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.temperature {
+  font-size: 30px;
+}
+
+.weather-icon {
+  font-size: 50px;
+}
+.temperature {
+  margin-right: 20px;
+}
+.weather__wrapper {
+  width: 20%;
+}
+
+@media (max-width: 840px) {
+  figure {
+    width: 80%;
+  }
+}
+@media (max-width: 700px) {
+  #time {
+    font-size: 6rem;
+  }
+}
+@media (max-width: 560px) {
+  #time {
+    font-size: 4rem;
+  }
+  .weather__wrapper {
+    width: 50%;
+  }
 }

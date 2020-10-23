@@ -20,7 +20,7 @@ async function getWeather() {
     const data = await res.json();
     weatherIcon.className = 'weather-icon owf';
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    temperature.textContent = `${data.main.temp}°C`;
+    temperature.textContent = `${Math.floor(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
 }
 function setCity(event) {
@@ -56,7 +56,7 @@ folders.forEach(folderName => {
         randomImagesArr.push(`assets/images/${folderName}/${randomNumbers[i]}`)
     }
 })
-
+//console.log(randomImagesArr);
 function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
@@ -64,13 +64,17 @@ function randomInteger(min, max) {
 
 function getRandomNumbers() {
     const numbers = [];
+    const numbersImage = []
     while(numbers.length < 6) {
         let randomNumber = randomInteger(0, 19);
         if(!numbers.includes(randomNumber)) {
-            numbers.push(images[randomNumber]);
+            numbers.push(randomNumber);
+            numbersImage.push(images[randomNumber]);
         }
     }
-    return numbers
+    console.log(numbers);
+    console.log(numbersImage);
+    return numbersImage
 }
 
 fetch('https://type.fit/api/quotes').then(res => res.json()).then(list => {
@@ -180,7 +184,6 @@ function viewBgImage(data) {
     img.src = src;
     img.onload = () => {
         body.style.backgroundImage = `url(${src})`;
-        console.log(src)
     };
 }
 function getImage() {
