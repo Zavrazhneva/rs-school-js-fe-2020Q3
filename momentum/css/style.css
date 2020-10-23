@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+button, input {
+  outline: none;
+}
 
 body {
   font-family: 'Quicksand', sans-serif;
@@ -17,10 +20,11 @@ body {
   transition: background-image 1s ease-in-out;
 }
 .btn {
+  cursor: pointer;
   width: 60px;
   height: 60px;
   border: 0;
-  background: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
+  background: url("../assets/images/Update-Button-PNG-Image-min.png");
   background-size: contain;
   background-repeat: no-repeat;
   filter: grayscale(1);
@@ -47,4 +51,31 @@ h2 {
 }
 #greeting {
   color: white;
+}
+figure {
+  min-height: 100px;
+  background: rgba(47,47,47, 0.6);
+  border-radius: 9px;
+  padding: 20px;
+  width: 800px;
+  text-align: center;
+  animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+cite {
+  font-style: italic;
+  margin-top: 20px;
+  text-align: right;
+  display: block;
+  font-weight: 300;
+  font-size: 14px;
 }
