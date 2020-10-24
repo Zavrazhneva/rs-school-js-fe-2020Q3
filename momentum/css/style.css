@@ -25,9 +25,12 @@ body {
   cursor: pointer;
   width: 60px;
   height: 60px;
+  border-radius: 50%;
   border: 0;
-  background: url("../assets/images/Update-Button-PNG-Image-min.png");
-  background-size: contain;
+  background-image: url("../assets/images/change-bg.svg");
+  background-color: #FFFFFF;
+  background-position: center;
+  background-size: 40px;
   background-repeat: no-repeat;
   filter: grayscale(1);
   margin: 10px;
@@ -36,7 +39,14 @@ body {
 #time {
   font-size: 8rem;
 }
-
+#focus {
+ background: #FFFFFF;
+  color: black;
+  padding: 10px;
+  width: 50%;
+  margin: auto;
+  border-radius: 9px;
+}
 h1 {
   margin-bottom: 3rem;
 }
@@ -54,11 +64,13 @@ figure {
   min-height: 100px;
   background: rgba(47,47,47, 0.6);
   border-radius: 9px;
-  padding: 20px;
+  padding: 20px 40px;
   width: 800px;
   text-align: center;
   animation: fadeIn ease 2s;
   margin: 0 auto;
+  position: relative;
+  margin-top: 50px;
 }
 
 @keyframes fadeIn {
@@ -121,4 +133,25 @@ cite {
   .weather__wrapper {
     width: 50%;
   }
+}
+
+.figure__change {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background-image: url("../assets/images/change.svg");
+  background-size: 15px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.weather__wrapper {
+  padding: 20px;
+  background: rgba(47,47,47, 0.6);
+  border-radius: 9px;
 }
