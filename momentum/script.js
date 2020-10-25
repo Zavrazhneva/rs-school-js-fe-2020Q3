@@ -19,12 +19,12 @@ const blockquote = document.getElementsByTagName("blockquote")[0];
 const cite = document.getElementsByTagName("cite")[0];
 const folders = ['night', 'morning', 'day', 'evening'];
 const placeholders = {
-    todo : '[Enter todo]',
-    name : '[Enter name]',
-    city : '[Enter city]'
+    todo: '[Enter todo]',
+    name: '[Enter name]',
+    city: '[Enter city]'
 }
 let randomImagesArr = [];
-let currentImage = (new Date()).getHours();
+let currentImage = (new Date()).getHours() - 2;
 const fields = {
     todo: document.getElementById('focus'),
     name: document.getElementById('name'),
@@ -39,6 +39,7 @@ Object.values(fields).forEach(element => {
 btn.addEventListener('click', getImage);
 
 let previousWeatherCity = '';
+
 async function getWeather() {
     const storedValue = localStorage.getItem('city');
     if (!storedValue) {
@@ -157,10 +158,10 @@ function fieldHandler(event) {
             return;
         }
 
-        if (event.currentTarget.innerText === '' ) {
+        if (event.currentTarget.innerText === '') {
             event.currentTarget.innerText = placeholders[fieldId];
         } else {
-            localStorage.setItem(fieldId , event.currentTarget.innerText);
+            localStorage.setItem(fieldId, event.currentTarget.innerText);
         }
     }
 
@@ -203,17 +204,32 @@ function viewBgImage(data) {
 }
 
 function getImage() {
-    const imageSrc = randomImagesArr[currentImage];
-    viewBgImage(imageSrc);
     if (currentImage === 23) {
         currentImage = 0
     } else {
         currentImage++;
     }
+    const imageSrc = randomImagesArr[currentImage];
+    viewBgImage(imageSrc);
+
     btn.disabled = true;
     setTimeout(function () {
-        btn.disabled = false
+        btn.disabled = false;
+        if(currentImage === 23) {
+            preloadImage(
+                randomImagesArr[0]
+            )
+        } else {
+            preloadImage(
+                randomImagesArr[currentImage + 1]
+            )
+        }
     }, 1000);
+}
+
+function preloadImage(imageUrl) {
+    const image = new Image();
+    image.src = imageUrl;
 }
 
 getImage();
