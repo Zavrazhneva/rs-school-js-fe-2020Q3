@@ -40,7 +40,8 @@ function renderPets(randomNumbers = [4, 0, 2]) {
     }
     return petsHtml
 }
-let oldRandomNumber = [];
+
+let prevRandomNumbers = [];
 function getRandomNumbers() {
     let currentGenerateRandom = 3;
     if(window.innerWidth < 1280) {
@@ -53,11 +54,20 @@ function getRandomNumbers() {
     let randomNumbers = [];
     while (randomNumbers.length < currentGenerateRandom) {
         let randomNumber = Math.floor(Math.random() * 10);
-        oldRandomNumber.push(randomNumber);
         if (!randomNumbers.includes(randomNumber) && randomNumber < 8 ) {
             randomNumbers.push(randomNumber);
         }
     }
+    if (prevRandomNumbers.length) {
+        const isEqual = randomNumbers.every( (item ,i) => {
+            return prevRandomNumbers[i] === item;
+        });
+        if (isEqual) {
+            return getRandomNumbers();
+        }
+    }
+
+    prevRandomNumbers = randomNumbers;
     return randomNumbers
 }
 
