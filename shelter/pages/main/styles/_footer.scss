@@ -97,7 +97,6 @@
     text-align: center;
     min-height: auto;
     margin-bottom: 40px;
-
   }
   .contact__wrapper .contact:first-child {
     margin-right: 0;
@@ -107,13 +106,17 @@
   }
   .footer__title {
     font-size: 2.5em;
-    margin-bottom: 40px;
     max-width: 270px;
-
+    margin: 0 auto 40px auto;
   }
-
   .footer__item {
     margin-bottom: 40px;
-
+  }
+  .contact:first-child .footer__item {
+    display: flex;
+    justify-content: center;
+  }
+  .contact:last-child .footer__item {
+    text-align: left;
   }
 }

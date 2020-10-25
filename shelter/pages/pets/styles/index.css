@@ -147,6 +147,10 @@ button {
   }
 }
 @media (max-width: 767px) {
+  .slider__control-wrapper {
+    width: 300px;
+  }
+
   .our-friends__container {
     display: flex;
     flex-direction: column;
