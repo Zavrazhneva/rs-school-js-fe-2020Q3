@@ -11,6 +11,12 @@
   display: none;
 }
 
+.burger__logo {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
 .logo {
   text-align: center;
   font-family: $font-Arial;
@@ -92,6 +98,9 @@
     flex-direction: column;
 
   }
+  .burger__logo {
+    display: block;
+  }
   .navigation__item {
     font-size: 32px;
     line-height: 160%;
@@ -155,9 +164,3 @@
   }
 }
 
-.burger__logo {
-  display: none;
-  position: absolute;
-  top: 30px;
-  left: 10px;
-}

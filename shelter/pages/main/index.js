@@ -85,13 +85,12 @@ addEventListenerButtonCard(arrButtons);
 let burgerMenuFlag = true;
 const burgerButton = document.getElementsByClassName('burger')[0];
 const burgerMenu = document.getElementsByClassName('burger__menu')[0];
-const burgerLogo = document.getElementsByClassName('burger__logo')[0];
+
 const logo = document.getElementsByClassName('logo')[0];
 
 burgerButton.addEventListener('click', () => {
     if (burgerMenuFlag) {
         burgerMenu.style.display = 'flex';
-        burgerLogo.style.display = 'block';
         document.body.style.overflow = 'hidden';
         logo.style.display = 'none';
         burgerMenuFlag = false;

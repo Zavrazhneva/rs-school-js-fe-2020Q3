@@ -17,6 +17,8 @@ let pageCount = getPageCount();
 const createPets = (petsList) => {
     cardWrapperElement.innerHTML += createElements(petsList);
 }
+
+
 const createElements = (petsList) => {
     let str = '';
     for (let i = 0; i < petsList.length; i++) {
@@ -209,3 +211,74 @@ lastPageButton.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', onResize);
+
+let burgerMenuFlag = true;
+const burgerButton = document.getElementsByClassName('burger')[0];
+const burgerMenu = document.getElementsByClassName('burger__menu')[0];
+
+const logo = document.getElementsByClassName('logo')[0];
+
+burgerButton.addEventListener('click', () => {
+    if (burgerMenuFlag) {
+        burgerMenu.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        logo.style.display = 'none';
+        burgerMenuFlag = false;
+        burgerButton.classList.add('burger--click');
+        burgerButton.classList.remove('burger--prev-click');
+        burgerMenu.classList.add('burger__menu--open');
+        burgerMenu.classList.remove('burger__menu--close');
+    } else {
+        burgerMenuFlag = true;
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+            logo.style.display = 'block';
+        }, 2000)
+
+        burgerButton.classList.add('burger--prev-click');
+        burgerMenu.classList.add('burger__menu--close');
+        burgerMenu.classList.remove('burger__menu--open');
+    }
+});
+const popup = document.getElementById('popup');
+
+function renderPopupPets(e) {
+    let petName = e.target.dataset.id
+    return pets.filter(item => {
+        return item.name === petName
+    })[0];
+}
+
+function renderHtmlPopupPets(pet) {
+    return `<div class="popup__block">
+                <div class="popup_close"></div>
+                    <img src="${pet.img}" alt="${pet.name}" class="popup__img">
+                <div class="popup-descript__wrapper">
+                    <h4 class="popup__title">${pet.name}</h4>
+                    <p class="popup__subtitle">${pet.type} - ${pet.breed}</p>
+                    <p class="popup__description">${pet.description}</p>
+                    <ul class="popup__list">
+                        <li class="popup__item"><span>Age:</span> ${pet.age}</li>
+                        <li class="popup__item"><span>Inoculations:</span> ${pet.inoculations}</li>
+                        <li class="popup__item"><span>Diseases:</span> ${pet.diseases}</li>
+                        <li class="popup__item"><span>Parasites:</span> ${pet.parasites}</li>
+                    </ul>
+  
+                </div>
+              </div>`
+}
+
+
+window.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('card__link')) {
+        return;
+    }
+    document.body.classList.add('overflow');
+    popup.innerHTML = renderHtmlPopupPets(renderPopupPets(e));
+    popup.style.display = 'flex';
+    const popupClose = document.getElementsByClassName('popup_close')[0];
+    popupClose.addEventListener('click', () => {
+        popup.style.display = 'none';
+        document.body.classList.remove('overflow');
+    })
+})
