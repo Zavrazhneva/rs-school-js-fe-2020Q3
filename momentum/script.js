@@ -123,7 +123,7 @@ function addZero(num) {
 function setBackgroundGreet() {
     let today = new Date();
     let hour = today.getHours();
-    const millsToNextHour = (60 - today.getMinutes()) * 60 * 1000;
+    const millsToNextHour = ((60 - today.getMinutes()) * 60 * 1000) - today.getSeconds() * 1000;
 
     setTimeout(() => {
         getImage();
