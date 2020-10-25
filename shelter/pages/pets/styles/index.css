@@ -1,3 +1,7 @@
+button {
+  outline: none;
+}
+
 .pets__header {
   display: flex;
   justify-content: space-between;
@@ -20,6 +24,30 @@
 .pets-navigation__item--active {
   color: #292929;
   border-bottom: 2px solid #F1CDB3;
+}
+
+.currentPage__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#currentPage {
+  font-family: Georgia;
+  font-size: 20px;
+  line-height: 110%;
+  display: flex;
+  letter-spacing: 0.06em;
+  width: 52px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  box-sizing: border-box;
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #F1CDB3;
+  color: #292929;
 }
 
 .root {
@@ -59,6 +87,7 @@
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #292929;
+  cursor: pointer;
 }
 .card__control:hover {
   background-color: #F1CDB3;
@@ -69,13 +98,12 @@
   width: 340px;
   justify-content: space-between;
   margin: auto;
+  margin-top: 50px;
 }
 
 .slider__control--inactive {
   border: 2px solid #CDCDCD;
   color: #CDCDCD;
-}
-.slider__control--inactive:hover {
   background-color: transparent;
 }
 
@@ -87,7 +115,15 @@
 #firstPage:disabled,
 #lastPage:disabled,
 #nextPage:disabled {
-  color: red;
+  cursor: auto;
+  border: 2px solid #CDCDCD;
+  color: #CDCDCD;
+}
+#prevPage:disabled:hover,
+#firstPage:disabled:hover,
+#lastPage:disabled:hover,
+#nextPage:disabled:hover {
+  background-color: transparent;
 }
 
 @media (max-width: 1279px) {
