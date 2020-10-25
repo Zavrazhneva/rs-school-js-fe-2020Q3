@@ -24,7 +24,14 @@ const placeholders = {
     city: '[Enter city]'
 }
 let randomImagesArr = [];
-let currentImage = (new Date()).getHours() - 2;
+let currentImage;
+
+if (new Date().getHours() === 0) {
+    currentImage = 23
+} else {
+    currentImage = new Date().getHours() - 2;
+}
+
 const fields = {
     todo: document.getElementById('focus'),
     name: document.getElementById('name'),
