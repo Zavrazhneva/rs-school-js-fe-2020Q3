@@ -13,17 +13,18 @@
 <div class="main">
     <div class="weather">
         <div class="weather__wrapper">
-            <div class="city" contenteditable="true">Moscow</div>
+            <div class="city" data-id="city" contenteditable="true">Moscow</div>
             <div class="error-text"></div>
             <div class="weather__block">
                 <div class="temperature__wrapper">
                     <div class="temperature"></div>
-
                     <i class="weather-icon owf"></i>
                 </div>
-                <div class="weather-description"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div>
+                <div class="weather-description">
+                </div>
             </div>
-
         </div>
     </div>
     <div class="time__wrapper">
@@ -33,10 +34,10 @@
     <date id="date"></date>
     <h1>
         <span id="greeting"></span>
-        <span id="name" contenteditable="true"></span>
+        <span id="name" data-id="name" contenteditable="true"></span>
     </h1>
     <h2>What Is Your Focus For Today?</h2>
-    <h2 id="focus" contenteditable="true"></h2>
+    <h2 id="focus" data-id="todo" contenteditable="true"></h2>
     <button class="btn"></button>
     <figure>
         <div class="figure__change"></div>
