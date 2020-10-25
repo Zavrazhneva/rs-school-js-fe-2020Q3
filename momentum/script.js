@@ -40,7 +40,7 @@ btn.addEventListener('click', getImage);
 
 let previousWeatherCity = '';
 async function getWeather() {
-    const storedValue = localStorage.getItem('city'); // fixme
+    const storedValue = localStorage.getItem('city');
     if (!storedValue) {
         return;
     }
