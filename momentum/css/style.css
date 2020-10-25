@@ -24,6 +24,13 @@ body {
     width: 100%;
 }
 
+.content {
+    width: 50%;
+    margin: auto auto;
+    background: rgba(47, 47, 47, 0.4);
+    border-radius: 9px;
+    padding: 20px;
+}
 .btn {
     cursor: pointer;
     width: 60px;
@@ -37,6 +44,13 @@ body {
     background-repeat: no-repeat;
     filter: grayscale(1);
     margin: 10px;
+    transition: opacity 2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.btn:hover {
+    opacity: 0.5;
 }
 
 #time {
@@ -65,7 +79,6 @@ h1 {
 
 h2 {
     margin-bottom: 0.5rem;
-    opacity: 0.8;
 }
 
 #greeting {
@@ -74,7 +87,7 @@ h2 {
 
 figure {
     min-height: 100px;
-    background: rgba(47, 47, 47, 0.6);
+    background: rgba(47, 47, 47, 0.4);
     border-radius: 9px;
     padding: 20px 40px;
     width: 800px;
@@ -132,11 +145,16 @@ cite {
     width: 20%;
 }
 
+@media (max-width: 990px) {
+    .content {
+        width: 80%;
+    }
+}
+
 @media (max-width: 840px) {
     figure {
         width: 80%;
     }
-
     .weather__wrapper {
         width: 40%;
     }
@@ -152,8 +170,16 @@ cite {
     #time {
         font-size: 4rem;
     }
-
     .weather__wrapper {
+        width: 80%;
+    }
+    #focus {
+        width: 80%;
+    }
+    figure {
+        padding: 20px 40px 20px 20px;
+    }
+    .content {
         width: 100%;
     }
 }
@@ -171,10 +197,15 @@ cite {
     background-size: 15px;
     background-position: center center;
     background-repeat: no-repeat;
+    transition: opacity 2s;
+}
+
+.figure__change:hover {
+    opacity: 0.5;
 }
 
 .weather__wrapper {
     padding: 20px;
-    background: rgba(47, 47, 47, 0.6);
+    background: rgba(47, 47, 47, 0.4);
     border-radius: 9px;
 }
