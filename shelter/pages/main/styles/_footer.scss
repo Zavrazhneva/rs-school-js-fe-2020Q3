@@ -1,0 +1,122 @@
+
+.footer {
+  background-image: url("../../../assets/images/footer-gradient-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 39px;
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 16px;
+}
+
+.contact {
+  max-width: 302px;
+  min-height: 234px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__wrapper .contact:first-child {
+  margin-right: 137px;
+}
+
+.footer__title {
+  font-family: $font-Georgia;
+  font-weight: 400;
+  font-size: 3.5em;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+}
+
+.footer__item-text {
+  font-family: $font-Georgia;
+  font-size: 2em;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+  display: inline-block;
+}
+
+.footer__item-img {
+  margin-right: 20px;
+}
+
+.footer__item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+
+.footer__photo {
+  margin-top: -20px;
+}
+@media (max-width: 1279px) {
+  .footer__wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+  .contact {
+    width: 302px;
+  }
+  .contact:first-child {
+    width: 279px;
+  }
+  .contact__wrapper .contact:first-child {
+     margin-right: 60px;
+  }
+  .contact__wrapper {
+    margin-bottom: 62px;
+  }
+  .footer {
+    padding-top: 30px;
+  }
+  .footer__photo {
+    margin-top: 0;
+  }
+}
+@media (max-width: 767px) {
+ .contact__wrapper {
+   flex-direction: column;
+   align-items: center;
+ }
+  .contact {
+    width: 100%;
+    text-align: center;
+    min-height: auto;
+    margin-bottom: 40px;
+  }
+  .contact__wrapper .contact:first-child {
+    margin-right: 0;
+  }
+  .contact__wrapper .contact:last-child {
+    margin-bottom: 0;
+  }
+  .footer__title {
+    font-size: 2.5em;
+    max-width: 270px;
+    margin: 0 auto 40px auto;
+  }
+  .footer__item {
+    margin-bottom: 40px;
+  }
+  .contact:first-child .footer__item {
+    display: flex;
+    justify-content: center;
+  }
+  .contact:last-child .footer__item {
+    text-align: left;
+  }
+}
