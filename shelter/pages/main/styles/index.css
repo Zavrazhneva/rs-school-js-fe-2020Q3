@@ -557,6 +557,10 @@ h1, h2, h3 {
   margin-bottom: 28px;
 }
 
+.slide__img {
+  border-radius: 9px 9px 0 0;
+}
+
 .slider__control {
   width: 52px;
   height: 52px;
@@ -980,6 +984,7 @@ h1, h2, h3 {
   color: #000000;
   letter-spacing: 0.06em;
   cursor: pointer;
+  z-index: 20;
 }
 
 #popup:hover .popup__block:not(:hover) .popup_close {
