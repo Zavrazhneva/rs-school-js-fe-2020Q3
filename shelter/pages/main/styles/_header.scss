@@ -86,10 +86,10 @@
 }
 .navigation__item--inactive:hover  {
   color: #CDCDCD;
-  cursor: auto;
+  cursor: default;
 }
 .navigation__item__link {
-  cursor: auto;
+  cursor: default;
 }
 
 @media (max-width: 1279px) {
@@ -114,6 +114,9 @@
     right: 53px;
     z-index: 100;
   }
+  .burger-pets {
+    background-image: url("../../../assets/icons/burger-pets.svg");
+  }
   .navigation {
     flex-direction: column;
 
@@ -125,6 +128,12 @@
     font-size: 32px;
     line-height: 160%;
     margin-bottom: 40px;
+  }
+  .pets-navigation__item {
+    color: #545454;
+  }
+  .pets-logo__subtitle {
+    color: #545454
   }
   .burger__menu {
     width: 320px;
@@ -139,7 +148,10 @@
     display: none;
     z-index: 10;
   }
-
+  .pets-burger__menu {
+    color: #545454;
+    background: #fff;
+  }
 
   .burger__menu--open {
     animation-duration: 1s;
@@ -184,4 +196,3 @@
     transform: rotate(0deg);
   }
 }
-

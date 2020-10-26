@@ -287,8 +287,6 @@ function addEventListenerButtonCard(CardButtons) {
 
                 console.log(popupClose)
                 popupClose.classList.add('popup__close-hover');
-
-
             });
             popupClose.addEventListener('click', () => {
                 popup.style.display = 'none';
@@ -300,11 +298,6 @@ function addEventListenerButtonCard(CardButtons) {
 }
 
 let petsLincActive = document.querySelector('.pets-navigation__item--active');
-let anchor = document.querySelector('.test');
-
-console.log(anchor)
 petsLincActive.addEventListener('click', () => {
     burgerClick();
 })
-
-anchor.scrollIntoView({behavior: "smooth"})

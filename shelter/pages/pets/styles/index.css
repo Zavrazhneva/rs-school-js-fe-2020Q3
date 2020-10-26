@@ -35,6 +35,15 @@ main {
   color: #545454;
 }
 
+.pets-navigation__item:hover {
+  color: #292929;
+}
+
+.navigation__item__link {
+  pointer-events: none;
+  cursor: default;
+}
+
 .pets-navigation__item--active {
   color: #292929;
   border-bottom: 2px solid #F1CDB3;
@@ -163,6 +172,10 @@ main {
 @media (max-width: 767px) {
   .slider__control-wrapper {
     width: 300px;
+  }
+
+  .burger__menu .logo__subtitle {
+    color: #545454;
   }
 
   .our-friends__container {
