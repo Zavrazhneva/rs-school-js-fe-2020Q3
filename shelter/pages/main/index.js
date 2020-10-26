@@ -1,20 +1,20 @@
 const sliderWrapper = document.getElementsByClassName('slider__wrapper')[0];
 const sliderControl = document.getElementsByClassName('slider__control');
 let arrButtons = document.getElementsByClassName('card__link');
-addEventListenerButtonCard(arrButtons);
+let CardButtons = document.getElementsByClassName('card');
 
+addEventListenerButtonCard(CardButtons);
 sliderWrapper.innerHTML = renderPets( [4, 0, 2],3).join('');
 
  window.addEventListener('resize', () => {
 
      sliderWrapper.innerHTML =  renderPets(getRandomNumbers()).join('');
      arrButtons = document.getElementsByClassName('card__link');
-     addEventListenerButtonCard(arrButtons)
+     addEventListenerButtonCard(CardButtons)
 });
 
-
 function renderPet(pet) {
-    return `<article class="card">
+    return `<article data-id="${pet.name}" class="card">
                 <div class="card__img-wrapper">
                     <img src="${pet.img}" alt="${pet.name}" class="slide__img">
                 </div>
@@ -63,14 +63,11 @@ function getRandomNumbers() {
         const hasSameNumber = randomNumbers.some( item => {
             return prevRandomNumbers.includes(item)
         });
-        console.log(hasSameNumber )
         if (hasSameNumber) {
             return getRandomNumbers();
         }
     }
-
     prevRandomNumbers = randomNumbers;
-
     return randomNumbers
 }
 
@@ -78,12 +75,12 @@ function getRandomNumbers() {
     item.addEventListener('click', () => {
         sliderWrapper.innerHTML = renderPets(getRandomNumbers()).join('');
         arrButtons = document.getElementsByClassName('card__link');
-        addEventListenerButtonCard(arrButtons)
+        addEventListenerButtonCard(CardButtons)
     })
 });
 sliderWrapper.innerHTML = renderPets(getRandomNumbers()).join('');
 arrButtons = document.getElementsByClassName('card__link');
-addEventListenerButtonCard(arrButtons);
+addEventListenerButtonCard(CardButtons);
 
 let burgerMenuFlag = true;
 const burgerButton = document.getElementsByClassName('burger')[0];
@@ -116,7 +113,8 @@ burgerButton.addEventListener('click', () => {
 const popup = document.getElementById('popup');
 
 function renderPopupPets(e) {
-    let petName = e.target.dataset.id
+    let pet = e.currentTarget.getElementsByClassName('card__link')[0].dataset.id;
+    let petName = pet;
     return PETS.filter(item => {
         return item.name === petName
     })[0];
@@ -136,16 +134,12 @@ function renderHtmlPopupPets(pet) {
                         <li class="popup__item"><span>Diseases:</span> ${pet.diseases}</li>
                         <li class="popup__item"><span>Parasites:</span> ${pet.parasites}</li>
                     </ul>
-  
                 </div>
               </div>`
 }
-function addEventListenerButtonCard(arrayButtons) {
-
-    [].forEach.call(arrayButtons, (item) => {
-
+function addEventListenerButtonCard(CardButtons) {
+    [].forEach.call(CardButtons, item => {
         item.addEventListener('click', (e) => {
-
             document.body.classList.add('overflow');
             popup.innerHTML = renderHtmlPopupPets(renderPopupPets(e));
             popup.style.display = 'flex';
@@ -154,8 +148,8 @@ function addEventListenerButtonCard(arrayButtons) {
                 popup.style.display = 'none';
                 document.body.classList.remove('overflow');
             })
-
-
         })
     });
 }
+
+

@@ -473,6 +473,7 @@ h1, h2, h3 {
 .card:hover {
   background: #fff;
   box-shadow: 0 2px 35px 14px rgba(13, 13, 13, 0.04);
+  cursor: pointer;
 }
 
 @keyframes fadein {
