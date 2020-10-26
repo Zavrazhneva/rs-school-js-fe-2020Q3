@@ -6,11 +6,24 @@
   align-items: center;
   padding: 60px 0;
 }
-
+.overlay_active {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(41, 41, 41, .6);
+  cursor: pointer;
+  z-index: 5;
+}
 .burger {
   display: none;
 }
-
+.burger__body {
+  background: rgba(41, 41, 41, 0.6);
+  overflow: hidden;
+}
 .burger__logo {
   display: none;
   position: absolute;

@@ -3,6 +3,8 @@ const sliderControl = document.getElementsByClassName('slider__control');
 let arrButtons = document.getElementsByClassName('card__link');
 let CardButtons = document.getElementsByClassName('card');
 
+
+
 addEventListenerButtonCard(CardButtons);
 sliderWrapper.innerHTML = renderPets( [4, 0, 2],3).join('');
 
@@ -31,7 +33,7 @@ function renderPets(randomNumbers = [4, 0, 2]) {
     if(window.innerWidth < 1280) {
         resizeCurrent = 2
     }
-    if(window.innerWidth < 767) {
+    if(window.innerWidth < 768) {
         resizeCurrent = 1
     }
     let petsHtml = [];
@@ -47,7 +49,7 @@ function getRandomNumbers() {
     if(window.innerWidth < 1280) {
         currentGenerateRandom = 2
     }
-    if(window.innerWidth < 767) {
+    if(window.innerWidth < 768) {
         currentGenerateRandom = 1
     }
 
@@ -87,11 +89,20 @@ const burgerButton = document.getElementsByClassName('burger')[0];
 const burgerMenu = document.getElementsByClassName('burger__menu')[0];
 
 const logo = document.getElementsByClassName('logo')[0];
+const overlay = document.getElementsByClassName('overlay_active')[0];
+overlay.addEventListener('click', () => {
+    burgerClick();
+})
 
 burgerButton.addEventListener('click', () => {
+    burgerClick();
+});
+
+function burgerClick () {
     if (burgerMenuFlag) {
         burgerMenu.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        overlay.style.display = 'block';
         logo.style.display = 'none';
         burgerMenuFlag = false;
         burgerButton.classList.add('burger--click');
@@ -104,13 +115,12 @@ burgerButton.addEventListener('click', () => {
         setTimeout(() => {
             logo.style.display = 'block';
         }, 2000)
-
+        overlay.style.display = 'none';
         burgerButton.classList.add('burger--prev-click');
         burgerMenu.classList.add('burger__menu--close');
         burgerMenu.classList.remove('burger__menu--open');
     }
-});
-const popup = document.getElementById('popup');
+}
 
 function renderPopupPets(e) {
     let pet = e.currentTarget.getElementsByClassName('card__link')[0].dataset.id;
@@ -137,19 +147,41 @@ function renderHtmlPopupPets(pet) {
                 </div>
               </div>`
 }
+
+
+
 function addEventListenerButtonCard(CardButtons) {
+
+
+
     [].forEach.call(CardButtons, item => {
+
         item.addEventListener('click', (e) => {
             document.body.classList.add('overflow');
             popup.innerHTML = renderHtmlPopupPets(renderPopupPets(e));
             popup.style.display = 'flex';
             const popupClose = document.getElementsByClassName('popup_close')[0];
+            const popupBlock = document.getElementsByClassName('popup__block')[0];
+            console.log(popupBlock)
+            popupBlock.addEventListener('click', (e)=> {
+                e.preventDefault();
+            })
+            popup.addEventListener('click', () => {
+                popup.style.display = 'none';
+                document.body.classList.remove('overflow');
+
+                console.log(popupClose)
+                popupClose.classList.add('popup__close-hover');
+
+
+            });
             popupClose.addEventListener('click', () => {
                 popup.style.display = 'none';
                 document.body.classList.remove('overflow');
-            })
+            });
+
         })
     });
-}
 
+}
 

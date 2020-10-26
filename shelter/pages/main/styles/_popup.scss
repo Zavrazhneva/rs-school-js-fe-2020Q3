@@ -10,7 +10,6 @@
   display: none;
   color: #000000;
   letter-spacing: 0.06em;
-
 }
 
 .popup__block {
@@ -43,6 +42,10 @@
   right: -50px;
   border: 2px solid #F1CDB3;
   cursor: pointer;
+}
+
+.popup__close-hover {
+  background-color: #F1CDB3;
 }
 .popup_close:hover {
   background-color: #F1CDB3;

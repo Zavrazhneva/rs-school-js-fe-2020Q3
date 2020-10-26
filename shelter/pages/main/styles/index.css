@@ -107,8 +107,25 @@ h1, h2, h3 {
   padding: 60px 0;
 }
 
+.overlay_active {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(41, 41, 41, 0.6);
+  cursor: pointer;
+  z-index: 5;
+}
+
 .burger {
   display: none;
+}
+
+.burger__body {
+  background: rgba(41, 41, 41, 0.6);
+  overflow: hidden;
 }
 
 .burger__logo {
@@ -984,6 +1001,10 @@ h1, h2, h3 {
   right: -50px;
   border: 2px solid #F1CDB3;
   cursor: pointer;
+}
+
+.popup__close-hover {
+  background-color: #F1CDB3;
 }
 
 .popup_close:hover {

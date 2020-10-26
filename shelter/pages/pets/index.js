@@ -208,11 +208,21 @@ const burgerButton = document.getElementsByClassName('burger')[0];
 const burgerMenu = document.getElementsByClassName('burger__menu')[0];
 
 const logo = document.getElementsByClassName('logo')[0];
+const overlay = document.getElementsByClassName('overlay_active')[0];
+
+overlay.addEventListener('click', () => {
+    burgerClick();
+})
 
 burgerButton.addEventListener('click', () => {
+    burgerClick();
+});
+
+function burgerClick () {
     if (burgerMenuFlag) {
         burgerMenu.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        overlay.style.display = 'block';
         logo.style.display = 'none';
         burgerMenuFlag = false;
         burgerButton.classList.add('burger--click');
@@ -225,12 +235,12 @@ burgerButton.addEventListener('click', () => {
         setTimeout(() => {
             logo.style.display = 'block';
         }, 2000)
-
+        overlay.style.display = 'none';
         burgerButton.classList.add('burger--prev-click');
         burgerMenu.classList.add('burger__menu--close');
         burgerMenu.classList.remove('burger__menu--open');
     }
-});
+}
 const popup = document.getElementById('popup');
 
 function renderPopupPets(e) {
