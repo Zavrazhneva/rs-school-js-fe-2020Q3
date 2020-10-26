@@ -58,16 +58,19 @@ function getRandomNumbers() {
             randomNumbers.push(randomNumber);
         }
     }
+
     if (prevRandomNumbers.length) {
-        const isEqual = randomNumbers.every( (item ,i) => {
-            return prevRandomNumbers[i] === item;
+        const hasSameNumber = randomNumbers.some( item => {
+            return prevRandomNumbers.includes(item)
         });
-        if (isEqual) {
+        console.log(hasSameNumber )
+        if (hasSameNumber) {
             return getRandomNumbers();
         }
     }
 
     prevRandomNumbers = randomNumbers;
+
     return randomNumbers
 }
 
