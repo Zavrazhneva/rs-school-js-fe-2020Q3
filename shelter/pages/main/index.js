@@ -172,5 +172,11 @@ function addEventListenerButtonCard(CardButtons) {
         })
     });
 }
+//class="navigation__item navigation__item-main navigation__item--active"
 
-
+let petsLincActive = document.querySelector('.navigation__item--active');
+petsLincActive.addEventListener('click', () => {
+    if(window.innerWidth < 768) {
+        burgerClick();
+    }
+})
