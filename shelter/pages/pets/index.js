@@ -299,5 +299,7 @@ function addEventListenerButtonCard(CardButtons) {
 
 let petsLincActive = document.querySelector('.pets-navigation__item--active');
 petsLincActive.addEventListener('click', () => {
-    burgerClick();
+    if(window.innerWidth < 768) {
+        burgerClick();
+    }
 })
