@@ -114,7 +114,7 @@ function burgerClick () {
         document.body.style.overflow = 'auto';
         setTimeout(() => {
             logo.style.display = 'block';
-        }, 2000)
+        }, 1000)
         overlay.style.display = 'none';
         burgerButton.classList.add('burger--prev-click');
         burgerMenu.classList.add('burger__menu--close');
@@ -148,8 +148,6 @@ function renderHtmlPopupPets(pet) {
               </div>`
 }
 
-
-
 function addEventListenerButtonCard(CardButtons) {
     [].forEach.call(CardButtons, item => {
         item.addEventListener('click', (e) => {
@@ -164,16 +162,14 @@ function addEventListenerButtonCard(CardButtons) {
             popup.addEventListener('click', () => {
                 popup.style.display = 'none';
                 document.body.classList.remove('overflow');
-                console.log(popupClose)
                 popupClose.classList.add('popup__close-hover');
             });
             popupClose.addEventListener('click', () => {
                 popup.style.display = 'none';
                 document.body.classList.remove('overflow');
             });
-
         })
     });
-
 }
+
 

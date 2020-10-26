@@ -29,6 +29,7 @@
   -ms-animation: fadein 2s; /* Internet Explorer */
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
+  min-height: 435px;
 
   &:hover {
     background: #fff;

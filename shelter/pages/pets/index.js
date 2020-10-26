@@ -234,7 +234,7 @@ function burgerClick () {
         document.body.style.overflow = 'auto';
         setTimeout(() => {
             logo.style.display = 'block';
-        }, 2000)
+        }, 1000)
         overlay.style.display = 'none';
         burgerButton.classList.add('burger--prev-click');
         burgerMenu.classList.add('burger__menu--close');
@@ -265,7 +265,6 @@ function renderHtmlPopupPets(pet) {
                         <li class="popup__item"><span>Diseases:</span> ${pet.diseases}</li>
                         <li class="popup__item"><span>Parasites:</span> ${pet.parasites}</li>
                     </ul>
-  
                 </div>
               </div>`
 }
@@ -299,3 +298,13 @@ function addEventListenerButtonCard(CardButtons) {
         })
     });
 }
+
+let petsLincActive = document.querySelector('.pets-navigation__item--active');
+let anchor = document.querySelector('.test');
+
+console.log(anchor)
+petsLincActive.addEventListener('click', () => {
+    burgerClick();
+})
+
+anchor.scrollIntoView({behavior: "smooth"})

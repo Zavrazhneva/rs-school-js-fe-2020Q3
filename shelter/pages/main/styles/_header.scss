@@ -84,6 +84,13 @@
   color: #FAFAFA;
   border-bottom: 2px solid #F1CDB3;
 }
+.navigation__item--inactive:hover  {
+  color: #CDCDCD;
+  cursor: auto;
+}
+.navigation__item__link {
+  cursor: auto;
+}
 
 @media (max-width: 1279px) {
   .header {
@@ -135,7 +142,7 @@
 
 
   .burger__menu--open {
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-name: slidein;
     animation-fill-mode: forwards;
   }
@@ -149,7 +156,7 @@
   }
 
   .burger__menu--close {
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-name: slideClose;
     animation-fill-mode: forwards;
   }
