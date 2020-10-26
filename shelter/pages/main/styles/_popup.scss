@@ -11,6 +11,7 @@
   color: #000000;
   letter-spacing: 0.06em;
   cursor: pointer;
+  z-index: 20;
 }
 #popup:hover .popup__block:not(:hover) .popup_close {
   background-color: #F1CDB3;
