@@ -12,17 +12,14 @@ const cardHeight = 435;
 const cardMargin = 25;
 let pageCount = getPageCount();
 
-
-
 const createPets = (petsList) => {
     cardWrapperElement.innerHTML += createElements(petsList);
 }
 
-
 const createElements = (petsList) => {
     let str = '';
     for (let i = 0; i < petsList.length; i++) {
-        str += `<article class="card">
+        str += `<article data-id="${petsList[i].name}" class="card">
                     <img src="${petsList[i].img}" alt="${petsList[i].name}" class="slide__img">
                     <div class="card-descript__wrapper">
                         <h4 class="card__title">${petsList[i].name}</h4>
@@ -93,7 +90,6 @@ fetch('../../pets.json').then(res => res.json()).then(list => {
                 const randElem = newPets.splice(randInd, 1)[0];
                 newPets.push(randElem);
             }
-
             tempArr = [...tempArr, ...newPets];
         }
         return tempArr;
@@ -113,8 +109,9 @@ fetch('../../pets.json').then(res => res.json()).then(list => {
     }
     resizeViewPort(48 / pageCount);
     setActiveButtons();
+    let CardButtons = document.getElementsByClassName('card');
+    addEventListenerButtonCard(CardButtons);
 })
-
 
 function onResize() {
     currentPage = 1;
@@ -134,7 +131,6 @@ function getPageCount() {
     }
 }
 
-
 function resizeViewPort(elementsToShow) {
     let rows = 2;
     if (elementsToShow === 6 || elementsToShow === 3) {
@@ -148,8 +144,6 @@ function getScrollOffset () {
     let multiply = pageCount === 6 ? 2 : 3;
     return ((cardHeight + cardMargin) * multiply) * (currentPage - 1)
 }
-
-
 
 function setActiveButtons() {
     const isLastPage = currentPage === pageCount;
@@ -171,12 +165,10 @@ function setActiveButtons() {
         firstPageButton.removeAttribute('disabled');
     }}
 
-
 function setScroll() {
     cardWrapperElement.style.top = `-${getScrollOffset()}px`;
     currentPageElement.innerText = currentPage;
 }
-
 
 prevPageButton.addEventListener('click', () => {
     if (currentPage > 1) {
@@ -184,7 +176,6 @@ prevPageButton.addEventListener('click', () => {
         setActiveButtons();
         setScroll();
     }
-
 });
 nextPageButton.addEventListener('click', () => {
     if (currentPage < pageCount) {
@@ -243,8 +234,9 @@ burgerButton.addEventListener('click', () => {
 const popup = document.getElementById('popup');
 
 function renderPopupPets(e) {
-    let petName = e.target.dataset.id
-    return pets.filter(item => {
+    let pet = e.currentTarget.getElementsByClassName('card__link')[0].dataset.id;
+    let petName = pet;
+    return fullPetsList.filter(item => {
         return item.name === petName
     })[0];
 }
@@ -268,17 +260,17 @@ function renderHtmlPopupPets(pet) {
               </div>`
 }
 
-
-window.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('card__link')) {
-        return;
-    }
-    document.body.classList.add('overflow');
-    popup.innerHTML = renderHtmlPopupPets(renderPopupPets(e));
-    popup.style.display = 'flex';
-    const popupClose = document.getElementsByClassName('popup_close')[0];
-    popupClose.addEventListener('click', () => {
-        popup.style.display = 'none';
-        document.body.classList.remove('overflow');
-    })
-})
+function addEventListenerButtonCard(CardButtons) {
+    [].forEach.call(CardButtons, item => {
+        item.addEventListener('click', (e) => {
+            document.body.classList.add('overflow');
+            popup.innerHTML = renderHtmlPopupPets(renderPopupPets(e));
+            popup.style.display = 'flex';
+            const popupClose = document.getElementsByClassName('popup_close')[0];
+            popupClose.addEventListener('click', () => {
+                popup.style.display = 'none';
+                document.body.classList.remove('overflow');
+            })
+        })
+    });
+}
