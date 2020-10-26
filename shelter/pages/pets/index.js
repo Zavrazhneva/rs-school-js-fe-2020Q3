@@ -277,10 +277,25 @@ function addEventListenerButtonCard(CardButtons) {
             popup.innerHTML = renderHtmlPopupPets(renderPopupPets(e));
             popup.style.display = 'flex';
             const popupClose = document.getElementsByClassName('popup_close')[0];
+            const popupBlock = document.getElementsByClassName('popup__block')[0];
+            console.log(popupBlock)
+            popupBlock.addEventListener('click', (e)=> {
+                e.stopPropagation();
+            })
+            popup.addEventListener('click', () => {
+                popup.style.display = 'none';
+                document.body.classList.remove('overflow');
+
+                console.log(popupClose)
+                popupClose.classList.add('popup__close-hover');
+
+
+            });
             popupClose.addEventListener('click', () => {
                 popup.style.display = 'none';
                 document.body.classList.remove('overflow');
-            })
+            });
+
         })
     });
 }

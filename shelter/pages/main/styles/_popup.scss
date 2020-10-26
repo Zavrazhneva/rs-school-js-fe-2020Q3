@@ -10,6 +10,10 @@
   display: none;
   color: #000000;
   letter-spacing: 0.06em;
+  cursor: pointer;
+}
+#popup:hover .popup__block:not(:hover) .popup_close {
+  background-color: #F1CDB3;
 }
 
 .popup__block {
@@ -23,7 +27,7 @@
   position: relative;
   padding-right: 20px;
   font-family: Georgia;
-
+  cursor: auto;
 }
 .popup-descript__wrapper {
   text-align: left;
