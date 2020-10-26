@@ -221,7 +221,7 @@ burgerButton.addEventListener('click', () => {
 function burgerClick () {
     if (burgerMenuFlag) {
         burgerMenu.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflowY = 'hidden';
         overlay.style.display = 'block';
         logo.style.display = 'none';
         burgerMenuFlag = false;
@@ -231,7 +231,7 @@ function burgerClick () {
         burgerMenu.classList.remove('burger__menu--close');
     } else {
         burgerMenuFlag = true;
-        document.body.style.overflow = 'auto';
+        document.body.style.overflowY = 'auto';
         setTimeout(() => {
             logo.style.display = 'block';
         }, 1000)

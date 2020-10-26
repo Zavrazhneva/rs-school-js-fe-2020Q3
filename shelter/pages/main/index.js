@@ -2,6 +2,7 @@ const sliderWrapper = document.getElementsByClassName('slider__wrapper')[0];
 const sliderControl = document.getElementsByClassName('slider__control');
 let arrButtons = document.getElementsByClassName('card__link');
 let CardButtons = document.getElementsByClassName('card');
+let burgerMenuFlag = true;
 
 
 
@@ -84,7 +85,7 @@ sliderWrapper.innerHTML = renderPets(getRandomNumbers()).join('');
 arrButtons = document.getElementsByClassName('card__link');
 addEventListenerButtonCard(CardButtons);
 
-let burgerMenuFlag = true;
+
 const burgerButton = document.getElementsByClassName('burger')[0];
 const burgerMenu = document.getElementsByClassName('burger__menu')[0];
 
@@ -101,7 +102,7 @@ burgerButton.addEventListener('click', () => {
 function burgerClick () {
     if (burgerMenuFlag) {
         burgerMenu.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflowY = 'hidden';
         overlay.style.display = 'block';
         logo.style.display = 'none';
         burgerMenuFlag = false;
@@ -111,7 +112,7 @@ function burgerClick () {
         burgerMenu.classList.remove('burger__menu--close');
     } else {
         burgerMenuFlag = true;
-        document.body.style.overflow = 'auto';
+        document.body.style.overflowY = 'auto';
         setTimeout(() => {
             logo.style.display = 'block';
         }, 1000)
