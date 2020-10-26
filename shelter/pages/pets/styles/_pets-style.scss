@@ -122,7 +122,9 @@ main {
   background: #F1CDB3;
 }
 
-
+.burger__menu .pets-logo {
+  display: none;
+}
 #prevPage:disabled,
 #firstPage:disabled,
 #lastPage:disabled,
@@ -145,7 +147,6 @@ main {
   }
 }
 
-
 @media (max-width: 767px) {
   .card__wrapper {
     width: 320px;
@@ -154,12 +155,9 @@ main {
   .pets-navigation__item {
     color: #FFFFFF;
   }
-
-
-}
-
-
-@media (max-width: 767px) {
+  .burger__menu .pets-logo {
+    display: block;
+  }
   .slider__control-wrapper {
     width: 300px;
   }

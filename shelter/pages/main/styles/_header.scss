@@ -74,6 +74,7 @@
 
 .navigation__item-main {
   color: #CDCDCD;
+  display: inline-block;
 }
 
 .navigation__item-main:hover {
@@ -131,6 +132,10 @@
   }
   .pets-navigation__item {
     color: #545454;
+    font-size: 32px;
+    line-height: 160%;
+    margin-bottom: 40px;
+    display: inline-block;
   }
   .pets-logo__subtitle {
     color: #545454
