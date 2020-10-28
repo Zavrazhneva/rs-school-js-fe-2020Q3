@@ -362,13 +362,12 @@ class Keyboard {
             const keyboardItem = document.querySelectorAll('.keyboardItem');
             [].forEach.call(keyboardItem, item => {
                 if (item.dataset.key === e) {
-                    item.classList.add('keyboardItem-hover')
+                    item.classList.add('keyboardItem-hover');
                 }
             })
         } else {
             e.target.classList.add('keyboardItem-hover');
         }
-
     }
 
     buttonUp(e, type) {
@@ -404,21 +403,33 @@ class Keyboard {
     }
 
     addEvent() {
+
         [].forEach.call(this.rootHtmlButton, item => {
             item.addEventListener("mouseup", (e) => {
                 keyBoard.buttonUp(e);
-                this.renderTextareaInput(e)
+                this.audioPlay();
+                this.renderTextareaInput(e);
+
             })
             item.addEventListener("mousedown", (e) => {
                 keyBoard.buttonDown(e)
             })
             if(item.dataset.key === 'backspace') {
-                console.log(item)
                 item.addEventListener('click', () => {
                     this.backspaceButton()
                 })
             }
         });
+    }
+
+    audioPlay() {
+        const audioButtonEng = document.querySelector('audio[data-audio="engButton"]');
+        const audioButtonRus = document.querySelector('audio[data-audio="rusButton"]');
+        if(this.isAlphabet === 'rus') {
+            audioButtonEng.play();
+        } else if (this.isAlphabet === 'en') {
+            audioButtonRus.play()
+        }
     }
 
     backspaceButton() {
@@ -462,8 +473,11 @@ window.addEventListener("keyup", (e) => {
 });
 
 const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
+
+
 changeLanguageButton.addEventListener('click', (e) => {
     keyBoard.changeLanguage();
+
 });
 
 
