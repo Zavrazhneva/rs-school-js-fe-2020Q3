@@ -185,6 +185,138 @@ const keyButtons = [
         }
     },
     {
+        'key': 'w',
+        'keyKode': '',
+        display: {
+            rus: 'ц',
+            en: 'w'
+        },
+        shift: {
+            rus: 'Ц',
+            en: 'W'
+        }
+    },
+    {
+        'key': 'e',
+        'keyKode': '',
+        display: {
+            rus: 'у',
+            en: 'e'
+        },
+        shift: {
+            rus: 'У',
+            en: 'E'
+        }
+    },
+    {
+        'key': 'r',
+        'keyKode': '',
+        display: {
+            rus: 'к',
+            en: 'r'
+        },
+        shift: {
+            rus: 'К',
+            en: 'R'
+        }
+    },
+    {
+        'key': 't',
+        'keyKode': '',
+        display: {
+            rus: 'е',
+            en: 't'
+        },
+        shift: {
+            rus: 'Е',
+            en: 'T'
+        }
+    },
+    {
+        'key': 'y',
+        'keyKode': '',
+        display: {
+            rus: 'н',
+            en: 'y'
+        },
+        shift: {
+            rus: 'Н',
+            en: 'Y'
+        }
+    },
+    {
+        'key': 'u',
+        'keyKode': '',
+        display: {
+            rus: 'г',
+            en: 'u'
+        },
+        shift: {
+            rus: 'Г',
+            en: 'U'
+        }
+    },
+    {
+        'key': 'i',
+        'keyKode': '',
+        display: {
+            rus: 'ш',
+            en: 'i'
+        },
+        shift: {
+            rus: 'Ш',
+            en: 'I'
+        }
+    },
+    {
+        'key': 'o',
+        'keyKode': '',
+        display: {
+            rus: 'щ',
+            en: 'o'
+        },
+        shift: {
+            rus: 'Щ',
+            en: 'O'
+        }
+    },
+    {
+        'key': 'p',
+        'keyKode': '',
+        display: {
+            rus: 'з',
+            en: 'p'
+        },
+        shift: {
+            rus: 'З',
+            en: 'P'
+        }
+    },
+    {
+        'key': '[',
+        'keyKode': '',
+        display: {
+            rus: 'х',
+            en: '['
+        },
+        shift: {
+            rus: 'Х',
+            en: '{'
+        }
+    },
+    {
+        'key': ']',
+        'keyKode': '',
+        display: {
+            rus: 'щ',
+            en: 'o'
+        },
+        shift: {
+            rus: 'Щ',
+            en: 'O'
+        }
+    },
+    {
         'key': 'en/ru',
         'keyKode': '',
         meta: true,
@@ -280,11 +412,21 @@ class Keyboard {
             item.addEventListener("mousedown", (e) => {
                 keyBoard.buttonDown(e)
             })
+            if(item.dataset.key === 'backspace') {
+                console.log(item)
+                item.addEventListener('click', () => {
+                    this.backspaceButton()
+                })
+            }
         });
     }
 
+    backspaceButton() {
+        this.textarea.innerHTML = this.textarea.innerHTML.slice(0, -1);
+    }
+
     renderTextareaInput(e) {
-        console.log();
+
         let keyObj = {};
         if(this.isAlphabet === 'rus') {
             keyObj = this.keyButtons.filter(item => {
