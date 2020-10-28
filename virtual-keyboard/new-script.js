@@ -329,6 +329,32 @@ const keyButtons = [
             en: 'en/ru'
         }
     },
+    {
+        'key': 'shift',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: 'shift',
+            en: 'shift'
+        },
+        shift: {
+            rus: 'shift',
+            en: 'shift'
+        }
+    },
+    {
+        'key': 'cups',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: 'cups',
+            en: 'cups'
+        },
+        shift: {
+            rus: 'cups',
+            en: 'cups'
+        }
+    },
 ]
 
 let keyboardHtml = document.getElementsByClassName('root');
@@ -339,6 +365,7 @@ class Keyboard {
         this.isAlphabet = 'en';
         this.rootHtmlButton = document.getElementsByClassName('keyboardItem');
         this.textarea = document.querySelector('.use-keyboard-input');
+        this.cups = false;
     }
 
     createKeyButton() {
@@ -348,8 +375,8 @@ class Keyboard {
                 className += 'bigButton'
             }
             if (this.isAlphabet === 'en') {
+                    return this.htmlCreateButton(keyItem.key, className);
 
-                return this.htmlCreateButton(keyItem.key, className)
             } else if (this.isAlphabet === 'rus') {
 
                 return this.htmlCreateButton(keyItem.display.rus, className)
@@ -398,7 +425,13 @@ class Keyboard {
 
     renderHtml() {
         let createKeyboard = this.createKeyButton();
-        keyboardHtml[0].innerHTML = createKeyboard.join('');
+        if(this.cups) {
+
+            //это нужно делать в createkey
+            keyboardHtml[0].innerHTML = createKeyboard.toUpperCase().join('');
+        } else {
+            keyboardHtml[0].innerHTML = createKeyboard.join('');
+        }
         this.addEvent()
     }
 
@@ -419,6 +452,13 @@ class Keyboard {
                     this.backspaceButton()
                 })
             }
+            if(item.dataset.key === 'cups') {
+                item.addEventListener('click', () => {
+                    this.cups = !this.cups;
+                    this.cupsButton(item);
+                })
+
+            }
         });
     }
 
@@ -430,6 +470,17 @@ class Keyboard {
         } else if (this.isAlphabet === 'en') {
             audioButtonRus.play()
         }
+    }
+
+    cupsButton(button) {
+        if(this.cups) {
+            button.classList.add('keyboardItem-pressed');
+            this.renderHtml();
+        } else {
+            button.classList.remove('keyboardItem-pressed');
+        }
+
+
     }
 
     backspaceButton() {
