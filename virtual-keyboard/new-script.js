@@ -202,20 +202,24 @@ const keyButtons = [
 let keyboardHtml = document.getElementsByClassName('root');
 
 class Keyboard {
-    constructor(alphabet) {
-        this.alphabet = alphabet;
+    constructor(keyButtons) {
+        this.keyButtons = keyButtons;
         this.isAlphabet = 'en';
+        this.rootHtmlButton = document.getElementsByClassName('keyboardItem');
+        this.textarea = document.querySelector('.use-keyboard-input');
     }
 
     createKeyButton() {
-        return this.alphabet.map(keyItem => {
+        return this.keyButtons.map(keyItem => {
             let className = 'keyboardItem '
             if (keyItem.meta) {
                 className += 'bigButton'
             }
             if (this.isAlphabet === 'en') {
+
                 return this.htmlCreateButton(keyItem.key, className)
             } else if (this.isAlphabet === 'rus') {
+
                 return this.htmlCreateButton(keyItem.display.rus, className)
             }
         })
@@ -232,7 +236,7 @@ class Keyboard {
         } else {
             e.target.classList.add('keyboardItem-hover');
         }
-        this.addEvent()
+
     }
 
     buttonUp(e, type) {
@@ -246,7 +250,6 @@ class Keyboard {
         } else {
             e.target.classList.remove('keyboardItem-hover');
         }
-        this.addEvent()
     }
 
     changeLanguage() {
@@ -257,31 +260,22 @@ class Keyboard {
         }
         this.renderHtml();
         const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
-        changeLanguageButton.addEventListener('mouseup', () => {
-            keyBoard.changeLanguage();
+        changeLanguageButton.addEventListener('click', () => {
+            this.changeLanguage();
         });
     }
 
     renderHtml() {
         let createKeyboard = this.createKeyButton();
         keyboardHtml[0].innerHTML = createKeyboard.join('');
+        this.addEvent()
     }
 
     addEvent() {
-        let rootHtmlButton = document.getElementsByClassName('keyboardItem');
-        const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
-        changeLanguageButton.addEventListener('mouseup', (e) => {
-            keyBoard.changeLanguage(e);
-        });
-        window.addEventListener("keydown", (e) => {
-            keyBoard.buttonDown(e.key, 'keyboard')
-        })
-        window.addEventListener("keyup", (e) => {
-            keyBoard.buttonUp(e.key, 'keyboard')
-        });
-        [].forEach.call(rootHtmlButton, item => {
+        [].forEach.call(this.rootHtmlButton, item => {
             item.addEventListener("mouseup", (e) => {
-                keyBoard.buttonUp(e)
+                keyBoard.buttonUp(e);
+                this.renderTextareaInput(e)
             })
             item.addEventListener("mousedown", (e) => {
                 keyBoard.buttonDown(e)
@@ -289,12 +283,27 @@ class Keyboard {
         });
     }
 
-    renderTextareaInput() {
-
+    renderTextareaInput(e) {
+        console.log();
+        let keyObj = {};
+        if(this.isAlphabet === 'rus') {
+            keyObj = this.keyButtons.filter(item => {
+                return item.display.rus === e.target.dataset.key
+            });
+        } else {
+            keyObj = this.keyButtons.filter(item =>  item.key === e.target.innerHTML);
+        }
+        if (keyObj[0].meta === undefined) {
+            this.textarea.innerHTML += e.target.innerHTML
+        }
     }
 
     htmlCreateButton(button, classText) {
         return `<div data-key="${button}" class="${classText}">${button}</div>`
+    }
+
+    upperCaseBtn() {
+
     }
 }
 
@@ -302,4 +311,116 @@ let keyBoard = new Keyboard(keyButtons);
 let createKeyboard = keyBoard.createKeyButton();
 keyboardHtml[0].innerHTML = createKeyboard.join('');
 
-keyBoard.addEvent()
+keyBoard.addEvent();
+window.addEventListener("keydown", (e) => {
+    keyBoard.buttonDown(e.key, 'keyboard')
+})
+window.addEventListener("keyup", (e) => {
+    keyBoard.buttonUp(e.key, 'keyboard')
+});
+
+const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
+changeLanguageButton.addEventListener('click', (e) => {
+    keyBoard.changeLanguage();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let rootHtmlButton = document.getElementsByClassName('keyboardItem');
+// const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
+// changeLanguageButton.addEventListener('mouseup', (e) => {
+//     keyBoard.changeLanguage(e);
+// });
+
+// [].forEach.call(rootHtmlButton, item => {
+//     item.addEventListener("mouseup", (e) => {
+//         keyBoard.buttonUp(e)
+//     })
+//     item.addEventListener("mousedown", (e) => {
+//         keyBoard.buttonDown(e)
+//     })
+// });
+
+// window.addEventListener("keydown", (e) => {
+//     keyBoard.buttonDown(e.key, 'keyboard')
+// })
+// window.addEventListener("keyup", (e) => {
+//     keyBoard.buttonUp(e.key, 'keyboard')
+// });
+
+
+// const topRowKeyboard = ["`","1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=","backspace"];
+// const bottomRowKeyboard = [ "ctrl", "win", "alt", "space", "alt", "left", "down", "right", "ctrl"];
+//
+// let engAlphabet = [
+//     "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "/\//", "del",
+//     "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter",
+//     "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shift",
+// ];
+//
+// let rusAlphabet = [
+//     "tab", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "/\//", "Del",
+//     "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
+//     "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shift",
+// ];
+// let numSymbol = {
+//     '`':'~',
+//     '[': '{',
+//     ']': '}',
+//     ';': ':',
+//     "'": '"',
+//     ',': '<',
+//     '.': '>',
+//     0: ')',
+//     1: '!',
+//     2: '@',
+//     3: '#',
+//     4: '$',
+//     5: '%',
+//     6: '^',
+//     7: '&',
+//     8: '*',
+//     9: '(',
+//     '-': '_',
+//     '=': '+'
+// }
+//
+// const serviceButton = ["backspace", "tab", "del","caps","enter", "shift", "ctrl", "win", "space", "alt", "left", "down", "right"]
+//
+// function createKeyButton(alphabet) {
+//     let keySymbols = [...topRowKeyboard, ...alphabet, ...bottomRowKeyboard];
+//     return keySymbols.map(item => {
+//         let classNameButton = '';
+//         if(serviceButton.includes(item)) {
+//             classNameButton = item + " bigButton"
+//         }
+//         return `<div data-key="${item}" class="keyboardItem ${classNameButton}">${item}</div>`
+//     })
+// }
+// let keyButtons = createKeyButton(engAlphabet);
+//
+// let keyboardHtml = document.getElementsByClassName('root');
+// keyboardHtml[0].innerHTML = keyButtons.join('');
+//
+// let rootHtmlButton = document.getElementsByClassName('keyboardItem');
+// [].forEach.call(rootHtmlButton,item => {
+//     item.addEventListener( "click" , (e) => {
+//         e.target.classList.add('keyboardItem-hover')
+//     })
+// })
