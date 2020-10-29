@@ -308,12 +308,12 @@ const keyButtons = [
         'key': ']',
         'keyKode': '',
         display: {
-            rus: 'щ',
-            en: 'o'
+            rus: 'ъ',
+            en: ']'
         },
         shift: {
-            rus: 'Щ',
-            en: 'O'
+            rus: 'Ъ',
+            en: '}'
         }
     },
     {
@@ -343,6 +343,166 @@ const keyButtons = [
         }
     },
     {
+        'key': 'caps',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: 'caps',
+            en: 'caps'
+        },
+        shift: {
+            rus: 'caps',
+            en: 'caps'
+        }
+    },
+
+    {
+        'key': 'a',
+        'keyKode': '',
+        display: {
+            rus: 'a',
+            en: 'ф'
+        },
+        shift: {
+            rus: 'Ф',
+            en: 'A'
+        }
+    },
+    {
+        'key': 's',
+        'keyKode': '',
+        display: {
+            rus: 'ы',
+            en: 's'
+        },
+        shift: {
+            rus: 'Ы',
+            en: 'S'
+        }
+    },
+    {
+        'key': 'd',
+        'keyKode': '',
+        display: {
+            rus: 'в',
+            en: 'd'
+        },
+        shift: {
+            rus: 'В',
+            en: 'D'
+        }
+    },
+    {
+        'key': 'f',
+        'keyKode': '',
+        display: {
+            rus: 'а',
+            en: 'f'
+        },
+        shift: {
+            rus: 'А',
+            en: 'F'
+        }
+    },
+    {
+        'key': 'g',
+        'keyKode': '',
+        display: {
+            rus: 'п',
+            en: 'g'
+        },
+        shift: {
+            rus: 'П',
+            en: 'G'
+        }
+    },
+    {
+        'key': 'h',
+        'keyKode': '',
+        display: {
+            rus: 'р',
+            en: 'h'
+        },
+        shift: {
+            rus: 'Р',
+            en: 'H'
+        }
+    },
+    {
+        'key': 'j',
+        'keyKode': '',
+        display: {
+            rus: 'о',
+            en: 'j'
+        },
+        shift: {
+            rus: 'О',
+            en: 'J'
+        }
+    },
+    {
+        'key': 'k',
+        'keyKode': '',
+        display: {
+            rus: 'л',
+            en: 'k'
+        },
+        shift: {
+            rus: 'Л',
+            en: 'K'
+        }
+    },
+    {
+        'key': 'l',
+        'keyKode': '',
+        display: {
+            rus: 'д',
+            en: 'l'
+        },
+        shift: {
+            rus: 'Д',
+            en: 'L'
+        }
+    },
+    {
+        'key': ';',
+        'keyKode': '',
+        display: {
+            rus: 'ж',
+            en: ';'
+        },
+        shift: {
+            rus: 'Ж',
+            en: ':'
+        }
+    },
+    {
+        'key': '\'',
+        'keyKode': '',
+        display: {
+            rus: 'э',
+            en: '\''
+        },
+        shift: {
+            rus: 'Э',
+            en: '"'
+        }
+    },
+    {
+        'key': '\\',
+        'keyKode': '',
+        display: {
+            rus: '\\',
+            en: '\\'
+        },
+        shift: {
+            rus: '/',
+            en: '|'
+        }
+    },
+
+
+    {
         'key': 'enter',
         'keyKode': '',
         meta: true,
@@ -369,17 +529,5 @@ const keyButtons = [
         }
     },
 
-    {
-        'key': 'caps',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'caps',
-            en: 'caps'
-        },
-        shift: {
-            rus: 'caps',
-            en: 'caps'
-        }
-    },
+
 ]
