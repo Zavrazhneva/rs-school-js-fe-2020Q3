@@ -205,7 +205,9 @@ class Keyboard {
             keyObj = this.keyButtons.filter(item => item.key === e.target.dataset.key);
         }
         if (keyObj[0].meta === undefined) {
-            this.textarea.value += this.textarea.value.e.target.innerHTML;
+            let caretPos = this.textarea.selectionStart;
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + e.target.innerHTML + this.textarea.value.substring(caretPos , this.textarea.value.length);
+            this.textarea.selectionEnd = caretPos +1;
         }
     }
 
