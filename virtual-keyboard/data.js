@@ -528,6 +528,19 @@ const keyButtons = [
             en: 'shift'
         }
     },
+    {
+        'key': 'sound',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: 'sound',
+            en: 'sound'
+        },
+        shift: {
+            rus: 'sound',
+            en: 'sound'
+        }
+    },
 
 
 ]

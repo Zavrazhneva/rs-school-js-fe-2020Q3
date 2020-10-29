@@ -16,6 +16,7 @@ class Keyboard {
         keyboardHtml[0].innerHTML = createKeyboard.join('');
         this.addEvent();
         this.windowEvent();
+        this.isSound = true;
     }
 
     createKeyButton() {
@@ -98,6 +99,8 @@ class Keyboard {
                     case (item.dataset.key === 'en/ru') :
                         this.changeLanguage();
                         break;
+                    case (item.dataset.key === 'sound') :
+                        this.isSound = !this.isSound;
                 }
                 this.buttonUp(e);
                 this.audioPlay(item);
@@ -111,6 +114,7 @@ class Keyboard {
     }
 
     audioPlay(item) {
+        if(!this.isSound) return;
         switch (true) {
             case (item.dataset.key === 'enter'):
                 audioButtonEnter.play();
