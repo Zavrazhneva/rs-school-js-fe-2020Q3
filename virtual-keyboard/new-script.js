@@ -1,361 +1,4 @@
-const keyButtons = [
-    {
-        'key': '`',
-        'keyKode': '',
-        display: {
-            rus: 'ё',
-            en: '`'
-        },
-        shift: {
-            rus: 'Ё',
-            en: '~'
-        }
-    },
-    {
-        'key': '1',
-        'keyKode': '',
-        display: {
-            rus: '1',
-            en: '1'
-        },
-        shift: {
-            rus: '!',
-            en: '!'
-        }
-    },
-    {
-        'key': '2',
-        'keyKode': '',
-        display: {
-            rus: '2',
-            en: '2'
-        },
-        shift: {
-            rus: '"',
-            en: '№'
-        }
-    },
-    {
-        'key': '3',
-        'keyKode': '',
-        display: {
-            rus: '3',
-            en: '3'
-        },
-        shift: {
-            rus: '№',
-            en: '№'
-        }
-    },
-    {
-        'key': '4',
-        'keyKode': '',
-        display: {
-            rus: '4',
-            en: '4'
-        },
-        shift: {
-            rus: ';',
-            en: ';'
-        }
-    },
-    {
-        'key': '5',
-        'keyKode': '',
 
-        display: {
-            rus: '5',
-            en: '5'
-        },
-        shift: {
-            rus: ';',
-            en: ';'
-        }
-    },
-    {
-        'key': '6',
-        'keyKode': '',
-
-        display: {
-            rus: '6',
-            en: '6'
-        },
-        shift: {
-            rus: ';',
-            en: ';'
-        }
-    },
-    {
-        'key': '7',
-        'keyKode': '',
-
-        display: {
-            rus: '7',
-            en: '7'
-        },
-        shift: {
-            rus: ';',
-            en: ';'
-        }
-    },
-    {
-        'key': '8',
-        'keyKode': '',
-        display: {
-            rus: '8',
-            en: '8'
-        },
-        shift: {
-            rus: ';',
-            en: ';'
-        }
-    },
-    {
-        'key': '9',
-        'keyKode': '',
-        display: {
-            rus: '9',
-            en: '9'
-        },
-        shift: {
-            rus: '(',
-            en: '('
-        }
-    },
-    {
-        'key': '0',
-        'keyKode': '',
-        display: {
-            rus: '0',
-            en: '0'
-        },
-        shift: {
-            rus: ')',
-            en: '('
-        }
-    },
-    {
-        'key': '-',
-        'keyKode': '',
-        display: {
-            rus: '-',
-            en: '-'
-        },
-        shift: {
-            rus: '_',
-            en: '_'
-        }
-    },
-    {
-        'key': 'backspace',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'backspace',
-            en: 'backspace'
-        },
-        shift: {
-            rus: 'backspace',
-            en: 'backspace'
-        }
-    },
-    {
-        'key': 'tab',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'tab',
-            en: 'tab'
-        },
-        shift: {
-            rus: 'tab',
-            en: 'tab'
-        }
-    },
-    {
-        'key': 'q',
-        'keyKode': '',
-        display: {
-            rus: 'й',
-            en: 'q'
-        },
-        shift: {
-            rus: 'Й',
-            en: 'Q'
-        }
-    },
-    {
-        'key': 'w',
-        'keyKode': '',
-        display: {
-            rus: 'ц',
-            en: 'w'
-        },
-        shift: {
-            rus: 'Ц',
-            en: 'W'
-        }
-    },
-    {
-        'key': 'e',
-        'keyKode': '',
-        display: {
-            rus: 'у',
-            en: 'e'
-        },
-        shift: {
-            rus: 'У',
-            en: 'E'
-        }
-    },
-    {
-        'key': 'r',
-        'keyKode': '',
-        display: {
-            rus: 'к',
-            en: 'r'
-        },
-        shift: {
-            rus: 'К',
-            en: 'R'
-        }
-    },
-    {
-        'key': 't',
-        'keyKode': '',
-        display: {
-            rus: 'е',
-            en: 't'
-        },
-        shift: {
-            rus: 'Е',
-            en: 'T'
-        }
-    },
-    {
-        'key': 'y',
-        'keyKode': '',
-        display: {
-            rus: 'н',
-            en: 'y'
-        },
-        shift: {
-            rus: 'Н',
-            en: 'Y'
-        }
-    },
-    {
-        'key': 'u',
-        'keyKode': '',
-        display: {
-            rus: 'г',
-            en: 'u'
-        },
-        shift: {
-            rus: 'Г',
-            en: 'U'
-        }
-    },
-    {
-        'key': 'i',
-        'keyKode': '',
-        display: {
-            rus: 'ш',
-            en: 'i'
-        },
-        shift: {
-            rus: 'Ш',
-            en: 'I'
-        }
-    },
-    {
-        'key': 'o',
-        'keyKode': '',
-        display: {
-            rus: 'щ',
-            en: 'o'
-        },
-        shift: {
-            rus: 'Щ',
-            en: 'O'
-        }
-    },
-    {
-        'key': 'p',
-        'keyKode': '',
-        display: {
-            rus: 'з',
-            en: 'p'
-        },
-        shift: {
-            rus: 'З',
-            en: 'P'
-        }
-    },
-    {
-        'key': '[',
-        'keyKode': '',
-        display: {
-            rus: 'х',
-            en: '['
-        },
-        shift: {
-            rus: 'Х',
-            en: '{'
-        }
-    },
-    {
-        'key': ']',
-        'keyKode': '',
-        display: {
-            rus: 'щ',
-            en: 'o'
-        },
-        shift: {
-            rus: 'Щ',
-            en: 'O'
-        }
-    },
-    {
-        'key': 'en/ru',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'en/ru',
-            en: 'en/ru'
-        },
-        shift: {
-            rus: 'en/ru',
-            en: 'en/ru'
-        }
-    },
-    {
-        'key': 'shift',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'shift',
-            en: 'shift'
-        },
-        shift: {
-            rus: 'shift',
-            en: 'shift'
-        }
-    },
-    {
-        'key': 'cups',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'cups',
-            en: 'cups'
-        },
-        shift: {
-            rus: 'cups',
-            en: 'cups'
-        }
-    },
-]
 
 let keyboardHtml = document.getElementsByClassName('root');
 
@@ -365,7 +8,11 @@ class Keyboard {
         this.isAlphabet = 'en';
         this.rootHtmlButton = document.getElementsByClassName('keyboardItem');
         this.textarea = document.querySelector('.use-keyboard-input');
-        this.cups = false;
+        this.caps = false;
+        let createKeyboard = this.createKeyButton();
+        keyboardHtml[0].innerHTML = createKeyboard.join('');
+        this.addEvent();
+        this.windowEvent();
     }
 
     createKeyButton() {
@@ -375,11 +22,18 @@ class Keyboard {
                 className += 'bigButton'
             }
             if (this.isAlphabet === 'en') {
-                    return this.htmlCreateButton(keyItem.key, className);
+                if(this.caps && keyItem.meta === undefined) {
+                    return this.htmlCreateButton(keyItem.key, keyItem.key.toUpperCase(), className);
+                } else {
+                    return this.htmlCreateButton(keyItem.key, keyItem.display.en, className);
+                }
 
             } else if (this.isAlphabet === 'rus') {
-
-                return this.htmlCreateButton(keyItem.display.rus, className)
+                if(this.caps && keyItem.meta === undefined) {
+                    return this.htmlCreateButton(keyItem.key, keyItem.key.toUpperCase(), className);
+                } else {
+                    return this.htmlCreateButton(keyItem.key, keyItem.display.rus, className)
+                }
             }
         })
     }
@@ -417,21 +71,13 @@ class Keyboard {
             this.isAlphabet = 'en';
         }
         this.renderHtml();
-        const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
-        changeLanguageButton.addEventListener('click', () => {
-            this.changeLanguage();
-        });
     }
 
     renderHtml() {
         let createKeyboard = this.createKeyButton();
-        if(this.cups) {
 
-            //это нужно делать в createkey
-            keyboardHtml[0].innerHTML = createKeyboard.toUpperCase().join('');
-        } else {
             keyboardHtml[0].innerHTML = createKeyboard.join('');
-        }
+
         this.addEvent()
     }
 
@@ -439,137 +85,89 @@ class Keyboard {
 
         [].forEach.call(this.rootHtmlButton, item => {
             item.addEventListener("mouseup", (e) => {
-                keyBoard.buttonUp(e);
+                this.buttonUp(e);
                 this.audioPlay();
                 this.renderTextareaInput(e);
-
             })
             item.addEventListener("mousedown", (e) => {
-                keyBoard.buttonDown(e)
+                this.buttonDown(e)
             })
-            if(item.dataset.key === 'backspace') {
+            if (item.dataset.key === 'backspace') {
                 item.addEventListener('click', () => {
                     this.backspaceButton()
                 })
             }
-            if(item.dataset.key === 'cups') {
+            if (item.dataset.key === 'caps') {
                 item.addEventListener('click', () => {
-                    this.cups = !this.cups;
-                    this.cupsButton(item);
+                    this.capsButton(item);
                 })
-
             }
+        });
+
+        const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
+        changeLanguageButton.addEventListener('click', (e) => {
+            this.changeLanguage();
         });
     }
 
     audioPlay() {
         const audioButtonEng = document.querySelector('audio[data-audio="engButton"]');
         const audioButtonRus = document.querySelector('audio[data-audio="rusButton"]');
-        if(this.isAlphabet === 'rus') {
+        if (this.isAlphabet === 'rus') {
             audioButtonEng.play();
         } else if (this.isAlphabet === 'en') {
             audioButtonRus.play()
         }
     }
 
-    cupsButton(button) {
-        if(this.cups) {
-            button.classList.add('keyboardItem-pressed');
-            this.renderHtml();
+    capsButton(button) {
+        this.caps = !this.caps;
+        if (this.caps) {
+            button.style.background ='blue';
         } else {
             button.classList.remove('keyboardItem-pressed');
         }
+        this.renderHtml();
+    }
 
-
+    deleteButton() {
+        this.textarea.value = this.textarea.value.slice(-1, 0);
     }
 
     backspaceButton() {
-        this.textarea.innerHTML = this.textarea.innerHTML.slice(0, -1);
+        this.textarea.value = this.textarea.value.slice(0, -1);
     }
 
     renderTextareaInput(e) {
-
-        let keyObj = {};
-        if(this.isAlphabet === 'rus') {
+        let keyObj = [];
+        if (this.isAlphabet === 'rus') {
             keyObj = this.keyButtons.filter(item => {
                 return item.display.rus === e.target.dataset.key
             });
         } else {
-            keyObj = this.keyButtons.filter(item =>  item.key === e.target.innerHTML);
+            keyObj = this.keyButtons.filter(item => item.key === e.target.dataset.key);
         }
         if (keyObj[0].meta === undefined) {
-            this.textarea.innerHTML += e.target.innerHTML
+            this.textarea.value += e.target.innerHTML;
+            console.log(this.textarea.value)
         }
     }
 
-    htmlCreateButton(button, classText) {
-        return `<div data-key="${button}" class="${classText}">${button}</div>`
+    htmlCreateButton(keyButton,button, classText) {
+        return `<div data-key="${keyButton}" class="${classText}">${button}</div>`
     }
 
-    upperCaseBtn() {
-
+    windowEvent() {
+        window.addEventListener("keydown", (e) => {
+            this.buttonDown(e.key, 'keyboard')
+        })
+        window.addEventListener("keyup", (e) => {
+            this.buttonUp(e.key, 'keyboard')
+        });
     }
 }
 
 let keyBoard = new Keyboard(keyButtons);
-let createKeyboard = keyBoard.createKeyButton();
-keyboardHtml[0].innerHTML = createKeyboard.join('');
-
-keyBoard.addEvent();
-window.addEventListener("keydown", (e) => {
-    keyBoard.buttonDown(e.key, 'keyboard')
-})
-window.addEventListener("keyup", (e) => {
-    keyBoard.buttonUp(e.key, 'keyboard')
-});
-
-const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
-
-
-changeLanguageButton.addEventListener('click', (e) => {
-    keyBoard.changeLanguage();
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let rootHtmlButton = document.getElementsByClassName('keyboardItem');
-// const changeLanguageButton = document.querySelector('[data-key="en/ru"]');
-// changeLanguageButton.addEventListener('mouseup', (e) => {
-//     keyBoard.changeLanguage(e);
-// });
-
-// [].forEach.call(rootHtmlButton, item => {
-//     item.addEventListener("mouseup", (e) => {
-//         keyBoard.buttonUp(e)
-//     })
-//     item.addEventListener("mousedown", (e) => {
-//         keyBoard.buttonDown(e)
-//     })
-// });
-
-// window.addEventListener("keydown", (e) => {
-//     keyBoard.buttonDown(e.key, 'keyboard')
-// })
-// window.addEventListener("keyup", (e) => {
-//     keyBoard.buttonUp(e.key, 'keyboard')
-// });
 
 
 // const topRowKeyboard = ["`","1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=","backspace"];
@@ -586,48 +184,3 @@ changeLanguageButton.addEventListener('click', (e) => {
 //     "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
 //     "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shift",
 // ];
-// let numSymbol = {
-//     '`':'~',
-//     '[': '{',
-//     ']': '}',
-//     ';': ':',
-//     "'": '"',
-//     ',': '<',
-//     '.': '>',
-//     0: ')',
-//     1: '!',
-//     2: '@',
-//     3: '#',
-//     4: '$',
-//     5: '%',
-//     6: '^',
-//     7: '&',
-//     8: '*',
-//     9: '(',
-//     '-': '_',
-//     '=': '+'
-// }
-//
-// const serviceButton = ["backspace", "tab", "del","caps","enter", "shift", "ctrl", "win", "space", "alt", "left", "down", "right"]
-//
-// function createKeyButton(alphabet) {
-//     let keySymbols = [...topRowKeyboard, ...alphabet, ...bottomRowKeyboard];
-//     return keySymbols.map(item => {
-//         let classNameButton = '';
-//         if(serviceButton.includes(item)) {
-//             classNameButton = item + " bigButton"
-//         }
-//         return `<div data-key="${item}" class="keyboardItem ${classNameButton}">${item}</div>`
-//     })
-// }
-// let keyButtons = createKeyButton(engAlphabet);
-//
-// let keyboardHtml = document.getElementsByClassName('root');
-// keyboardHtml[0].innerHTML = keyButtons.join('');
-//
-// let rootHtmlButton = document.getElementsByClassName('keyboardItem');
-// [].forEach.call(rootHtmlButton,item => {
-//     item.addEventListener( "click" , (e) => {
-//         e.target.classList.add('keyboardItem-hover')
-//     })
-// })
