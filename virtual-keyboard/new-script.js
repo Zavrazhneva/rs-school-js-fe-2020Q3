@@ -201,22 +201,31 @@ class Keyboard {
                 return item.key === e.target.dataset.key;
             });
         } else {
-
             keyObj = this.keyButtons.filter(item => item.key === e.target.dataset.key);
         }
+        let caretPos = this.textarea.selectionStart;
+        if(keyObj[0].key === 'enter') {
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + '\n' + this.textarea.value.substring(caretPos , this.textarea.value.length);
+            this.textarea.selectionEnd = caretPos + 1;
+        }
+        if(keyObj[0].key === 'space') {
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + ' ' + this.textarea.value.substring(caretPos , this.textarea.value.length);
+
+            this.textarea.selectionEnd = caretPos + 1;
+        }
+        if(keyObj[0].key === 'tab') {
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + '    ' + this.textarea.value.substring(caretPos , this.textarea.value.length);
+            caretPos +=3;
+            this.textarea.selectionEnd = caretPos + 1;
+        }
         if (keyObj[0].meta === undefined) {
-            let caretPos = this.textarea.selectionStart;
             this.textarea.value = this.textarea.value.substring(0, caretPos) + e.target.innerHTML + this.textarea.value.substring(caretPos , this.textarea.value.length);
-            this.textarea.selectionEnd = caretPos +1;
+            this.textarea.selectionEnd = caretPos + 1;
         }
     }
 
     htmlCreateButton(keyButton, button, classText) {
         return `<div data-key="${keyButton}" class="${classText}">${button}</div>`
-    }
-
-    cursorGetPosition(e) {
-        console.log(this.textarea.selectionStart)
     }
 
     windowEvent() {
@@ -230,40 +239,3 @@ class Keyboard {
 }
 
 let keyBoard = new Keyboard(keyButtons);
-
-
-// function setCaretPosition(elemId, caretPos) {
-//     var elem = document.getElementById(elemId);
-//
-//     if(elem != null) {
-//         if(elem.createTextRange) {
-//             var range = elem.createTextRange();
-//             range.move('character', caretPos);
-//             range.select();
-//         }
-//         else {
-//             if(elem.selectionStart) {
-//                 elem.focus();
-//                 elem.setSelectionRange(caretPos, caretPos);
-//             }
-//             else
-//                 elem.focus();
-//         }
-//     }
-// }
-
-
-// const topRowKeyboard = ["`","1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=","backspace"];
-// const bottomRowKeyboard = [ "ctrl", "win", "alt", "space", "alt", "left", "down", "right", "ctrl"];
-//
-// let engAlphabet = [
-//     "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "/\//", "del",
-//     "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter",
-//     "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shift",
-// ];
-//
-// let rusAlphabet = [
-//     "tab", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "/\//", "Del",
-//     "caps", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "enter",
-//     "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "shift",
-// ];

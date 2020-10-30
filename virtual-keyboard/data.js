@@ -542,6 +542,19 @@ const keyButtons = [
         }
     },
     {
+        'key': 'space',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: 'space',
+            en: 'space'
+        },
+        shift: {
+            rus: 'space',
+            en: 'space'
+        }
+    },
+    {
         'key': 'arrow',
         'keyKode': '',
         meta: true,
