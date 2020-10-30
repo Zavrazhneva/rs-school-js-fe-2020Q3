@@ -24,6 +24,7 @@ class Keyboard {
         this.windowEvent();
         this.isSound = true;
         this.isShift = false;
+        this.voice = false;
     }
 
     createKeyButton() {
@@ -36,6 +37,8 @@ class Keyboard {
             if (this.isShift && keyItem.key === 'shift') className += ' keyboardItem-pressed';
             if (this.isSound === false && keyItem.key === 'sound') className += ' keyboardItem-pressed';
             if (keyItem.key === 'space') className += ' space';
+            if (keyItem.key === 'shift') className += ' shift';
+            if (keyItem.key === 'voice' && this.voice === true) className += ' keyboardItem-pressed';
 
 
             if (this.isAlphabet === 'en') {
@@ -149,19 +152,23 @@ class Keyboard {
                 } else if (item.dataset.key === 'sound' ) {
                     this.isSound = !this.isSound;
                     this.renderHtml();
+                } else if (item.dataset.key === 'voice' ) {
+                    this.voice = !this.voice;
+                    this.recordingWord()
+                    this.renderHtml();
                 }
             });
-
-            item.addEventListener("mousedown", (e) => {
+            item.addEventListener("click", (e) => {
                 this.buttonDown(e)
             });
+
         });
     }
 
     audioPlay(item) {
         if (!this.isSound) return;
         switch (true) {
-            case (item.dataset.key === 'enter'):
+            case (item.dataset.key === 'enter ↵'):
                 audioButtonEnter.play();
                 break;
             case (item.dataset.key === 'sound'):
@@ -219,7 +226,7 @@ class Keyboard {
             keyObj = this.keyButtons.filter(item => item.key === e.target.dataset.key);
         }
         let caretPos = this.textarea.selectionStart;
-        if (keyObj[0].key === 'enter') {
+        if (keyObj[0].key === 'enter ↵') {
             this.textarea.value = this.textarea.value.substring(0, caretPos) + '\n' + this.textarea.value.substring(caretPos, this.textarea.value.length);
             this.textarea.selectionEnd = caretPos + 1;
         }
@@ -240,8 +247,36 @@ class Keyboard {
         }
     }
 
+    recordingWord() {
+        if(this.voice === false ) return;
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        let textarea = document.querySelector('.use-keyboard-input');
+        recognition.interimResults = true;
+        recognition.lang = 'ru-RU';
+
+        recognition.addEventListener('result', e => {
+            const transcript = Array.from(e.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+
+            const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+
+            if (e.results[0].isFinal) {
+                textarea.textContent +=' ' + poopScript;
+            }
+        });
+
+        recognition.addEventListener('end', recognition.start);
+        recognition.start();
+    }
+
     htmlCreateButton(keyButton, button, classText) {
         if(button === 'en/ru') button += ` (${this.isAlphabet})`;
+        if(button === 'voice')  return `
+        <div data-key="${keyButton}" class="${classText} material-icons">keyboard_voice</div>
+        `
         return `<div data-key="${keyButton}" class="${classText}">${button}</div>`
     }
 
@@ -256,3 +291,5 @@ class Keyboard {
 }
 
 let keyBoard = new Keyboard(keyButtons);
+
+
