@@ -32,7 +32,7 @@ const keyButtons = [
         },
         shift: {
             rus: '"',
-            en: '№'
+            en: '@'
         }
     },
     {
@@ -44,7 +44,7 @@ const keyButtons = [
         },
         shift: {
             rus: '№',
-            en: '№'
+            en: '#'
         }
     },
     {
@@ -56,7 +56,7 @@ const keyButtons = [
         },
         shift: {
             rus: ';',
-            en: ';'
+            en: '$'
         }
     },
     {
@@ -95,7 +95,7 @@ const keyButtons = [
         },
         shift: {
             rus: '?',
-            en: '/&'
+            en: '&'
         }
     },
     {
@@ -144,6 +144,18 @@ const keyButtons = [
         shift: {
             rus: '_',
             en: '_'
+        }
+    },
+    {
+        'key': '=',
+        'keyKode': '',
+        display: {
+            rus: '=',
+            en: '='
+        },
+        shift: {
+            rus: '+',
+            en: '+'
         }
     },
     {
@@ -317,19 +329,6 @@ const keyButtons = [
         }
     },
     {
-        'key': 'en/ru',
-        'keyKode': '',
-        meta: true,
-        display: {
-            rus: 'en/ru',
-            en: 'en/ru'
-        },
-        shift: {
-            rus: 'en/ru',
-            en: 'en/ru'
-        }
-    },
-    {
         'key': 'del',
         'keyKode': '',
         meta: true,
@@ -342,6 +341,7 @@ const keyButtons = [
             en: 'del'
         }
     },
+
     {
         'key': 'caps',
         'keyKode': '',
@@ -355,13 +355,12 @@ const keyButtons = [
             en: 'caps'
         }
     },
-
     {
         'key': 'a',
         'keyKode': '',
         display: {
-            rus: 'a',
-            en: 'ф'
+            rus: 'ф',
+            en: 'a'
         },
         shift: {
             rus: 'Ф',
@@ -500,8 +499,6 @@ const keyButtons = [
             en: '|'
         }
     },
-
-
     {
         'key': 'enter',
         'keyKode': '',
@@ -515,6 +512,7 @@ const keyButtons = [
             en: 'enter'
         }
     },
+
     {
         'key': 'shift',
         'keyKode': '',
@@ -542,6 +540,32 @@ const keyButtons = [
         }
     },
     {
+        'key': '⌨ ▼',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: '⌨ ▼',
+            en: '⌨ ▼'
+        },
+        shift: {
+            rus: '⌨ ▼',
+            en: '⌨ ▼'
+        }
+    },
+    {
+        'key': 'en/ru',
+        'keyKode': '',
+        meta: true,
+        display: {
+            rus: 'en/ru',
+            en: 'en/ru'
+        },
+        shift: {
+            rus: 'en/ru',
+            en: 'en/ru'
+        }
+    },
+    {
         'key': 'space',
         'keyKode': '',
         meta: true,
@@ -559,12 +583,12 @@ const keyButtons = [
         'keyKode': '',
         meta: true,
         display: {
-            rus: '←',
-            en: '←'
+            rus: '◄',
+            en: '◄'
         },
         shift: {
-            rus: '←',
-            en: '←'
+            rus: '◄',
+            en: '◄'
         }
     },
 
@@ -573,14 +597,17 @@ const keyButtons = [
         'keyKode': '',
         meta: true,
         display: {
-            rus: '→',
-            en: '→'
+            rus: '►',
+            en: '►'
         },
         shift: {
-            rus: '→',
-            en: '→'
+            rus: '►',
+            en: '►'
         }
     },
+
+
+
 
 
 ]

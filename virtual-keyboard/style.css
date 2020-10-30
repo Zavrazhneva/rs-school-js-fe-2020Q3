@@ -3,15 +3,16 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 900px;
-  margin: auto;
+  width: 900px;
+  margin: auto auto;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
+
 }
 .keyboardItem {
   background-color: #353535;
   color: #fdf6ff;
-  font-size: 16px;
+  font-size: 18px;
   width: 46px;
   height: 40px;
   display: flex;
@@ -27,9 +28,11 @@
 .keyboardItem:hover {
   cursor: pointer;
 }
+
 .keyboardItem-hover {
   cursor: pointer;
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
+  background-color: #444343;
   transform: translateY(3px);
   -webkit-transform: translateY(2px);
   transition: all 0.1s ease-in-out;
@@ -37,12 +40,27 @@
 }
 
 .keyboardItem-pressed {
-  background: aqua;
+  background: #73d5b9;
+  color: #000
+
 }
 
 .bigButton {
   width: 80px;
 }
+
+.space {
+  width: 260px;
+}
+
+
+
+
+
+
+
+
+
 
 .use-keyboard-input {
   display: block;

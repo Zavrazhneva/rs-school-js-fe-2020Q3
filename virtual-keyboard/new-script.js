@@ -5,6 +5,7 @@ const audioButtonBackspace = document.querySelector('audio[data-audio="backspace
 const audioButtonEnter = document.querySelector('audio[data-audio="enter"]');
 const audioButtonShift = document.querySelector('audio[data-audio="shift"]');
 const audioButtonCaps = document.querySelector('audio[data-audio="caps"]');
+const audioButtonSound = document.querySelector('audio[data-audio="sound"]');
 
 class Keyboard {
     constructor(keyButtons) {
@@ -33,24 +34,34 @@ class Keyboard {
             }
             if (this.caps && keyItem.key === 'caps') className += ' keyboardItem-pressed';
             if (this.isShift && keyItem.key === 'shift') className += ' keyboardItem-pressed';
+            if (this.isSound === false && keyItem.key === 'sound') className += ' keyboardItem-pressed';
+            if (keyItem.key === 'space') className += ' space';
+
 
             if (this.isAlphabet === 'en') {
-                if (this.caps && keyItem.meta === undefined) {
+                if (this.caps && keyItem.meta === undefined && this.isShift !==true) {
                     return this.htmlCreateButton(keyItem.key, keyItem.key.toUpperCase(), className);
-                } else if (this.isShift && keyItem.meta === undefined) {
+                } else if (this.isShift && keyItem.meta === undefined && this.caps !== true) {
                     return this.htmlCreateButton(keyItem.key, keyItem.shift.en, className);
                 } else {
-                    return this.htmlCreateButton(keyItem.key, keyItem.display.en, className);
+                    if(this.caps && this.isShift) {
+                        return this.htmlCreateButton(keyItem.key, keyItem.shift.en.toLowerCase(), className)
+                    } else {
+                        return this.htmlCreateButton(keyItem.key, keyItem.display.en, className);
+                    }
                 }
 
             } else if (this.isAlphabet === 'rus') {
-                if (this.caps && keyItem.meta === undefined) {
+                if (this.caps && keyItem.meta === undefined && this.isShift !==true) {
                     return this.htmlCreateButton(keyItem.key, keyItem.display.rus.toUpperCase(), className);
-                } else if (this.isShift && keyItem.meta === undefined) {
-                    if(this.caps) return
+                } else if (this.isShift && keyItem.meta === undefined && this.caps !== true) {
                     return this.htmlCreateButton(keyItem.key, keyItem.shift.rus, className);
                 } else {
-                    return this.htmlCreateButton(keyItem.key, keyItem.display.rus, className)
+                    if(this.caps && this.isShift) {
+                        return this.htmlCreateButton(keyItem.key, keyItem.shift.rus.toLowerCase(), className)
+                    }else {
+                        return this.htmlCreateButton(keyItem.key, keyItem.display.rus, className)
+                    }
                 }
             }
         })
@@ -102,7 +113,7 @@ class Keyboard {
         [].forEach.call(this.rootHtmlButton, item => {
             let caretPos;
             item.addEventListener("mouseup", (e) => {
-
+                this.audioPlay(item);
                 switch (true) {
 
                     case (item.dataset.key === 'backspace') :
@@ -112,14 +123,12 @@ class Keyboard {
                     case (item.dataset.key === 'en/ru') :
                         this.changeLanguage();
                         break;
-                    case (item.dataset.key === 'sound') :
-                        this.isSound = !this.isSound;
-                        break;
+
                     case (item.dataset.key === 'arrow') :
 
-                        if(item.innerHTML === '←') {
-                            caretPos =  this.textarea.selectionStart - 1;
-                        } else if(item.innerHTML === '→') {
+                        if (item.innerHTML === '◄') {
+                            caretPos = this.textarea.selectionStart - 1;
+                        } else if (item.innerHTML === '►') {
                             caretPos = this.textarea.selectionStart + 1;
                         }
                         this.textarea.setSelectionRange(caretPos, caretPos);
@@ -127,7 +136,7 @@ class Keyboard {
 
                 }
                 this.buttonUp(e);
-                this.audioPlay(item);
+
                 this.renderTextareaInput(e);
             })
             item.addEventListener("click", (e) => {
@@ -136,8 +145,10 @@ class Keyboard {
                 } else if (item.dataset.key === 'shift') {
                     this.shiftButton(e);
                 } else if (item.dataset.key === 'del') {
-                    console.log()
                     this.deleteButton(caretPos)
+                } else if (item.dataset.key === 'sound' ) {
+                    this.isSound = !this.isSound;
+                    this.renderHtml();
                 }
             });
 
@@ -146,11 +157,15 @@ class Keyboard {
             });
         });
     }
+
     audioPlay(item) {
         if (!this.isSound) return;
         switch (true) {
             case (item.dataset.key === 'enter'):
                 audioButtonEnter.play();
+                break;
+            case (item.dataset.key === 'sound'):
+                audioButtonSound.play();
                 break;
             case (item.dataset.key === 'caps'):
                 audioButtonCaps.play();
@@ -184,14 +199,14 @@ class Keyboard {
         let caretPos = this.textarea.selectionStart;
         this.textarea.value = this.textarea.value.substring(0, caretPos) + this.textarea.value.substring(caretPos + 1, this.textarea.value.length);
         this.textarea.selectionStart = caretPos;
-        this.textarea.selectionEnd = caretPos ;
+        this.textarea.selectionEnd = caretPos;
     }
 
     backspaceButton() {
         let caretPos = this.textarea.selectionStart;
-        this.textarea.value = this.textarea.value.substring(0, caretPos -1) + this.textarea.value.substring(caretPos, this.textarea.value.length);
+        this.textarea.value = this.textarea.value.substring(0, caretPos - 1) + this.textarea.value.substring(caretPos, this.textarea.value.length);
         this.textarea.selectionStart = caretPos - 1;
-        this.textarea.selectionEnd = caretPos - 1 ;
+        this.textarea.selectionEnd = caretPos - 1;
     }
 
     renderTextareaInput(e) {
@@ -204,33 +219,35 @@ class Keyboard {
             keyObj = this.keyButtons.filter(item => item.key === e.target.dataset.key);
         }
         let caretPos = this.textarea.selectionStart;
-        if(keyObj[0].key === 'enter') {
-            this.textarea.value = this.textarea.value.substring(0, caretPos) + '\n' + this.textarea.value.substring(caretPos , this.textarea.value.length);
+        if (keyObj[0].key === 'enter') {
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + '\n' + this.textarea.value.substring(caretPos, this.textarea.value.length);
             this.textarea.selectionEnd = caretPos + 1;
         }
-        if(keyObj[0].key === 'space') {
-            this.textarea.value = this.textarea.value.substring(0, caretPos) + ' ' + this.textarea.value.substring(caretPos , this.textarea.value.length);
+        if (keyObj[0].key === 'space') {
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + ' ' + this.textarea.value.substring(caretPos, this.textarea.value.length);
 
             this.textarea.selectionEnd = caretPos + 1;
         }
-        if(keyObj[0].key === 'tab') {
-            this.textarea.value = this.textarea.value.substring(0, caretPos) + '    ' + this.textarea.value.substring(caretPos , this.textarea.value.length);
-            caretPos +=3;
+        if (keyObj[0].key === 'tab') {
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + '    ' + this.textarea.value.substring(caretPos, this.textarea.value.length);
+            caretPos += 3;
             this.textarea.selectionEnd = caretPos + 1;
         }
+
         if (keyObj[0].meta === undefined) {
-            this.textarea.value = this.textarea.value.substring(0, caretPos) + e.target.innerHTML + this.textarea.value.substring(caretPos , this.textarea.value.length);
+            this.textarea.value = this.textarea.value.substring(0, caretPos) + e.target.innerHTML + this.textarea.value.substring(caretPos, this.textarea.value.length);
             this.textarea.selectionEnd = caretPos + 1;
         }
     }
 
     htmlCreateButton(keyButton, button, classText) {
+        if(button === 'en/ru') button += ` (${this.isAlphabet})`;
         return `<div data-key="${keyButton}" class="${classText}">${button}</div>`
     }
 
     windowEvent() {
         window.addEventListener("keydown", (e) => {
-              this.buttonDown(e.key, 'keyboard')
+            this.buttonDown(e.key, 'keyboard')
         })
         window.addEventListener("keyup", (e) => {
             this.buttonUp(e.key, 'keyboard')
