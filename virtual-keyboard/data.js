@@ -329,30 +329,30 @@ const keyButtons = [
         }
     },
     {
-        'key': 'del',
+        'key': 'delete',
         'keyKode': '',
         meta: true,
         display: {
-            rus: 'del',
-            en: 'del'
+            rus: 'delete',
+            en: 'delete'
         },
         shift: {
-            rus: 'del',
-            en: 'del'
+            rus: 'delete',
+            en: 'delete'
         }
     },
 
     {
-        'key': 'caps',
+        'key': 'capslock',
         'keyKode': '',
         meta: true,
         display: {
-            rus: 'caps',
-            en: 'caps'
+            rus: 'capslock',
+            en: 'capslock'
         },
         shift: {
-            rus: 'caps',
-            en: 'caps'
+            rus: 'capslock',
+            en: 'capslock'
         }
     },
     {
@@ -500,16 +500,16 @@ const keyButtons = [
         }
     },
     {
-        'key': 'enter ↵',
+        'key': 'Enter',
         'keyKode': '',
         meta: true,
         display: {
-            rus: 'enter ↵',
-            en: 'enter ↵'
+            rus: 'Enter',
+            en: 'Enter'
         },
         shift: {
-            rus: 'enter ↵',
-            en: 'enter ↵'
+            rus: 'Enter',
+            en: 'Enter'
         }
     },
 
@@ -659,7 +659,6 @@ const keyButtons = [
             en: 'shift'
         }
     },
-
 
     {
         'key': 'sound',

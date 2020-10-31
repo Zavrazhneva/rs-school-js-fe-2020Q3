@@ -1,3 +1,8 @@
+body {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .root {
   padding: 20px;
   display: flex;
@@ -56,9 +61,6 @@
 .shift {
   width: 130px;
 }
-
-
-
 
 .words {
   max-width: 500px;
@@ -170,4 +172,87 @@ p {
 
 .keyboard__key--dark {
   background: rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1000px) {
+  .root {
+    max-width: 100%;
+    box-sizing: border-box;
+
+  }
+  .keyboardItem {
+    font-size: 14px;
+    width: 5.5%;
+    margin: 2px 2px;
+  }
+  .bigButton {
+    width: 10%;
+  }
+
+}
+
+@media (max-width: 920px) {
+  .keyboardItem {
+    font-size: 14px;
+    width: 5.5%;
+    margin: 2px 2px;
+  }
+  .bigButton {
+    width: 10%;
+  }
+  .space {
+    width: 20%;
+  }
+  .shift {
+    width: 15%;
+  }
+}
+@media (max-width: 730px) {
+  .keyboardItem {
+    font-size: 14px;
+    width: 4.8%;
+    margin: 2px 2px;
+  }
+  .bigButton {
+    width: 9%
+  }
+  .backspace {
+    width: 80px;
+  }
+  .space {
+    width: 20%;
+  }
+
+}
+@media (max-width: 650px) {
+  .keyboardItem {
+    width: 4.8%;
+  }
+  .root {
+    padding: 10px;
+  }
+  .bigButton {
+    width: 10%
+  }
+  .backspace {
+    width: 80px;
+  }
+  .space {
+    width: 20%;
+  }
+}
+@media (max-width: 552px) {
+  .keyboardItem {
+    width: 4.3%;
+    height: 36px;
+  }
+  .bigButton {
+    width: 9.5%
+  }
+  .backspace {
+    width: 80px;
+  }
+  .space {
+    width: 20%;
+  }
 }
