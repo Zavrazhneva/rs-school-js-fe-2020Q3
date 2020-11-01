@@ -500,16 +500,16 @@ const keyButtons = [
         }
     },
     {
-        'key': 'Enter',
+        'key': 'enter',
         'keyKode': '',
         meta: true,
         display: {
-            rus: 'Enter',
-            en: 'Enter'
+            rus: 'enter',
+            en: 'enter'
         },
         shift: {
-            rus: 'Enter',
-            en: 'Enter'
+            rus: 'enter',
+            en: 'enter'
         }
     },
 
@@ -713,7 +713,7 @@ const keyButtons = [
         }
     },
     {
-        'key': 'arrow',
+        'key': 'ArrowLeft',
         'keyKode': '',
         meta: true,
         display: {
@@ -727,7 +727,7 @@ const keyButtons = [
     },
 
     {
-        'key': 'arrow',
+        'key': 'ArrowRight',
         'keyKode': '',
         meta: true,
         display: {
@@ -738,7 +738,8 @@ const keyButtons = [
             rus: '►',
             en: '►'
         }
-    },{
+    },
+    {
         'key': 'voice',
         'keyKode': '',
         meta: true,
@@ -750,14 +751,10 @@ const keyButtons = [
             rus: 'voice',
             en: 'voice'
         }
-    },
+    }
 
 
 
 
 
 ]
-
-//document.getElementById('foobar').addEventListener('keyup', e => {
-//   console.log('Caret at: ', e.target.selectionStart)
-// })
