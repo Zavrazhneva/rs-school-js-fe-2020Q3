@@ -131,7 +131,7 @@ const keyButtons = [
         },
         shift: {
             rus: ')',
-            en: '('
+            en: ')'
         }
     },
     {
