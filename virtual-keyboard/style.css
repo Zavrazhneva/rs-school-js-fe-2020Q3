@@ -162,10 +162,10 @@ body {
     width: 5.5%;
   }
 }
-@media (max-width: 740px) {
+@media (max-width: 760px) {
   .keyboardItem {
     font-size: 14px;
-    width: 5%;
+    width: 5.2%;
     margin: 2px 2px;
   }
   .bigButton {
@@ -183,10 +183,14 @@ body {
   div[data-key=ArrowRight]{
     width: 6%;
   }
+  .shift {
+    width: 90px;
+  }
 }
-@media (max-width: 650px) {
+@media (max-width: 678px) {
   .keyboardItem {
     width: 4.8%;
+    height: 36px;
   }
   .root {
     padding: 10px;
@@ -198,7 +202,10 @@ body {
     width: 80px;
   }
   .space {
-    width: 20%;
+    width: 25%;
+  }
+  .shift {
+    width: 90px;
   }
 }
 @media (max-width: 552px) {
@@ -213,6 +220,9 @@ body {
     width: 80px;
   }
   .space {
-    width: 25%;
+    width: 20%;
+  }
+  .shift {
+    width: 80px;
   }
 }
